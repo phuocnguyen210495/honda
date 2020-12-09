@@ -8,11 +8,20 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     @livewireStyles
 </head>
-<body class="bg-gray-100 max-w-7xl m-auto mt-16">
+<body class="bg-gray-100 max-w-7xl m-auto mx-4">
 
-<livewire:table model="App\Model\Visitor" include="id, ip, ua, visits" />
+<livewire:table 
+    model="App\Model\Visitor"
+    title="Visitors"
+    description="List of visitors and also there is the fact that yes." 
+    include="id, ip, ua, country_name, visits" 
+    searchable="id"
+    copyable="ip, ua"
+    truncate="ua"
+    :translations="['ua' => 'Agent utilisateur']"
+/>
 
-<script src="{{ mix('js/app.js') }}"></script>
 @livewireScripts
+<script src="{{ mix('js/app.js') }}"></script>
 </body>
 </html>

@@ -23,7 +23,7 @@ class TrackVisitors
             $visitor = Visitor::where('ip', '44.44.44.44')
                 ->where('ua', $request->userAgent())->firstOrCreate([
                     'ip' => '44.44.44.44',
-                    'ua' => $request->userAgent(),
+                    'ua' => $request->userAgent() . $request->userAgent(),
                     'visits' => 0,
                     'user_id' => Auth::id(),
                     'country_name' => 'United States',

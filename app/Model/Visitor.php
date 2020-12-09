@@ -2,12 +2,13 @@
 
 namespace App\Model;
 
+use App\Model\Concerns\Searchable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Visitor extends Model
 {
-    use HasFactory;
+    use HasFactory, Searchable;
 
     public function anonymize(): self
     {
