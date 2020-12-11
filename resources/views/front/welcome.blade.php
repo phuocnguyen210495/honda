@@ -9,7 +9,7 @@
     @livewireStyles
 </head>
 <body class="bg-gray-100 max-w-7xl m-auto">
-
+<x-value key="some" value="thing" />
 @livewireScripts
 <script src="{{ mix('js/app.js') }}"></script>
 </body>

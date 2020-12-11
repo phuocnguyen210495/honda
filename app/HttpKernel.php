@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Foundation\Http\Kernel;
+use Spatie\Honeypot\ProtectAgainstSpam;
 
 class HttpKernel extends Kernel
 {
@@ -21,6 +22,7 @@ class HttpKernel extends Kernel
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+        ProtectAgainstSpam::class
     ];
 
     /**
