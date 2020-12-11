@@ -8,18 +8,16 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     @livewireStyles
 </head>
-<body class="bg-gray-100 max-w-7xl m-auto mx-4">
+<body class="bg-gray-100 max-w-7xl m-auto">
 
-<livewire:table 
-    model="App\Model\Visitor"
-    title="Visitors"
-    description="List of visitors and also there is the fact that yes." 
-    include="id, ip, ua, country_name, visits" 
-    searchable="id"
-    copyable="ip, ua"
-    truncate="ua"
-    :translations="['ua' => 'Agent utilisateur']"
-/>
+<x-social type="tel" link="0614404464"/>
+<x-social type="mail" link="felixdorn@protonmail.com" />
+<x-social type="instagram" link="felixdorn" />
+<x-social type="twitter" link="afelixdorn" />
+<x-social type="linkedin" link="someguy" />
+<x-social type="dev" link="felixdorn" />
+<x-social type="github" link="felixdorn" />
+<x-social type="gitlab" link="felixdorn" />
 
 @livewireScripts
 <script src="{{ mix('js/app.js') }}"></script>

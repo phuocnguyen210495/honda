@@ -8,11 +8,22 @@ use InvalidArgumentException;
 
 class Social extends Component
 {
-    public static array $allowedTypes = ['facebook', 'instagram', 'twitter', 'linkedin', 'tel', 'mail', 'dev.to', 'github', 'gitlab', 'discord', 'pinterest'];
+    public static array $allowedTypes = ['facebook', 'instagram', 'twitter', 'linkedin', 'tel', 'mail', 'dev', 'github', 'gitlab', 'discord'];
+    public static array $convertedTypes = [
+        'facebook' => 'https://facebook.com/{link}',
+        'instagram' => 'https://instagram.com/{link}',
+        'twitter' => 'https://twitter.com/{link}',
+        'linkedin' => 'https://linkedin.com/{link}',
+        'dev' => 'https://dev.to/{link}',
+        'github' => 'https://github.com/{link}',
+        'gitlab' => 'https://gitlab.com/{link}',
+        'discord' => 'https://discord.gg/{link}'
+    ];
 
     public string $type;
     public string $style;
     public string $link;
+    public string $size;    
 
     /**
      * Create a new component instance.
@@ -21,11 +32,12 @@ class Social extends Component
      * @param string $style
      * @param string $link
      */
-    public function __construct(string $type, string $style, string $link)
+    public function __construct(string $type, string $style = 'icon', string $link, int $size = 8)
     {
         $this->type = in_array($type, static::$allowedTypes, true) ? $type : $this->badValue('type', static::$allowedTypes);
-        $this->style = in_array($style, ['icon', 'text']) ? $type : 'icon';
-        $this->link = $link;
+        $this->style = in_array($style, ['icon', 'text']) ? $style : 'icon';
+        $this->link = $this->buildLink($link, $type);
+        $this->size = $size;
     }
 
     private function badValue(string $name, array $expected): void
@@ -42,4 +54,13 @@ class Social extends Component
     {
         return view('components.social');
     }
+
+
+    public function buildLink(string $link, string $type) {
+        if (in_array($type, ['tel', 'mail'])) {
+            return $link;
+        }
+
+        return str_replace('{link}', $link, static::$convertedTypes[$type]);
+    } 
 }
