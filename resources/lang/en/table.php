@@ -3,7 +3,7 @@
 return [
   'visitor' => [
       'country_name' => 'Pays',
-      'visits' => 'Visites'      
+      'visits' => 'Visites'
   ],
-  'total_results' => 'Showing :perPage out of :count results' 
+  'total_results' => 'Showing :firstItem to :lastItem out of :total results'
 ];

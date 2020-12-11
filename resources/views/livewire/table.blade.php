@@ -103,8 +103,9 @@
 
                 <div>
                     {{ __('table.total_results', [
-                        'perPage' => $perPage,
-                        'count' => count($items)
+                        'firstItem' => $items->firstItem(),
+                        'lastItem' => $items->lastItem(),
+                        'total' => $items->total()
                     ]) }}
                 </div>
             </div>
