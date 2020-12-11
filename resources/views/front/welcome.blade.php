@@ -10,15 +10,6 @@
 </head>
 <body class="bg-gray-100 max-w-7xl m-auto">
 
-<x-social type="tel" link="0614404464"/>
-<x-social type="mail" link="felixdorn@protonmail.com" />
-<x-social type="instagram" link="felixdorn" />
-<x-social type="twitter" link="afelixdorn" />
-<x-social type="linkedin" link="someguy" />
-<x-social type="dev" link="felixdorn" />
-<x-social type="github" link="felixdorn" />
-<x-social type="gitlab" link="felixdorn" />
-
 @livewireScripts
 <script src="{{ mix('js/app.js') }}"></script>
 </body>
