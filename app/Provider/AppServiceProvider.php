@@ -11,13 +11,7 @@ use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
-    protected SolutionProviderRepository $solutionProviderRepository;
 
-    public function __construct()
-    {
-        $this->solutionProviderRepository = app(SolutionProviderRepository::class);
-    }
-    
     /**
      * Register any application services.
      *
@@ -25,7 +19,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->solutionProviderRepository->registerSolutionProviders([]);
     }
 
     /**
