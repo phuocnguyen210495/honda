@@ -8,8 +8,12 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     @livewireStyles
 </head>
-<body class="bg-gray-100 max-w-7xl m-auto">
-<x-value key="some" value="thing" />
+<body class="bg-gray-100 max-w-7xl m-auto p-8">
+<x-alert 
+    description="Nostrum accusantium tempora quae enim necessitatibus vero! Soluta enim asperiores esse aut commodi in quasi illo sint doloribus voluptates, provident tenetur maxime."
+    content="Be careful of this, might be a problem" 
+    type="success"
+/>
 @livewireScripts
 <script src="{{ mix('js/app.js') }}"></script>
 </body>
