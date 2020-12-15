@@ -9,10 +9,8 @@
     <x-style link="css/app.css" />
     <x-pushed-styles />
 </head>
-<body class="bg-gray-100 max-w-7xl m-auto p-8">
-
-<x-badge level="success" content="En service" dotted href="/some" />
-
+<body class="bg-gray-100 max-w-7xl m-auto p-8 ">
+<x-rating />
 @livewireScripts
 <x-script link="js/app.js" />
 <x-pushed-scripts /> 
