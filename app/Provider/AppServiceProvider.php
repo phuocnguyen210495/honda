@@ -2,12 +2,9 @@
 
 namespace App\Provider;
 
-use App\Exception\TableNotFoundSolutionProvider;
-use Facade\Ignition\SolutionProviders\SolutionProviderRepository as SolutionProvidersSolutionProviderRepository;
-use Facade\IgnitionContracts\SolutionProviderRepository;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
+use Str;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -29,5 +26,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Model::unguard();
+
+        Str::macro('humanize', function (string $text) {
+            return ucfirst(trim(preg_replace('/[^\x21-\x7E]/', '', str_replace(['_', '-'], '', $text))));
+        });
     }
 }

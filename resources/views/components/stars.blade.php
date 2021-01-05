@@ -8,7 +8,6 @@
     @endfor
 
     @for ($i = 0; $i < $max - $filled; $i++)
-
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                  class="text-yellow-300 w-5 h-5" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
