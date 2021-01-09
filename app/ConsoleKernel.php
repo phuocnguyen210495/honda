@@ -3,6 +3,9 @@
 namespace App;
 
 use App\Command\SetupCommand;
+use App\Console\Commands\GetSettingCommand;
+use App\Console\Commands\ListSettingsCommand;
+use App\Console\Commands\SetSettingCommand;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel;
 
@@ -14,7 +17,10 @@ class ConsoleKernel extends Kernel
      * @var array
      */
     protected $commands = [
-        SetupCommand::class
+        SetupCommand::class,
+        SetSettingCommand::class,
+        GetSettingCommand::class,
+        ListSettingsCommand::class
     ];
 
     /**

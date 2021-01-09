@@ -7,6 +7,7 @@ use App\Support\BladeDirective;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
+use Spatie\Valuestore\Valuestore;
 use Str;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +20,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        app()->bind(Valuestore::class, function () {
+            return Valuestore::make(storage_path('app/settings.json'));
+        });
+
+        app()->bind('settings', fn() => app(Valuestore::class));
     }
 
     /**
@@ -71,7 +77,6 @@ class AppServiceProvider extends ServiceProvider
                 ?>
             html;
         })->register();
-
         BladeDirective::create('bind', function (string $variables) {
             return <<<html
                 <?php
@@ -85,6 +90,5 @@ class AppServiceProvider extends ServiceProvider
                 ?>
             html;
         })->register();
-
     }
 }
