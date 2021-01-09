@@ -10,21 +10,8 @@
     <x-pushed-styles/>
 </head>
 <body class="bg-gray-100 max-w-7xl m-auto p-8 font-medium">
-@php($errors->put('default', new \Illuminate\Support\MessageBag([
-        'website' => 'This is invalid'
-])))
-
-<x-input
-    name="website"
-    label="Site Internet"
-    corner-hint="Optional"
-    icon="globe-alt"
-    addon-side="left"
-    addon="http://"
-    placeholder="website.com"
-    inline-addon
-    info="Your site must be accessible without an heavy use of Javascript."
-/>
+<x-inputs.quantity name="quantity" min="-500" step="6" />
+{{--<x-inputs.searchable-select name="person" values="Biden,Trump" keys="yes,no" />--}}
 @livewireScripts
 <x-script link="js/app.js"/>
 <x-pushed-scripts/>

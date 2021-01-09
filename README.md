@@ -1,5 +1,6 @@
 TODO:
 
+Every Inputs/* should extend Input and implement all the options, if it makes sense, otherwise an exception should be thrown.
 * Year, month, day, birthday input
 * Clock input, disabled time, enabled time
 * Calendar

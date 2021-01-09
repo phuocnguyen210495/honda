@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Model\Visitor;
+use App\Support\ArrayList;
 use Illuminate\Support\Collection;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -51,14 +52,15 @@ class Table extends Component
         string $booleans = null,
         string $dates = null,
         string $files = null
-    ): void {
+    ): void
+    {
         $this->model = $model;
         $this->perPage = $perPage;
         $this->title = $title;
         $this->description = $description;
-        $this->translationKey  = $translationKey;
+        $this->translationKey = $translationKey;
         $this->translations = $translations;
-        $this->truncate = $this->list($truncate);        
+        $this->truncate = $this->list($truncate);
         $this->copyable = $this->list($copyable);
         $this->searchable = $this->list($searchable);
         $this->included = $this->list($include);
@@ -70,17 +72,7 @@ class Table extends Component
 
     protected function list(string $list = null)
     {
-        if ($list === null) {
-            return [];
-        }
-
-        if (!str_contains($list, ',')) {
-            return [$list];
-        }
-
-        return collect(
-            explode(',', $list)
-        )->map(fn ($v) => trim($v))->all();
+        return ArrayList::make($list)->toArray();
     }
 
     public function updatedQuery()
@@ -108,7 +100,7 @@ class Table extends Component
                 ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
                 ->paginate($this->perPage),
             'columns' => $columns = $this->getModelColumns()->filter(
-                fn ($value) => !empty($this->included) ? in_array($value, $this->included, true) : !in_array($value, $this->excluded, true)
+                fn($value) => !empty($this->included) ? in_array($value, $this->included, true) : !in_array($value, $this->excluded, true)
             ),
             'translatedColumns' => array_combine(
                 $columns->all(),

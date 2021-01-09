@@ -1,5 +1,5 @@
 <div class="@if (!$first) mt-4 @endif flex flex-col w-full"
-     x-data="{ showFocusRing: false}">
+     x-data="{ showFocusRing: false, showError: true }">
     @if (!$hiddenLabel)
         <div class="flex justify-between items-baseline">
             <label for="{{ $name }}" class="block text-gray-800 font-medium font-display">{{ $label }}</label>
@@ -35,8 +35,9 @@
                 x-ref="input"
                 @focusin="showFocusRing = true"
                 @focusout="showFocusRing = false"
+                @input="showError = false; if ($event.target.value === '') { showError = true };"
                 value="{{ $attributes->get('value') ?? (!str_contains($name, 'password') ? old($name) : '' )}}"
-                class="bg-white rounded-lg px-4 border font-medium placeholder-gray-700 @if ($inlineAddon || $icon) border-{{ $side() }}-0 @endif @if ($addon || $icon)  rounded-{{ $side() }}-none @endif font-display py-2.5 placeholder-gray-500 w-full focus:border-opacity-0 focus:outline-none {{ $attributes->get('class') }}"
+                class="bg-white rounded-lg px-4 border font-medium placeholder-gray-700 @if ($inlineAddon || $icon) border-{{ $side() }}-0 @endif @if ($addon || $icon)  rounded-{{ $side() }}-none @endif font-display py-2.5 w-full focus:border-opacity-0 focus:outline-none {{ $attributes->get('class') }}"
                 {{ $attributes->except('class', 'value') }}
             />
         </div>
@@ -50,7 +51,7 @@
     @endif
 
     @error($name)
-    <p class="flex items-center text-red-500 mt-2">
+    <p x-show="showError" class="flex items-center text-red-500 mt-2">
         <x-icon name="exclamation-circle" solid size="5"/>
         <span class="inline-block ml-2">{{ $message }}</span>
     </p>

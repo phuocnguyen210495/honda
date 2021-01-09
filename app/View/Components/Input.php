@@ -10,6 +10,7 @@ class Input extends Component
 {
     public string $name;
     public string $type;
+    public ?string $color;
     public string $iconSet;
     public ?string $label;
     public ?string $icon;
@@ -18,13 +19,8 @@ class Input extends Component
     public ?string $info;
     public ?string $addon;
     public bool $inlineAddon;
-    public bool $infoAsTooltip;
     public bool $first;
     public bool $hiddenLabel;
-    /**
-     * @var string|null
-     */
-    private ?string $color;
 
     /**
      * Create a new component instance.
@@ -40,7 +36,6 @@ class Input extends Component
      * @param string|null $cornerHint
      * @param bool $hiddenLabel
      * @param bool $inlineAddon
-     * @param bool $infoAsTooltip
      * @param bool $first
      */
     public function __construct(
