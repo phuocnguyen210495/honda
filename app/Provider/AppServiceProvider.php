@@ -2,12 +2,11 @@
 
 namespace App\Provider;
 
-use App\Support\ArrayList;
 use App\Support\BladeDirective;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Spatie\Valuestore\Valuestore;
+use View;
 use Str;
 
 class AppServiceProvider extends ServiceProvider
@@ -47,19 +46,18 @@ class AppServiceProvider extends ServiceProvider
             return $quote . $str . $quote;
         });
         Str::macro('unquote', function (string $str, string $quotes = '\'"') {
-            collect(str_split($quotes))->each(function ($quote) use (&$str) {
-                if (strpos($quote, $str) === 0) {
-                    $str = substr($str, 1);
-                }
-
-                if (strpos($quote, $str) === strlen($str)) {
-                    $str = substr($str, -1);
-                }
-            });
-
-            return $str;
+            return str_replace(str_split($quotes), '', $str);
         });
 
+        View::share(['settings' => app('settings')]);
+        BladeDirective::create('setting', function ($key) {
+            $key = Str::unquote($key);
+            return <<<html
+                <?php
+                    echo \$settings->get('$key');
+                ?>
+            html;
+        })->register();
         BladeDirective::create('alpine', function (string $variables, string $literalVariables) {
             return <<<html
                 <?php

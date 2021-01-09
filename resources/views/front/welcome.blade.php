@@ -10,7 +10,7 @@
     <x-pushed-styles/>
 </head>
 <body class="bg-gray-100 max-w-7xl m-auto p-8 font-medium">
-<x-inputs.quantity name="quantity" min="-500" step="6" />
+<x-inputs.quantity name="quantity" min="-500" step="1" />
 {{--<x-inputs.searchable-select name="person" values="Biden,Trump" keys="yes,no" />--}}
 @livewireScripts
 <x-script link="js/app.js"/>
