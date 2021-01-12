@@ -2,8 +2,18 @@
 
 namespace App\Provider;
 
+<<<<<<< Updated upstream
 use App\Support\BladeDirective;
 use Illuminate\Database\Eloquent\Model;
+=======
+use App\Exception\TableNotFoundSolutionProvider;
+use App\Livewire\RouterComponentBind;
+use Facade\Ignition\SolutionProviders\SolutionProviderRepository as SolutionProvidersSolutionProviderRepository;
+use Facade\IgnitionContracts\SolutionProviderRepository;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Route;
+>>>>>>> Stashed changes
 use Illuminate\Support\ServiceProvider;
 use Spatie\Valuestore\Valuestore;
 use View;

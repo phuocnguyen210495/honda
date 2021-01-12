@@ -1,0 +1,1 @@
+<span wire:poll.750ms>{{ now()->timezone($timezone)->isoFormat($format) }}</span>
