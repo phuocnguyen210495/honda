@@ -1,8 +1,3 @@
-body, html {
-    font-family: Gilroy, sans-serif !important;
-    /* TODO: Use tailwind instead */
-}
-
 @import './fonts.css';
 
 @tailwind base;

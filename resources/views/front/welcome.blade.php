@@ -10,7 +10,7 @@
     <x-pushed-styles/>
 </head>
 <body class="bg-gray-100 max-w-7xl m-auto p-8 ">
-<x-button color="red" icon="trash" icon-side="left">My content</x-button>
+<x-button  color="blue" disabled icon="trash" icon-side="left" x-data="{}">My content</x-button>
 @livewireScripts
 <x-script link="js/app.js"/>
 <x-pushed-scripts/>

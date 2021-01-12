@@ -2048,8 +2048,8 @@ __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/me/Code/Starts/starts/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/me/Code/Starts/starts/resources/css/app.css */"./resources/css/app.css");
+__webpack_require__(/*! /home/felix/PhpstormProjects/starts/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/felix/PhpstormProjects/starts/resources/css/app.css */"./resources/css/app.css");
 
 
 /***/ })
