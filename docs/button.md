@@ -16,6 +16,12 @@
 * `icon-side`: optional, defauts to left, places the icon either at the left or the right side of the content
 * `content`: optional, defaults to the main slot's content, it's like a slot but for raw text only.
 
+There is also a full white secondary-ish variant accepting the same parameters:
+```html
+<x-buttons.text />
+```
+The color defaults to blue in this case and it's used for the outline on focus.
+
 ### Disabled state
 The button automatically looks disabled by using the `disabled` attribute, no additional work needed.
 
