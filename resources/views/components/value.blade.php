@@ -1,1 +1,1 @@
-<input type="hidden" name="{{ $key }}" $value="{{ $value }}" {{ $attributes }}>
+<input type="hidden" name="{{ $key }}" $value="{{ $value }}" {{ $attributes->get('class') }}" {{ $attributes->except('class') }}
