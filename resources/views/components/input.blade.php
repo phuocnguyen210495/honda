@@ -35,10 +35,10 @@
                 x-ref="input"
                 @focusin="showFocusRing = true"
                 @focusout="showFocusRing = false"
-                @input="showError = false; if ($event.target.value === '') { showError = true };"
+                @input="showError = false; if ($event.target.value === '') { showError = true }; {{ $attributes->get('@input') }}"
                 value="{{ $attributes->get('value') ?? (!str_contains($name, 'password') ? old($name) : '' )}}"
                 class="bg-white rounded-lg px-4 border font-medium placeholder-gray-700 @if ($inlineAddon || $icon) border-{{ $side() }}-0 @endif @if ($addon || $icon)  rounded-{{ $side() }}-none @endif font-display py-2.5 w-full focus:border-opacity-0 focus:outline-none {{ $attributes->get('class') }}"
-                {{ $attributes->except('class', 'value') }}
+                {{ $attributes->except('class', 'value', '@input') }}
             />
         </div>
     </div>

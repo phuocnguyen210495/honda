@@ -1,5 +1,5 @@
 <div
-    x-data="{@alpine($keys, $values, $selected, $multiple), open: true}"
+    x-data="{@alpine($keys, $values, $selected, $multiple), open: true, search: '' }"
     class="flex flex-col-reverse"
 >
     <select name="{{ $name }}" id="{{ $name }}" aria-hidden="hidden" class="hidden">
@@ -10,9 +10,10 @@
     </select>
 
     <div class="mt-4">
-        <button class="bg-white p-3 rounded text-gray-700 w-full flex items-center justify-between border"
+        <button class="bg-white p-4 rounded-lg text-gray-700 w-full flex items-center justify-between border"
                 @click="open = !open">
-            <span>Show options</span>
+                <span x-show="!selected">Show options</span>
+                <span x-show="selected" x-text="selected"></span>
 
             <svg class="h-4 float-right fill-current text-gray-700" version="1.1" xmlns="http://www.w3.org/2000/svg"
                  viewBox="0 0 129 129" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 129 129">
@@ -22,7 +23,7 @@
                 </g>
             </svg>
         </button>
-        <div class="rounded-lg border bg-white mt-4" x-show="open"
+        <div class="rounded-lg border bg-white mt-4 shadow-md" x-show="open"
              x-transition:enter="ease-out duration-300"
              x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
              x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
@@ -30,12 +31,12 @@
              x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
              x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
             <ul>
-                <li class="p-2">
-                    <x-input name="search" />
+                <li class="p-4">
+                    <x-input name="search" first hiddenLabel :placeholder="__('Search a result')" @input="search" />
                 </li>
-                <template x-for="(key, index) in keys" :key="index">
-                    <li>
-                        <p class="p-2 block text-black hover:bg-grey-light cursor-pointer">
+                <template x-for="(key, index) in keys.filter((k) => false)" :key="index">
+                    <li @click="selected = key">
+                        <p class="p-4 block text-black hover:bg-grey-light cursor-pointer">
                             <span x-text="key"></span>
                             <svg x-show="selected === key" class="float-right" xmlns="http://www.w3.org/2000/svg"
                                  width="18" height="18"

@@ -11,11 +11,11 @@
 </head>
 
 <body class="bg-gray-100 max-w-7xl m-auto p-8 ">
-
-    <div class="flex">
-            <x-buttons.redirect-back button="button" color="blue" content="Cancel" icon="trash" class="ml-4" icon-side="left" icon-set="heroicon" />
-    </div>
-
+    <x-inputs.searchable-select  
+        name="smourf"
+        keys='42,69,4269'
+        values='1,2,3'
+    />
     @livewireScripts
     <x-script link="js/app.js" />
     <x-pushed-scripts />
