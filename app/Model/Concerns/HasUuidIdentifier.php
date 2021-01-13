@@ -6,7 +6,7 @@ use Str;
 
 trait HasUuidIdentifier
 {
-    protected static function bootUsesUuid() {
+    protected static function bootHasUuidIdentifier() {
         static::creating(function ($model) {
           if (! $model->getKey()) {
             $model->{$model->getKeyName()} = (string) Str::uuid();
