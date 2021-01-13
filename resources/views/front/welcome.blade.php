@@ -11,11 +11,9 @@
 </head>
 
 <body class="bg-gray-100 max-w-7xl m-auto p-8 ">
-    <x-inputs.searchable-select  
-        name="smourf"
-        keys='42,69,4269'
-        values='1,2,3'
-    />
+    <div class="m-auto max-w-lg">   
+        <x-inputs.searchable-select name="smourf" :values="range(1,40)" :keys="range(1,40)"  multiple />
+    </div>
     @livewireScripts
     <x-script link="js/app.js" />
     <x-pushed-scripts />

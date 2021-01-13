@@ -16,6 +16,8 @@ class ArrayList implements Arrayable, IteratorAggregate, Countable
     {
         if ($list === null) {
             $converted = [];
+        } elseif (is_array($list)) {
+            $converted = $list;
         } elseif (!str_contains($list, ',')) {
             $converted = [$list];
         } else {

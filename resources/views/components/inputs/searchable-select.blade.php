@@ -1,51 +1,41 @@
-<div
-    x-data="{@alpine($keys, $values, $selected, $multiple), open: true, search: '' }"
-    class="flex flex-col-reverse"
->
-    <select name="{{ $name }}" id="{{ $name }}" aria-hidden="hidden" class="hidden">
-        <option
-            @bind(value, selected)
-            @bind(text, selected)
-        ></option>
+<div x-data="{@alpine($keys, $values, $selected, $multiple), open: false, search: '', focused: false }" class="flex flex-col-reverse" @click.away="open = false" @search-input="search = $event.detail.value" @keydown="if (open && $event.key === 'Escape') { open = false } console.log(values.map(v => v))">
+    <select name="{{ $name }}@if($multiple)[]@endif" id="{{ $name }}" class="hidden" aria-hidden="hidden" @if($multiple) multiple @endif>
+        <template x-for="s in selected">
+            <option @bind(value, s) @bind(text, s) selected></option>
+        </template>
     </select>
 
     <div class="mt-4">
-        <button class="bg-white p-4 rounded-lg text-gray-700 w-full flex items-center justify-between border"
-                @click="open = !open">
-                <span x-show="!selected">Show options</span>
-                <span x-show="selected" x-text="selected"></span>
+        <button class="bg-white p-4 focus:outline-none focus:shadow-outline-blue rounded-lg text-gray-700 w-full flex items-center justify-between border" @click="open = !open" @focus="focused = true;" @blur="focused = false;">
+            <span x-show="selected.length === 0">{{ __('Search options') }}</span>
+            <span x-show="selected.length === 1" x-text="selected"></span>
+            <ul class="flex overflow-x-auto space-x-2" x-show="selected.length > 1">
+                <template x-for="s in selected">
+                    <li x-text="s" class="bg-gray-100 py-0.5 px-4 rounded-lg"></li>
+                </template>
+            </ul>
 
-            <svg class="h-4 float-right fill-current text-gray-700" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                 viewBox="0 0 129 129" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 129 129">
-                <g>
-                    <path
-                        d="m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z"/>
-                </g>
-            </svg>
+            <x-icon name="chevron-down" size="4" class="text-gray-700" />
         </button>
-        <div class="rounded-lg border bg-white mt-4 shadow-md" x-show="open"
-             x-transition:enter="ease-out duration-300"
-             x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-             x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
-             x-transition:leave="ease-in duration-200"
-             x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
-             x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
+        <div class="rounded-lg border bg-white mt-4 shadow-md" x-show="open" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100" x-transition:leave="ease-in duration-200" x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100" x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
             <ul>
                 <li class="p-4">
-                    <x-input name="search" first hiddenLabel :placeholder="__('Search a result')" @input="search" />
+                    <x-input name="search" first hiddenLabel :placeholder="__('Search a result')" />
                 </li>
-                <template x-for="(key, index) in keys.filter((k) => false)" :key="index">
-                    <li @click="selected = key">
-                        <p class="p-4 block text-black hover:bg-grey-light cursor-pointer">
-                            <span x-text="key"></span>
-                            <svg x-show="selected === key" class="float-right" xmlns="http://www.w3.org/2000/svg"
-                                 width="18" height="18"
-                                 viewBox="0 0 18 18">
-                                <path d="M6.61 11.89L3.5 8.78 2.44 9.84 6.61 14l8.95-8.95L14.5 4z"/>
-                            </svg>
-                        </p>
+                <template x-for="(value, index) in values.filter(v => v.toString().includes(search))" :key="index">
+                    <li @click="if (!multiple) { selected = [value]; open = false } else { if (selected.includes(value)) { selected = selected.filter(e => e !== value) } else { selected.push(value) } }">
+                        <button class="p-4 w-full focus:outline-none focus:bg-gray-100 text-black hover:bg-gray-50 cursor-pointer flex justify-between rounded-lg">
+                            <span x-text="value"></span>
+                            <x-icon name="check" x-show="selected.includes(value)" size="5" class="text-gray-500" />
+                        </button>
                     </li>
                 </template>
+                <li x-show="values.filter(v =>  v.toString().includes(search)).length === 0">
+                    <p class="p-4 pt-2 block text-black hover:bg-grey-light cursor-pointer">
+                        {{ __('No results')}}
+                    </p>
+                </li>
+
             </ul>
         </div>
     </div>
