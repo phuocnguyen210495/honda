@@ -11,8 +11,10 @@
 </head>
 
 <body class="bg-gray-100 max-w-7xl m-auto p-8 ">
-    <div class="m-auto max-w-lg">   
-        <x-inputs.searchable-select name="smourf" :values="range(1,40)" :keys="range(1,40)"  multiple />
+    <div class="m-auto flex items-center">   
+        <x-input first name="yes" hiddenLabel />
+        <x-inputs.searchable-select name="smourf" :values="range(1,40)" :keys="range(1,40)" searchable multiple />
+        <x-button content="Ye" color="orange" />
     </div>
     @livewireScripts
     <x-script link="js/app.js" />
