@@ -6,6 +6,14 @@ use App\Model\Concerns\Searchable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Model\Visitor
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|Visitor newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Visitor newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Visitor query()
+ * @mixin \Eloquent
+ */
 class Visitor extends Model
 {
     use HasFactory, Searchable;
