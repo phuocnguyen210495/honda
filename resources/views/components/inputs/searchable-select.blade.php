@@ -15,7 +15,7 @@
             <span class="inline-block pl-4" x-show="selected.length === 0">{{ __('Search options') }}</span>
             <span class="inline-block pl-4" x-show="selected.length === 1" x-text="selected"></span>
             <ul class="flex overflow-x-auto no-scrollbar pl-4 space-x-2" x-show="selected.length > 1">
-                <template x-for="s in selected">
+                <template x-for="s in selected" hidden>
                     <li x-text="s" class="bg-gray-100 py-0.5 px-4 rounded-lg"></li>
                 </template>
             </ul>

@@ -61,7 +61,7 @@
                                     <tr>
                                         @foreach($columns as $_)
                                             <td x-data="{text:'{{ $item->{$_} }}', open: false}"
-                                                class="px-6 py-4 @if(!in_array($_, $truncate, true)) whitespace-no-wrap @endif text-gray-700">
+                                                class="px-6 py-4 @if(!in_array($_, $truncate, true)) whitespace-nowrap @endif text-gray-700">
                                                 <div class="flex items-center">
 
                                                     @if (in_array($_, $truncate, true))

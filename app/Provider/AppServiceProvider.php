@@ -88,5 +88,17 @@ class AppServiceProvider extends ServiceProvider
                 ?>
             html;
         })->register();
+        BladeDirective::create('markdown', function (string $variables) {
+            return <<<html
+                <?php
+                    [\$rawMarkdown] = App\Support\ArrayList::make($variables)->toArray();
+
+                    # Eval here is actually not dangerous because \$rawMarkdown contains the variable that contains the markdown
+                    # No user content is evaluated here whatsoever
+                    eval('\$markdown = ' . \$rawMarkdown . ';');
+                    echo \Illuminate\Mail\Markdown::parse(\$markdown);
+                ?>
+            html;
+        })->register();
     }
 }
