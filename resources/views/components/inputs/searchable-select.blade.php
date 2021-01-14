@@ -21,7 +21,7 @@
             </ul>
 
             <div class="p-4">
-                <x-icon name="chevron-down" size="4" class="text-gray-700"/>
+                <x-icon name="selector" size="4" class="text-gray-700"/>
             </div>
         </button>
         <div @click.away="open = false;" class="rounded-lg border bg-white mt-4 shadow-md" x-show="open"
@@ -32,7 +32,7 @@
              x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
             <ul>
                 <li class="p-4 hidden sm:block" x-show="searchable">
-                    <x-input name="search" first hiddenLabel :placeholder="__('Search a result')"/>
+                    <x-input name="search" first hiddenLabel :placeholder="__('Search an option')"/>
                 </li>
                 <div class="overflow-auto max-h-64 no-scrollbar focus:outline-none ">
                     <template x-for="(value, index) in values.filter(v => v.toString().includes(search))" :key="index">

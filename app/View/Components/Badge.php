@@ -2,19 +2,11 @@
 
 namespace App\View\Components;
 
+use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class Badge extends Component
 {
-    public static $levelToColor = [
-        'success' => 'green',
-        'error' => 'red',
-        'warning' => 'yellow',
-        'info' => 'blue',
-        'neutral' => 'gray'
-    ];
-
-    public string $level;
     public string $content;
     public string $color;
     public string $href;
@@ -24,13 +16,16 @@ class Badge extends Component
     /**
      * Create a new component instance.
      *
-     * @return void
+     * @param string $color
+     * @param string $content
+     * @param bool $dotted
+     * @param bool $disabled
+     * @param string $href
      */
-    public function __construct(string $level, string $content, bool $dotted = false, bool $disabled = false, string $href = '')
+    public function __construct(string $content, string $color = 'gray', bool $dotted = false, bool $disabled = false, string $href = '')
     {
-        $this->level = $level;
         $this->content = $content;
-        $this->color = $disabled ? 'gray' : (static::$levelToColor[$level] ?? 'gray');
+        $this->color = $disabled ? 'gray' : $color;
         $this->dotted = $dotted;
         $this->disabled = $disabled;
         $this->href = $href;
@@ -39,7 +34,7 @@ class Badge extends Component
     /**
      * Get the view / contents that represent the component.
      *
-     * @return \Illuminate\Contracts\View\View|string
+     * @return View|string
      */
     public function render()
     {
