@@ -15,22 +15,24 @@ Settings about the global state of your application are stored in `storage/app/s
 
 We use [spatie/valuestore](https://github.com/spatie/valuestore) under the hood. The Valuestore object is binded to the container as `settings` and `\Spatie\Valuestore\Valuestore`. 
 
+You can access the settings globally with the function `settings($key = null): Valuestore|mixed`
+
 ### Usage in views
 
 You can access any settings in views with the directive @setting
 
-## CLI Usage
+### CLI Usage
 
 We provide some useful commands to configure the settings via the command line
 
-### Get a value
+#### Get a value
 
 `php artisan settings:get myKey` returns the value of myKey in `settings.json`
 
-### Set a value
+#### Set a value
 
 `php artisan setting:set foo bar` sets the value `bar` to the key `foo`
 
-### List all values
+#### List all values
 
 `php artisan settings:list` outputs a table containing all the values and their associated key 

@@ -8,7 +8,7 @@
             @endif
         </div>
     @endif
-    <div class="mt-2">
+    <div class="@if (!$hiddenLabel) mt-2 @endif">
         <div class="flex items-center @if ($addonSide === 'right') flex-row-reverse @else flex-row @endif"
              x-bind:class="{ 'shadow-outline-blue rounded-lg': showFocusRing }">
             @if ($icon && !$addon)
@@ -19,7 +19,6 @@
             @endif
 
             @if ($addon)
-
                 <div
                     @click="$refs.input.focus()"
                     x-bind:class="{ 'border-0': showFocusRing }"
@@ -37,7 +36,7 @@
                 @focusout="showFocusRing = false"
                 @input="showError = false; if ($event.target.value === '') { showError = true }; $dispatch('{{ $name }}-input', { value: $event.target.value })"
                 value="{{ $attributes->get('value') ?? (!str_contains($name, 'password') ? old($name) : '' )}}"
-                class="bg-white rounded-lg px-4 border font-medium placeholder-gray-700 @if ($inlineAddon || $icon) border-{{ $side() }}-0 @endif @if ($addon || $icon)  rounded-{{ $side() }}-none @endif font-display py-2.5 w-full focus:border-opacity-0 focus:outline-none {{ $attributes->get('class') }}"
+                class="bg-white rounded-lg px-4 py-3 border font-medium placeholder-gray-700 @if ($inlineAddon || $icon) border-{{ $side() }}-0 @endif @if ($addon || $icon)  rounded-{{ $side() }}-none @endif font-display w-full focus:border-opacity-0 focus:outline-none {{ $attributes->get('class') }}"
                 {{ $attributes->except('class', 'value') }}
             />
         </div>

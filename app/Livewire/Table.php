@@ -12,6 +12,7 @@ use phpDocumentor\Reflection\DocBlock\Tags\Deprecated;
 class Table extends Component
 {
     use WithPagination;
+
     public string $model;
     public string $title;
     public string $description;
@@ -24,11 +25,10 @@ class Table extends Component
     public $truncate;
     public $copyable;
     public $searchable;
-    public $booleans;
-    public $dates;
-    public $files;
     public $included;
     public $excluded;
+    public $dates;
+    public $dateFormat;
 
     protected $queryString = [
         'query' => ['except' => ''],
@@ -49,9 +49,8 @@ class Table extends Component
         string $copyable = null,
         string $include = null,
         string $exclude = null,
-        string $booleans = null,
         string $dates = null,
-        string $files = null
+        string $dateFormat = 'LL'
     ): void
     {
         $this->model = $model;
@@ -59,29 +58,27 @@ class Table extends Component
         $this->title = $title;
         $this->description = $description;
         $this->translationKey = $translationKey;
-        $this->translations = $translations;
+        $this->translations = $translations ?? [];
         $this->truncate = $this->list($truncate);
         $this->copyable = $this->list($copyable);
         $this->searchable = $this->list($searchable);
         $this->included = $this->list($include);
         $this->excluded = $this->list($exclude);
-        $this->booleans = $this->list($booleans);
         $this->dates = $this->list($dates);
-        $this->files = $this->list($files);
+        $this->dateFormat = $dateFormat;
     }
 
-    protected function list(string $list = null)
+    protected function list(string $list = null): array
     {
         return ArrayList::make($list)->toArray();
     }
 
-    public function updatedQuery()
+    public function updatedQuery(): void
     {
         $this->resetPage();
     }
 
-
-    public function sortBy($field)
+    public function sortBy($field): void
     {
         if ($this->sortField === $field) {
             $this->sortAsc = !$this->sortAsc;
@@ -96,7 +93,7 @@ class Table extends Component
     {
         return view('livewire.table', [
             'items' => $this->model
-                ::search($this->query, $this->searchable)
+                ::search($this->searchable, $this->query)
                 ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
                 ->paginate($this->perPage),
             'columns' => $columns = $this->getModelColumns()->filter(
@@ -117,7 +114,7 @@ class Table extends Component
                         return $translated === $translationKey ? ($this->translations[$column] ?? $column) : $translated;
                     }
                 )->all()
-            )
+            ),
         ]);
     }
 
@@ -132,7 +129,7 @@ class Table extends Component
         return collect(array_keys($model->getAttributes()));
     }
 
-    public function paginationView()
+    public function paginationView(): string
     {
         return 'components.pagination';
     }

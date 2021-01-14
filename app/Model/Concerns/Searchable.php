@@ -2,26 +2,31 @@
 
 namespace App\Model\Concerns;
 
+use Arr;
+use Illuminate\Database\Eloquent\Builder;
+use function Symfony\Component\String\s;
+
 trait Searchable
 {
-    public static function search(?string $term, array $columns)
+    public static function search(array $attributes, string $term)
     {
-        if ($term === null) {
-            return static::query();
-        }
-
-        $query = static::query()->where($columns[0], 'like', '%' . $term . '%');
-
-        array_shift($columns);
-
-        foreach ($columns as $column) {
-            $query->orWhere(
-                $column,
-                'like',
-                '%' . $term . '%'
-            );
-        }
-
-        return $query;
+        return static::where(function (Builder $query) use ($attributes, $term) {
+            foreach (Arr::wrap($attributes) as $attribute) {
+                $query->when(
+                    str_contains($attribute, '.'),
+                    function (Builder $query) use ($attribute, $term) {
+                        $buffer = explode('.', $attribute);
+                        $attributeField = array_pop($buffer);
+                        $relationPath = implode('.', $buffer);
+                        $query->orWhereHas($relationPath, function (Builder $query) use ($attributeField, $term) {
+                            $query->where($attributeField, 'LIKE', "%{$term}%");
+                        });
+                    },
+                    function (Builder $query) use ($attribute, $term) {
+                        $query->orWhere($attribute, 'LIKE', "%{$term}%");
+                    }
+                );
+            }
+        });
     }
 }

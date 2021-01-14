@@ -4,30 +4,27 @@
         <p class="text-gray-700 mt-1">{{ $description }}</p>
     @endif
 
-    <div class="sm:flex items-center">
+    <div class="sm:flex items-center w-full">
         <input type="text" wire:model="query"
                aria-label="{{ __('Search ' . strtolower(class_basename($model)) . '\'s records') }}"
                placeholder="{{ __('Search ' . strtolower(class_basename($model)) . '\'s records') }}"
-               class="bg-white rounded-lg px-4 border font-display py-2.5 placeholder-gray-500 focus:border-opacity-0 focus:outline-none focus:shadow-outline-green w-full my-4"
-               id="">
-        <div>
-            <select :aria-label="__('Results per page')" wire:model="perPage"
-                    class="form-select py-2.5 w-full sm:w-auto ml-4">
-                <option>10</option>
-                <option>15</option>
-                <option>25</option>
-            </select>
-        </div>
-
+               class="bg-white rounded-lg px-4 border font-display py-2.5 placeholder-gray-500 focus:border-opacity-0 focus:outline-none focus:shadow-outline-blue w-full my-4"/>
+        <select :aria-label="__('Results per page')" wire:model="perPage"
+                class="form-select py-2.5 w-full sm:w-auto sm:ml-4 rounded-lg">
+            <option>10</option>
+            <option>15</option>
+            <option>25</option>
+            <option>50</option>
+        </select>
     </div>
 
     @if ($items->isEmpty())
         No results
     @else
-        <div>
+        <div class="mt-4">
             <div class="flex flex-col">
-                <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                    <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                <div class="-my-2 no-scrollbar overflow-x-auto">
+                    <div class="py-2 align-middle inline-block min-w-full ">
                         <div class="shadow overflow-hidden border-b border-gray-200 rounded-lg">
                             <table class="min-w-full divide-y divide-gray-200">
                                 <thead>
@@ -59,7 +56,7 @@
                                     @endforeach
                                 </tr>
                                 </thead>
-                                <tbody class="bg-white divide-y divide-gray-200">
+                                <tbody class="bg-white divide-y divide-gray-200 no-scrollbar">
                                 @foreach($items as $item)
                                     <tr>
                                         @foreach($columns as $_)
@@ -70,6 +67,14 @@
                                                     @if (in_array($_, $truncate, true))
                                                         <p class="max-w-lg cursor-pointer" @click="open = !open"
                                                            x-text="open || text.length <= 50 ? text : text.substr(0, 50) + '...'"></p>
+                                                    @elseif (is_bool($item->{$_}))
+                                                        <input class="form-checkbox" type="checkbox"
+                                                               aria-label="{{ $translatedColumns[$key] }}" disabled
+                                                               @if ($item->{$_}) checked @endif id="">
+                                                    @elseif(in_array($_, $dates, true))
+                                                        {{ $item->{$_}->isoFormat($dateFormat) }}
+                                                    @elseif ($item->{$_} instanceof \Illuminate\Support\Carbon)
+                                                        {{ $item->{$_}->diffForHumans() }}
                                                     @else
                                                         {{ $item->{$_} }}
                                                     @endif

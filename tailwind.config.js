@@ -8,7 +8,7 @@ module.exports = {
             fontFamily: {
                 sans: ['Gilroy', 'sans-serif']
             }
-        },  
+        },
     },
     variants: {
         opacity: ({ after }) => after(['disabled'])
@@ -25,6 +25,6 @@ module.exports = {
                     }
                 }
             });
-          }),
+        })
     ],
 }

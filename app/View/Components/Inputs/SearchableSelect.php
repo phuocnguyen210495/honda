@@ -16,17 +16,21 @@ class SearchableSelect extends Component
     public array $keys;
     public bool $multiple;
     public bool $searchable;
-    
+    public bool $first;
+
     /**
      * Create a new component instance.
      *
      * @param string $name
+     * @param string|null $label
      * @param string|string[] $values
      * @param string|string[] $selected
      * @param string|string[] $keys
      * @param bool $multiple
+     * @param bool $searchable
+     * @param bool $first
      */
-    public function __construct(string $name, string $label = null, $values, $selected = null, $keys = null, bool $multiple = false, bool $searchable = false)
+    public function __construct(string $name, string $label = null, $values, $selected = null, $keys = null, bool $multiple = false, bool $searchable = false, bool $first = false)
     {
         $this->name = $name;
         $this->label = $label ?? Str::humanize($name);
@@ -35,6 +39,7 @@ class SearchableSelect extends Component
         $this->selected = ArrayList::make($selected)->toArray();
         $this->multiple = $multiple;
         $this->searchable = $searchable;
+        $this->first = $first;
     }
 
     /**

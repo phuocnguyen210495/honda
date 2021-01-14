@@ -13,10 +13,15 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Visitor newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Visitor query()
  * @mixin \Eloquent
+ * @mixin IdeHelperVisitor
  */
 class Visitor extends Model
 {
     use HasFactory, Searchable;
+
+    protected $casts = [
+      'anonymized' => 'boolean'
+    ];
 
     public function anonymize(): self
     {
@@ -31,6 +36,7 @@ class Visitor extends Model
             'longitude' => 0,
             'anonymized' => true
         ]);
+
 
         return $this;
     }
