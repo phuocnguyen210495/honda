@@ -11,11 +11,7 @@
     <x-pushed-styles/>
 </head>
 <body class="bg-gray-100 max-w-7xl m-auto p-8 ">
-<div class="flex items-start" x-data x-init="Echo.channel('events').listen('RealTimeMessage', (e) => console.log('RealTimeMessage: ' + e.message));">
-    <x-input first name="yes" hiddenLabel/>
-    <x-inputs.searchable-select name="smourf" :values="range(1,40)" :keys="range(1,40)" searchable multiple first/>
-    <x-button content="Create" color="orange"/>
-</div>
+
 @livewireScripts
 <x-script link="js/app.js"/>
 <x-pushed-scripts/>
