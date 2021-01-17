@@ -3,8 +3,11 @@
 namespace App;
 
 use App\Command\SetupCommand;
+use App\Console\Commands\GetEnvCommand;
 use App\Console\Commands\GetSettingCommand;
+use App\Console\Commands\ListEnvCommand;
 use App\Console\Commands\ListSettingsCommand;
+use App\Console\Commands\SetEnvCommand;
 use App\Console\Commands\SetSettingCommand;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel;
@@ -20,7 +23,10 @@ class ConsoleKernel extends Kernel
         SetupCommand::class,
         SetSettingCommand::class,
         GetSettingCommand::class,
-        ListSettingsCommand::class
+        ListSettingsCommand::class,
+        SetEnvCommand::class,
+        GetEnvCommand::class,
+        ListEnvCommand::class
     ];
 
     /**

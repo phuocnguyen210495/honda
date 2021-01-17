@@ -10,6 +10,7 @@
     <x-pushed-styles/>
 </head>
 <body class="bg-gray-100 max-w-7xl m-auto p-8 ">
+<x-inputs.toggleable-icon name="starred" icon="check-circle" color="green" filled-color="green" />
 @livewireScripts
 <x-script link="js/app.js"/>
 <x-pushed-scripts/>
