@@ -18,7 +18,7 @@ TODO:
 
 The boilerplate comes with a more flattened architecture, mostly in the `app/` directory.
 
-### Naming conditions
+### Naming convention
 
 **Singular > Plural**
 
@@ -27,20 +27,17 @@ The boilerplate comes with a more flattened architecture, mostly in the `app/` d
 > Sometimes, plural makes sense and it's okay to use it.
 
 Models, controllers, directories, routes names should 99% of the time be singular.
-And of the rest, it comes down to intuition.
+And of the rest, it comes down to your intuition.
 
 #### Guarded Models
 
-All the models are unguarded by default, guarding models only makes sense if you use `$request->all()` and you should never use that.
+All the models are unguarded by default, guarding models only makes sense if you use `$request->all()` and you should almost never do that.
 
 ### Tracking visitors
 
 ```bash
 composer require stevebauman/location
 ```
-
-There's is a somewhat advanced tracking system but it's not here for you to use it unless **you're forced to**.
-I want to make this very clear, you should not use that, but sometimes the client asks, and the client is king...
 
 Just enable the `TrackVisitors` middleware in `app/HttpKernel.php`.
 
