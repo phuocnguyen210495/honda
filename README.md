@@ -9,7 +9,7 @@ TODO:
 * [ ] Image upload field
 * [ ] Avatar with status (red, green, yellow) -- discord like
 * [x] Colored dot (as a component x-dot color="" :shown="false")
-* [ ] Unique toggleable star (as a checkbox) (any icon customizable)
+* [x] Unique toggleable star (as a checkbox) (any icon customizable)
 ### Requirements
 
 * PHP7.4

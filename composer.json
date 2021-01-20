@@ -20,7 +20,7 @@
         "barryvdh/laravel-ide-helper": "^2.9",
         "beyondcode/laravel-query-detector": "^1.4",
         "facade/ignition": "^2.5",
-        "fakerphp/faker": "^1.9.1",
+        "fakerphp/faker": "^1.9.1",  
         "lorisleiva/laravel-deployer": "^0.3.5",
         "mockery/mockery": "^1.4.2",
         "nunomaduro/collision": "^5.0",
