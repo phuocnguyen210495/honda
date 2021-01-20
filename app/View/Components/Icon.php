@@ -11,7 +11,7 @@ class Icon extends Component
     public string $height;
     public string $name;
     public string $set;
-    
+
     /**
      * Create a new component instance.
      *

@@ -11,13 +11,17 @@ class Alert  extends Component
     public bool $closeable;
     public string $type;
     public string $description;
-    
+
     /**
      * Create a new component instance.
      *
-     * @return void
+     * @param string $content
+     * @param string $type
+     * @param string $description
+     * @param string $icon
+     * @param bool $closeable
      */
-    public function __construct(string $content, string $type, string $description = '', string $icon = 'information-circle', bool $closeable = true)
+    public function __construct(string $content, string $type, string $description = '', string $icon = 'information-circle', bool $closeable = false)
     {
         $this->content = $content;
         $this->type = $type;
@@ -37,11 +41,11 @@ class Alert  extends Component
     }
 
     public function convertType(string $type) {
-        return [    
+        return [
             'error' => 'red',
             'success' => 'green',
             'warning' => 'yellow',
-            'info' => 'blue'       
+            'info' => 'blue'
         ][$type] ?? 'gray';
     }
 }

@@ -10,10 +10,12 @@ class Icon extends Component
     public string $icon;
     public string $type;
     public string $iconSet;
+
     /**
-     * Create a new component instance.
-     *
-     * @return void
+     * @param string $color
+     * @param string $icon
+     * @param string $type
+     * @param string $iconSet
      */
     public function __construct(string $color, string $icon, string $type = 'submit', string $iconSet = 'heroicon')
     {
