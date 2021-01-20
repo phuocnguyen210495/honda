@@ -1,7 +1,7 @@
 @if ($markdown)
-    <x-markdown :color="$color">{{ $content ?? $slot }}</x-markdown>
+    <x-markdown :color="$color" {{ $attributes }}>{{ $content ?? $slot }}</x-markdown>
 @else
-    <p class="text-{{ $color }}-700">
+    <p {{ $attributes->merge(['class' => 'text-' . $color . '-700']) }}>
         {{ $content ?? $slot }}
     </p>
 @endif

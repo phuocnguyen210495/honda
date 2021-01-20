@@ -15,4 +15,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'front.welcome');
 
+require __DIR__ . '/auth.php';
 require __DIR__ . '/starts.php';

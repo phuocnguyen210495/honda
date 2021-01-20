@@ -10,6 +10,8 @@ TODO:
 * [ ] Avatar with status (red, green, yellow) -- discord like
 * [x] Colored dot (as a component x-dot color="" :shown="false")
 * [x] Unique toggleable star (as a checkbox) (any icon customizable)
+* [ ] Middleware to set locale based on user's preferences + ?hl={lang}
+
 ### Requirements
 
 * PHP7.4

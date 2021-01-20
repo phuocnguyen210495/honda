@@ -31,12 +31,13 @@
                 @if ($hiddenLabel) aria-label="{{ $label }}" @endif
                 type="{{ $type }}"
                 id="{{ $name }}"
+                name="{{ $name }}"
                 x-ref="input"
                 @focusin="showFocusRing = true"
                 @focusout="showFocusRing = false"
                 @input="showError = false; if ($event.target.value === '') { showError = true }; $dispatch('{{ $name }}-input', { value: $event.target.value })"
                 value="{{ $attributes->get('value') ?? (!str_contains($name, 'password') ? old($name) : '' )}}"
-                class="bg-white rounded-lg px-4 py-3 border font-medium placeholder-gray-700 @if ($inlineAddon || $icon) border-{{ $side() }}-0 @endif @if ($addon || $icon)  rounded-{{ $side() }}-none @endif font-display w-full focus:border-opacity-0 focus:outline-none {{ $attributes->get('class') }}"
+                class="bg-white rounded-lg px-4 py-3 border font-medium placeholder-gray-500 @if ($inlineAddon || $icon) border-{{ $side() }}-0 @endif @if ($addon || $icon)  rounded-{{ $side() }}-none @endif font-display w-full focus:border-opacity-0 focus:outline-none {{ $attributes->get('class') }}"
                 {{ $attributes->except('class', 'value') }}
             />
         </div>
