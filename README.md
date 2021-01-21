@@ -11,7 +11,8 @@ TODO:
 * [x] Colored dot (as a component x-dot color="" :shown="false")
 * [x] Unique toggleable star (as a checkbox) (any icon customizable)
 * [ ] Middleware to set locale based on user's preferences + ?hl={lang}
-
+* [x] make:view
+* Move Console/Commands to Commands
 ### Requirements
 
 * PHP7.4

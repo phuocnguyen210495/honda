@@ -1,1 +1,1 @@
-<input type="hidden" name="{{ $key }}" $value="{{ $value }}" {{ $attributes->get('class') }}" {{ $attributes->except('class') }}
+<input type="hidden" name="{{ $key }}" @if ($value) value="{{ $value }}" @endif {{ $attributes }} />

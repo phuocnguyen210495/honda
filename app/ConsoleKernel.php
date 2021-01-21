@@ -7,6 +7,7 @@ use App\Console\Commands\GetEnvCommand;
 use App\Console\Commands\GetSettingCommand;
 use App\Console\Commands\ListEnvCommand;
 use App\Console\Commands\ListSettingsCommand;
+use App\Console\Commands\MakeViewCommand;
 use App\Console\Commands\SetEnvCommand;
 use App\Console\Commands\SetSettingCommand;
 use Illuminate\Console\Scheduling\Schedule;
@@ -26,7 +27,8 @@ class ConsoleKernel extends Kernel
         ListSettingsCommand::class,
         SetEnvCommand::class,
         GetEnvCommand::class,
-        ListEnvCommand::class
+        ListEnvCommand::class,
+        MakeViewCommand::class
     ];
 
     /**
