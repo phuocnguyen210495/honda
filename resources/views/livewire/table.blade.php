@@ -8,7 +8,7 @@
         <input type="text" wire:model="query"
                aria-label="{{ __('Search ' . strtolower(class_basename($model)) . '\'s records') }}"
                placeholder="{{ __('Search ' . strtolower(class_basename($model)) . '\'s records') }}"
-               class="bg-white rounded-lg px-4 border font-display py-2.5 placeholder-gray-500 focus:border-opacity-0 focus:outline-none focus:shadow-outline-blue w-full my-4"/>
+               class="bg-white rounded-lg px-4 border font-display py-2.5 placeholder-gray-500 focus:border-opacity-0 focus:outline-none focus:shadow-outline-{{ settings('color') }} w-full my-4"/>
         <select :aria-label="__('Results per page')" wire:model="perPage"
                 class="form-select py-2.5 w-full sm:w-auto sm:ml-4 rounded-lg">
             <option>10</option>

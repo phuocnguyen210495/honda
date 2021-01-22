@@ -1,5 +1,6 @@
 <x-layout title="">
     <x-container>
-        <x-inputs.pin name="code" length="8" />       
+        <x-toggle name="settings" />
     </x-container>
 </x-layout>
+ 
