@@ -7,10 +7,19 @@ use InvalidArgumentException;
 
 class Avatar extends Component
 {
+    public const STATUSES = ['online', 'idle', 'dnd', 'absent'];
+    public const STATUSES_COLOR = [
+        'online' => 'green',
+        'idle' => 'orange',
+        'dnd' => 'red',
+        'absent' => 'gray'
+    ];
+
     public string $search;
     public string $src;
     public string $provider;
     public string $fallback;
+    public ?string $status;
     public int $size;
 
     /**
@@ -22,7 +31,7 @@ class Avatar extends Component
      * @param string $fallback
      * @param string $size
      */
-    public function __construct(string $search = null, string $src = null, string $provider = null, string $fallback = null, int $size = 8)
+    public function __construct(string $search = null, string $src = null, string $provider = null, string $fallback = null, int $size = 8, string $status =  null)
     {
         if (!$search && !$src) {
             throw new InvalidArgumentException('Both src and search are empty, unable to find an avatar');
@@ -32,6 +41,8 @@ class Avatar extends Component
         $this->provider = $provider;
         $this->fallback = $fallback;
         $this->size = $size;
+        // TODO: Make it work
+        $this->status = $status !== null ? static::STATUSES_COLOR[$status] : null;
     }
 
     /**

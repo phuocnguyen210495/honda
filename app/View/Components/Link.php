@@ -16,11 +16,11 @@ class Link extends Component
      *
      * @return void
      */
-    public function __construct(string $content = null, string $href = null, string $color = 'gray', bool $unstyled = false)
+    public function __construct(string $content = null, string $href = null, string $color = null, bool $unstyled = false)
     {
         $this->content = $content;
         $this->href = Action::guess($href);
-        $this->color = $color;
+        $this->color = $color ?? settings('color');
         $this->unstyled  = $unstyled;
     }
 

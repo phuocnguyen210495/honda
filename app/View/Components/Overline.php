@@ -21,7 +21,7 @@ class Overline extends Component
     {
         $this->content = $content;
         $this->size = $size;
-        $this->color = $color;
+        $this->color = $color ?? settings('color');
     }
 
     /**

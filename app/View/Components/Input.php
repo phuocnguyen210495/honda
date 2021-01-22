@@ -55,7 +55,7 @@ class Input extends Component
         $this->name = $name;
         $this->type = $this->resolveType($type, $name);
         $this->label = $this->resolveLabel($label, $name);
-        $this->color = $color ?? "globally defined color   ";
+        $this->color = $color ?? settings('color');
         $this->icon = $icon;
         $this->iconSet = 'heroicon';
         $this->addonSide = $addonSide !== 'right' ? 'left' : 'right';

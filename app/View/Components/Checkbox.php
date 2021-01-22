@@ -21,10 +21,10 @@ class Checkbox extends Component
      * @param string|null $label
      * @param bool $first
      */
-    public function __construct(string $name, string $color = 'gray', ?string $label = null, bool $first = false)
+    public function __construct(string $name, string $color = null, ?string $label = null, bool $first = false)
     {
         $this->name = $name;
-        $this->color = $color;
+        $this->color = $color ?? settings('color');
         $this->label = $label ?? Str::humanize($name);
         $this->first = $first;
     }
