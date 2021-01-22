@@ -39,20 +39,19 @@ class Input extends Component
      * @param bool $first
      */
     public function __construct(
-        /* DONE */ string $name,
-        /* DONE */ string $type = null,
-        /* DONE */ string $label = null,
-        /* Use so kind of global setting */ string $color = null,
-        /* DONE */ string $icon = null,
-        /* DONE */ string $addonSide = 'left',
-        /* DONE */ string $addon = null,
-        /* DONE */ string $info = null,
-        /* DONE */ string $cornerHint = null,
-        /* DONE */ bool $hiddenLabel = false,
-        /* DONE */ bool $inlineAddon = false,
-        /* DONE */ bool $first = false
-    )
-    {
+        string $name,
+        string $type = null,
+        string $label = null,
+        string $color = null,
+        string $icon = null,
+        string $addonSide = 'left',
+        string $addon = null,
+        string $info = null,
+        string $cornerHint = null,
+        bool $hiddenLabel = false,
+        bool $inlineAddon = false,
+        bool $first = false
+    ) {
         $this->name = $name;
         $this->type = $this->resolveType($type, $name);
         $this->label = $this->resolveLabel($label, $name);
