@@ -13,6 +13,16 @@ TODO:
 * [ ] Middleware to set locale based on user's preferences + ?hl={lang}
 * [x] make:view
 * Move Console/Commands to Commands
+* Use RouteServiceProvider::HOME instead of /home
+* Change make:x stubs to match namespaces
+* add make:storage {path} --driver{=local}
+* Empty state component
+* make:view fails when creating a file in non existing directory
+* File input component
+* Checkbox style
+* Change namespace in RedirectIfAuthenticated from App\Providers to App\Provider
+* Masonry component
+
 ### Requirements
 
 * PHP7.4
