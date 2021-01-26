@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Provider\RouteServiceProvider;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/', 'front.welcome');
+Route::view(RouteServiceProvider::HOME, 'home');
 
 require __DIR__ . '/auth.php';
 require __DIR__ . '/starts.php';

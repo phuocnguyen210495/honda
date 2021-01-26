@@ -2,10 +2,10 @@
 
 namespace App\Middleware;
 
-use App\Providers\RouteServiceProvider;
+use App\Provider\RouteServiceProvider;
+use Auth;
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class RedirectIfAuthenticated
 {

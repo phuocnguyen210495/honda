@@ -3,9 +3,9 @@
 namespace App\Middleware;
 
 use App\Model\Visitor;
+use Auth;
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Stevebauman\Location\Facades\Location;
 
 class TrackVisitors

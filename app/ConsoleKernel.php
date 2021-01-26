@@ -3,13 +3,13 @@
 namespace App;
 
 use App\Command\SetupCommand;
-use App\Console\Commands\GetEnvCommand;
-use App\Console\Commands\GetSettingCommand;
-use App\Console\Commands\ListEnvCommand;
-use App\Console\Commands\ListSettingsCommand;
-use App\Console\Commands\MakeViewCommand;
-use App\Console\Commands\SetEnvCommand;
-use App\Console\Commands\SetSettingCommand;
+use App\Command\GetEnvCommand;
+use App\Command\GetSettingCommand;
+use App\Command\ListEnvCommand;
+use App\Command\ListSettingsCommand;
+use App\Command\MakeViewCommand;
+use App\Command\SetEnvCommand;
+use App\Command\SetSettingCommand;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel;
 
