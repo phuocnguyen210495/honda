@@ -7,7 +7,7 @@ use Symfony\Component\Routing\Exception\RouteNotFoundException;
 
 class Action
 {
-    public static function guess(string $url = '', array $context = []): string
+    public static function guess(?string $url = '', array $context = []): string
     {
         if (empty($url)) {
             return '/' . ltrim(request()->path(), '/');

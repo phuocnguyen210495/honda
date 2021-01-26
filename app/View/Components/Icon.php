@@ -13,14 +13,6 @@ class Icon extends Component
     public string $name;
     public string $set;
 
-    /**
-     * @param string $name
-     * @param bool $solid
-     * @param string $w
-     * @param string $h
-     * @param string|null $size
-     * @param string $set
-     */
     public function __construct(string $name, bool $solid = false, string $w = '8', string $h = '8', string $size = null, string $set = 'heroicon')
     {
         $this->name   = $name;
@@ -30,11 +22,6 @@ class Icon extends Component
         $this->set    = $set;
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return View
-     */
     public function render(): View
     {
         return view('components.icon');

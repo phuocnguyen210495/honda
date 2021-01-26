@@ -8,18 +8,18 @@ use InvalidArgumentException;
 
 class Avatar extends Component
 {
-    public const STATUSES = ['online', 'idle', 'dnd', 'absent'];
+    public const STATUSES       = ['online', 'idle', 'dnd', 'absent'];
     public const STATUSES_COLOR = [
         'online' => 'green',
-        'idle' => 'orange',
-        'dnd' => 'red',
+        'idle'   => 'orange',
+        'dnd'    => 'red',
         'absent' => 'gray',
     ];
 
-    public string $search;
-    public string $src;
-    public string $provider;
-    public string $fallback;
+    public ?string $search;
+    public ?string $fallback;
+    public ?string $provider;
+    public ?string $src;
     public ?string $status;
     public int $size;
 
@@ -30,8 +30,6 @@ class Avatar extends Component
      * @param string $src
      * @param string $provider
      * @param string $fallback
-     * @param int $size
-     * @param string|null $status
      */
     public function __construct(string $search = null, string $src = null, string $provider = null, string $fallback = null, int $size = 8, string $status = null)
     {
@@ -39,13 +37,16 @@ class Avatar extends Component
             throw new InvalidArgumentException('Both src and search are empty, unable to find an avatar');
         }
 
-        $this->search = $search;
-        $this->src = $src;
+        if ($status && !in_array($status, static::STATUSES)) {
+            throw new InvalidArgumentException("Invalid status provided [$status], allowed : " . implode(', ', static::STATUSES));
+        }
+
+        $this->search   = $search;
+        $this->src      = $src;
         $this->provider = $provider;
         $this->fallback = $fallback;
-        $this->size = $size;
-        // TODO: Make it work
-        $this->status = $status !== null ? static::STATUSES_COLOR[$status] : null;
+        $this->size     = $size;
+        $this->status   = $status !== null ? static::STATUSES_COLOR[$status] : null;
     }
 
     public function render(): View

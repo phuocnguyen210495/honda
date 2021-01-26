@@ -21,14 +21,9 @@ class SearchableSelect extends Component
     /**
      * Create a new component instance.
      *
-     * @param string $name
-     * @param string|null $label
      * @param string|string[] $values
      * @param string|string[] $selected
      * @param string|string[] $keys
-     * @param bool $multiple
-     * @param bool $searchable
-     * @param bool $first
      */
     public function __construct(string $name, $values, string $label = null, $selected = null, $keys = null, bool $multiple = false, bool $searchable = false, bool $first = false)
     {

@@ -1,6 +1,8 @@
-<div @if ($status) class="flex items-end" @endif>
-    <img class="w-{{ $size }} h-{{ $size }} rounded-full object-cover object-center" src="{{ $url() }}" {{ $attributes }} />
+<div class="relative inline-block">
+    <img class="inline-block object-cover w-{{ $size }} h-{{ $size }} rounded-full {{ $attributes->get('class') }}"
+         src="{{ $url() }}" {{ $attributes->except('class') }}/>
+
     @if ($status)
-        <x-dot size="2" :color="$status" class="ml-2" />
-    @endif 
-</div>  
+        <x-dot class="absolute bottom-0 right-0 border-2 border-white" size="3" :color="$status" />
+    @endif
+</div>

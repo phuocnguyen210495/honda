@@ -28,7 +28,7 @@ class ArrayList implements Arrayable, IteratorAggregate, Countable
         } else {
             $converted = collect(
                 explode(',', $list)
-            )->map(fn($v) => trim($v))->all();
+            )->map(fn ($v) => trim($v))->all();
         }
 
         $this->list = $converted;
@@ -36,6 +36,7 @@ class ArrayList implements Arrayable, IteratorAggregate, Countable
 
     /**
      * @param Collection|array|string|null $list
+     *
      * @return ArrayList
      */
     public static function make($list = null): self

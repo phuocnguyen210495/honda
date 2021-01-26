@@ -50,11 +50,6 @@ class Social extends Component
         return view('components.social');
     }
 
-    /**
-     * @param string $link
-     * @param string $type
-     * @return string
-     */
     public function buildLink(string $link, string $type): string
     {
         if (in_array($type, ['tel', 'mail'])) {

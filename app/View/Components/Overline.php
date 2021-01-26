@@ -11,16 +11,11 @@ class Overline extends Component
     public ?string $size;
     public ?string $color;
 
-    /**
-     * @param string|null $content
-     * @param string $size
-     * @param string|null $color
-     */
     public function __construct(string $content = null, string $size = 'xs', string $color = null)
     {
         $this->content = $content;
-        $this->size = $size;
-        $this->color = $color ?? settings('color');
+        $this->size    = $size;
+        $this->color   = $color ?? settings('color');
     }
 
     /**

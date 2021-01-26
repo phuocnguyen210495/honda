@@ -15,19 +15,14 @@ class Alert extends Component
 
     /**
      * Alert constructor.
-     * @param string $content
-     * @param string $type
-     * @param string $description
-     * @param string $icon
-     * @param bool $closeable
      */
     public function __construct(string $content, string $type, string $description = '', string $icon = 'information-circle', bool $closeable = false)
     {
-        $this->content = $content;
-        $this->type = $type;
+        $this->content     = $content;
+        $this->type        = $type;
         $this->description = $description;
-        $this->icon = $icon;
-        $this->closeable = $closeable;
+        $this->icon        = $icon;
+        $this->closeable   = $closeable;
     }
 
     public function render(): View
@@ -38,10 +33,10 @@ class Alert extends Component
     public function convertType(string $type): string
     {
         return [
-                'error' => 'red',
+                'error'   => 'red',
                 'success' => 'green',
                 'warning' => 'yellow',
-                'info' => 'blue',
+                'info'    => 'blue',
             ][$type] ?? 'gray';
     }
 }

@@ -3,6 +3,7 @@
 namespace App\View\Components;
 
 use App\Support\Action;
+use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class Link extends Component
@@ -11,26 +12,22 @@ class Link extends Component
     public string $href;
     public string $color;
     public bool $unstyled;
+    public ?string $icon;
+    public string $iconSide;
+    public string $iconSet;
 
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
-    public function __construct(string $content = null, string $href = null, string $color = null, bool $unstyled = false)
+    public function __construct(string $content = null, string $href = null, string $color = null, bool $unstyled = false, string $icon = null, string $iconSet = 'heroicon', string $iconSide = 'right')
     {
-        $this->content   = $content;
-        $this->href      = Action::guess($href);
-        $this->color     = $color ?? settings('color');
-        $this->unstyled  = $unstyled;
+        $this->content  = $content;
+        $this->href     = Action::guess($href);
+        $this->color    = $color ?? settings('color');
+        $this->unstyled = $unstyled;
+        $this->icon     = $icon;
+        $this->iconSet  = $iconSet;
+        $this->iconSide = $iconSide;
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\Contracts\View\View|string
-     */
-    public function render()
+    public function render(): View
     {
         return view('components.link');
     }

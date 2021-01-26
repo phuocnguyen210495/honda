@@ -15,11 +15,7 @@ class ToggleableIcon extends Component
     public bool $checked;
 
     /**
-     * @param string $name
-     * @param string|null $label
      * @param string $filledColor
-     * @param string $color
-     * @param bool $checked
      */
     public function __construct(string $name, string $label = null, string $filledColor = null, string $color = 'gray', bool $checked = false)
     {

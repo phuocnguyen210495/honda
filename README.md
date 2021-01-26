@@ -4,15 +4,15 @@ TODO:
 * [ ] Year, month, day, birthday input
 * [ ] Clock input, disabled time, enabled time
 * [ ] Calendar
-* [ ] Pin input [(inspiration here)](https://tailwindcomponents.com/component/pin-code-field)
-* [ ] Image upload field
+* [ ] Image upload field+
 * [ ] Avatar with status (red, green, yellow) -- discord like
 * [ ] Middleware to set locale based on user's preferences + ?hl={lang}
 * [ ] Empty state component
 * [ ] File input component
 * [ ] Checkbox style
 * [ ] Masonry component
-
+* [ ] Auth
+* [ ] Use ring instead of shadow-outline everywhere (see buttons for ref)
 ### Requirements
 
 * PHP7.4

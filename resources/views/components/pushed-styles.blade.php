@@ -2,7 +2,7 @@
     <link rel="stylesheet" href="{{ $style }}" {{ $attrs }}>
 @endforeach
 
-@foreach(\App\Support\Styles::$pushedRaw as $script)
+@foreach(\App\Support\Styles::$pushedRaw as $style)
     <style>
         {!! $style !!}
     </style>

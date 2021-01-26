@@ -15,7 +15,7 @@
     <x-title content="Content" level="h2"/>
     <x-paragraph
         content="Here is a bit of a paragraph with some words saying some things, i'm sure you get the **point**. And *Ho!*, it also supports **markdown**..."
-        markdown />
+        markdown/>
 
     <x-title content="Basic titles" level="h3" class="mt-4"/>
     <x-title content="An API for your design system." level="h1" class="mt-2"/>
@@ -186,6 +186,28 @@
         <x-buttons.text icon="inbox-in" content="Withdraw" color="pink"/>
     </div>
 
+    <x-title content="Avatar" level="h2" class="mt-6"/>
+    <div class="flex space-x-4 mt-4">
+        <x-avatar search="felixdorn" provider="github"/>
+        <x-avatar
+            src="https://avatars.githubusercontent.com/u/55788595?s=460&u=49a9b844970961a8717c603eb5988de07a993d0a&v=4"/>
+        <x-avatar search="felixdorn" provider="github" status="online"/>
+        <x-avatar search="felixdorn" provider="github" status="idle"/>
+        <x-avatar search="felixdorn" provider="github" status="dnd"/>
+        <x-avatar search="felixdorn" provider="github" status="absent"/>
+    </div>
+
+    <x-title content="Links" level="h2" class="mt-6"/>
+
+    <div class="flex space-x-4 mt-4">
+        <x-link content="Read more" color="gray"/>
+        <x-link content="Read more" color="red"/>
+        <x-link content="Read more" color="yellow"/>
+        <x-link content="Read more" color="gtreen"/>
+        <x-link content="Read more" color="blue"/>
+        <x-link content="Read more" color="pink"/>
+        <x-link content="Read more" icon="arrow-right" icon-side="right"/>
+    </div>
 </x-container>
 
 @livewireScripts

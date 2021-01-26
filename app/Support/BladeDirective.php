@@ -7,7 +7,7 @@ use Blade;
 final class BladeDirective
 {
     private string $name;
-    /** @var callable $callable */
+    /** @var callable */
     private $callable;
 
     public function __construct(string $name, callable $callable)

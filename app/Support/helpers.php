@@ -4,7 +4,6 @@ use Spatie\Valuestore\Valuestore;
 
 if (!function_exists('settings')) {
     /**
-     * @param string|null $key
      * @return Valuestore|mixed
      */
     function settings(string $key = null)

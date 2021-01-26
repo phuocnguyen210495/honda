@@ -24,16 +24,16 @@ class TrackVisitors
 
             if ($visitor === null) {
                 $visitor = Visitor::create([
-                    'ip' => $request->ip(),
-                    'ua' => $request->userAgent(),
-                    'visits' => 0,
-                    'user_id' => Auth::id(),
+                    'ip'           => $request->ip(),
+                    'ua'           => $request->userAgent(),
+                    'visits'       => 0,
+                    'user_id'      => Auth::id(),
                     'country_name' => 'United States',
-                    'region_name' => 'Kansa',
-                    'city_name' => 'San Diego',
-                    'latitude' => '37.751',
-                    'longitude' => '-97.822',
-                    'zip_code' => 00000,
+                    'region_name'  => 'Kansa',
+                    'city_name'    => 'San Diego',
+                    'latitude'     => '37.751',
+                    'longitude'    => '-97.822',
+                    'zip_code'     => 00000,
                 ]);
             }
         } else {
@@ -45,16 +45,16 @@ class TrackVisitors
 
             $visitor = Visitor::where('ip', $location->ip)
                 ->where('ua', $request->userAgent())->firstOrCreate([
-                    'ip' => $location->ip,
-                    'ua' => $request->userAgent(),
-                    'visits' => 0,
-                    'user_id' => Auth::id(),
+                    'ip'           => $location->ip,
+                    'ua'           => $request->userAgent(),
+                    'visits'       => 0,
+                    'user_id'      => Auth::id(),
                     'country_name' => $location->countryName,
-                    'region_name' => $location->regionName,
-                    'city_name' => $location->cityName,
-                    'latitude' => $location->latitude,
-                    'longitude' => $location->longitude,
-                    'zip_code' => $location->zipCode,
+                    'region_name'  => $location->regionName,
+                    'city_name'    => $location->cityName,
+                    'latitude'     => $location->latitude,
+                    'longitude'    => $location->longitude,
+                    'zip_code'     => $location->zipCode,
                 ]);
         }
 
