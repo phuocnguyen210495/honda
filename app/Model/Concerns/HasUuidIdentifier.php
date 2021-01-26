@@ -6,7 +6,7 @@ use Str;
 
 trait HasUuidIdentifier
 {
-    protected static function bootHasUuidIdentifier()
+    protected static function bootHasUuidIdentifier(): void
     {
         static::creating(function ($model) {
             if (!$model->getKey()) {
@@ -15,12 +15,12 @@ trait HasUuidIdentifier
         });
     }
 
-    public function getIncrementing()
+    public function getIncrementing(): bool
     {
         return false;
     }
 
-    public function getKeyType()
+    public function getKeyType(): string
     {
         return 'string';
     }
