@@ -2,27 +2,18 @@
 
 namespace App\Command;
 
+use File;
 use Illuminate\Console\Command;
-use Illuminate\Contracts\View\View;
-use Illuminate\Foundation\Inspiring;
 
 class MakeViewCommand extends Command
 {
-    /**
-     * The name and signature of the console command.
-     *
-     * @var string
-     */
+    /** @var string */
     protected $signature = 'make:view {name}';
 
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
+    /** @var string */
     protected $description = 'Creates a view programmatically';
 
-    public function handle()
+    public function handle(): void
     {
         $name = str_replace(
             '.blade.php',
@@ -30,10 +21,18 @@ class MakeViewCommand extends Command
             $this->argument('name')
         );
 
-        $path = resource_path('views/' . str_replace('.', '/', $name)) . '.blade.php';
+
+        $path = resource_path('views/' . str_replace('.', '/', $name));
+
+        $directories = explode(DIRECTORY_SEPARATOR, $path);
+        array_pop($directories);
+        File::makeDirectory(implode(DIRECTORY_SEPARATOR, $directories), 0755, true);
+
+        $path .= '.blade.php';
 
         if (file_exists($path)) {
-            return $this->error('View already exists!');
+            $this->error('View already exists!');
+            return;
         }
 
         $created = file_put_contents($path, $this->getViewContents());
@@ -45,7 +44,8 @@ class MakeViewCommand extends Command
         }
     }
 
-    public function getViewContents(): string {
+    public function getViewContents(): string
+    {
         return <<<EOF
         <x-layout title="">
             <x-container>

@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Command\MakeStorageCommand;
 use App\Command\SetupCommand;
 use App\Command\GetEnvCommand;
 use App\Command\GetSettingCommand;
@@ -28,7 +29,8 @@ class ConsoleKernel extends Kernel
         SetEnvCommand::class,
         GetEnvCommand::class,
         ListEnvCommand::class,
-        MakeViewCommand::class
+        MakeViewCommand::class,
+        MakeStorageCommand::class
     ];
 
     /**
