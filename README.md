@@ -5,13 +5,9 @@ TODO:
 * [ ] Clock input, disabled time, enabled time
 * [ ] Calendar
 * [ ] Pin input [(inspiration here)](https://tailwindcomponents.com/component/pin-code-field)
-* [ ] Toggle input [TUI ref](https://tailwindui.com/components/application-ui/forms/toggles)
 * [ ] Image upload field
 * [ ] Avatar with status (red, green, yellow) -- discord like
-* [x] Colored dot (as a component x-dot color="" :shown="false")
-* [x] Unique toggleable star (as a checkbox) (any icon customizable)
 * [ ] Middleware to set locale based on user's preferences + ?hl={lang}
-* [x] make:view
 * [ ] Empty state component
 * [ ] File input component
 * [ ] Checkbox style

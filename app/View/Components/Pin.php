@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components\Inputs;
+namespace App\View\Components;
 
 use Illuminate\View\Component;
 use Str;
@@ -29,6 +29,6 @@ class Pin extends Component
      */
     public function render()
     {
-        return view('components.inputs.pin');
+        return view('components.pin');
     }
 }

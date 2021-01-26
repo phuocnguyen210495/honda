@@ -1,5 +1,6 @@
 <div class="flex flex-col w-full" x-data="{
             length: {{ $length }},
+            pin: '',
             resetValue(i) {
                 for (x = 0; x < this.length; x++) {
                     if (x >= i) document.getElementById(`pin_${x}`).value = ''
@@ -18,11 +19,11 @@
                 }
             },
             value() {
-                pin = '';
-                for (x = 0; x < this.length - 1; x++) {
-                    pin += document.getElementById(`pin_${x}`).value    
+                pin = ''
+                for (x = 0; x < this.length; x++) {
+                    pin += document.getElementById(`pin_${x}`).value
                 }
-                return pin;
+                return pin
             }
         }">
     @if (!$hiddenLabel)
@@ -30,8 +31,8 @@
     @endif
     <div class="flex mt-2 space-x-4">
         <template x-for="(_, i) in length" :key="`pin_${i}`" hidden>
-            <input :autofocus="i == 0" :id="`pin_${i}`" class="h-16 w-16 placeholder-gray-300 focus:outline-none focus:shadow-outline-{{ $color }} border rounded-lg flex items-center text-center text-3xl {{ $attributes->get('class') }}" value="" maxlength="1" max="9" min="0" inputmode="numeric" @input="if (isNaN($event.target.value)) { resetValue(i); }" @keyup="stepForward(i)" @keydown.backspace="stepBack(i)" @focus="resetValue(i)" placeholder="0" />
+            <input :autofocus="i == 0" :id="`pin_${i}`" class="h-16 w-16 placeholder-gray-300 focus:outline-none focus:shadow-outline-{{ $color }} border rounded-lg flex items-center text-center text-3xl {{ $attributes->get('class') }}" value="" maxlength="1" max="9" min="0" inputmode="numeric" @input="if (isNaN($event.target.value)) { resetValue(i); } else { pin = value() }" @keyup="stepForward(i)" @keydown.backspace="stepBack(i)" @focus="resetValue(i)" placeholder="0" />
         </template>
     </div>
-    <x-value :key="$name" x-bind:value="value()" />
+    <x-value :key="$name" x-bind:value="pin" />
 </div>
