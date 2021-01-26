@@ -21,7 +21,6 @@ class MakeViewCommand extends Command
             $this->argument('name')
         );
 
-
         $path = resource_path('views/' . str_replace('.', '/', $name));
 
         $directories = explode(DIRECTORY_SEPARATOR, $path);
@@ -32,6 +31,7 @@ class MakeViewCommand extends Command
 
         if (file_exists($path)) {
             $this->error('View already exists!');
+
             return;
         }
 

@@ -7,6 +7,7 @@ use Illuminate\View\Component;
 class RedirectBack extends Component
 {
     public string $button;
+
     /**
      * Create a new component instance.
      *

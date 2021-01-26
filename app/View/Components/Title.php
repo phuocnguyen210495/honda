@@ -13,15 +13,11 @@ class Title extends Component
 
     /**
      * Create a new component instance.
-     *
-     * @param string $level
-     * @param string|null $content
-     * @param string|null $color
      */
     public function __construct(string $level, string $content = null, string $color = null)
     {
-        $this->level = $level;
-        $this->color = $color;
+        $this->level   = $level;
+        $this->color   = $color;
         $this->content = $content;
     }
 

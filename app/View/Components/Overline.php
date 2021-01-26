@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class Overline extends Component
@@ -11,10 +12,8 @@ class Overline extends Component
     public ?string $color;
 
     /**
-     * Create a new component instance.
-     *
      * @param string|null $content
-     * @param string|null $size
+     * @param string $size
      * @param string|null $color
      */
     public function __construct(string $content = null, string $size = 'xs', string $color = null)
@@ -27,7 +26,7 @@ class Overline extends Component
     /**
      * Get the view / contents that represent the component.
      *
-     * @return \Illuminate\Contracts\View\View|string
+     * @return View|string
      */
     public function render()
     {

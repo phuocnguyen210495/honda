@@ -4,7 +4,6 @@ namespace App\View\Components;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
-use Str;
 
 class Input extends Component
 {
@@ -25,18 +24,7 @@ class Input extends Component
     /**
      * Create a new component instance.
      *
-     * @param string $name
      * @param string $type
-     * @param string|null $label
-     * @param string|null $color
-     * @param string|null $icon
-     * @param string $addonSide
-     * @param string|null $addon
-     * @param string|null $info
-     * @param string|null $cornerHint
-     * @param bool $hiddenLabel
-     * @param bool $inlineAddon
-     * @param bool $first
      */
     public function __construct(
         string $name,
@@ -52,19 +40,19 @@ class Input extends Component
         bool $inlineAddon = false,
         bool $first = false
     ) {
-        $this->name = $name;
-        $this->type = $this->resolveType($type, $name);
-        $this->label = $this->resolveLabel($label, $name);
-        $this->color = $color ?? settings('color');
-        $this->icon = $icon;
-        $this->iconSet = 'heroicon';
-        $this->addonSide = $addonSide !== 'right' ? 'left' : 'right';
-        $this->addon = $addon;
+        $this->name        = $name;
+        $this->type        = $this->resolveType($type, $name);
+        $this->label       = $this->resolveLabel($label, $name);
+        $this->color       = $color ?? settings('color');
+        $this->icon        = $icon;
+        $this->iconSet     = 'heroicon';
+        $this->addonSide   = $addonSide !== 'right' ? 'left' : 'right';
+        $this->addon       = $addon;
         $this->inlineAddon = $inlineAddon;
-        $this->info = $info;
+        $this->info        = $info;
         $this->hiddenLabel = $hiddenLabel;
-        $this->cornerHint = $cornerHint;
-        $this->first = $first;
+        $this->cornerHint  = $cornerHint;
+        $this->first       = $first;
     }
 
     private function resolveType(?string $type, string $name): string

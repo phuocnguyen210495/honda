@@ -5,7 +5,6 @@ namespace App\Command;
 use App;
 use Dotenv\Dotenv;
 use Illuminate\Console\Command;
-use Illuminate\Support\Env;
 
 class ListEnvCommand extends Command
 {
@@ -42,6 +41,6 @@ class ListEnvCommand extends Command
     {
         $this->table(['Key', 'Value'], collect(Dotenv::parse(
             file_get_contents(App::environmentFilePath())
-        ))->map(fn($value, $key) => [$key, $value]));
+        ))->map(fn ($value, $key) => [$key, $value]));
     }
 }

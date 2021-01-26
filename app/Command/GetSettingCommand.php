@@ -2,7 +2,6 @@
 
 namespace App\Command;
 
-use App\View\Components\Value;
 use Illuminate\Console\Command;
 use Spatie\Valuestore\Valuestore;
 
@@ -21,7 +20,6 @@ class GetSettingCommand extends Command
      * @var string
      */
     protected $description = 'Gets the value of a global setting';
-
 
     /**
      * Execute the console command.

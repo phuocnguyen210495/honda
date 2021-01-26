@@ -14,15 +14,13 @@ class Markdown extends Component
     /**
      * Create a new component instance.
      *
-     * @param string|null $content
      * @param string $size
-     * @param string|null $color
      */
     public function __construct(string $content = null, string $size = null, string $color = null)
     {
         $this->content = $content;
-        $this->size = $size;
-        $this->color = $color ?? settings('color');
+        $this->size    = $size;
+        $this->color   = $color ?? settings('color');
     }
 
     /**

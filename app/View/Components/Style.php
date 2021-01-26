@@ -3,11 +3,12 @@
 namespace App\View\Components;
 
 use Illuminate\View\Component;
-use Throwable;      
+use Throwable;
 
 class Style extends Component
 {
     public string $link;
+
     /**
      * Create a new component instance.
      *
@@ -17,8 +18,9 @@ class Style extends Component
     {
         try {
             $link = mix($link);
-        } catch (Throwable $e) {}
-        
+        } catch (Throwable $e) {
+        }
+
         $this->link = $link;
     }
 

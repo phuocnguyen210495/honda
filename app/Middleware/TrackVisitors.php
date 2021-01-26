@@ -7,14 +7,13 @@ use Auth;
 use Closure;
 use Illuminate\Http\Request;
 use Stevebauman\Location\Facades\Location;
+use Stevebauman\Location\Position;
 
 class TrackVisitors
 {
     /**
      * Handle an incoming request.
      *
-     * @param Request $request
-     * @param Closure $next
      * @return mixed
      */
     public function handle(Request $request, Closure $next)
@@ -34,12 +33,16 @@ class TrackVisitors
                     'city_name' => 'San Diego',
                     'latitude' => '37.751',
                     'longitude' => '-97.822',
-                    'zip_code' => 00000
+                    'zip_code' => 00000,
                 ]);
             }
-
         } else {
             $location = Location::get($request->ip());
+
+            if (!$location instanceof Position) {
+                return $next($request);
+            }
+
             $visitor = Visitor::where('ip', $location->ip)
                 ->where('ua', $request->userAgent())->firstOrCreate([
                     'ip' => $location->ip,
@@ -51,11 +54,12 @@ class TrackVisitors
                     'city_name' => $location->cityName,
                     'latitude' => $location->latitude,
                     'longitude' => $location->longitude,
-                    'zip_code' => $location->zipCode
+                    'zip_code' => $location->zipCode,
                 ]);
         }
 
         $visitor->update(['visits' => $visitor->visits + 1]);
+
         return $next($request);
     }
 }

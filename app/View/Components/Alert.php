@@ -2,9 +2,10 @@
 
 namespace App\View\Components;
 
+use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class Alert  extends Component
+class Alert extends Component
 {
     public string $content;
     public string $icon;
@@ -13,8 +14,7 @@ class Alert  extends Component
     public string $description;
 
     /**
-     * Create a new component instance.
-     *
+     * Alert constructor.
      * @param string $content
      * @param string $type
      * @param string $description
@@ -30,22 +30,18 @@ class Alert  extends Component
         $this->closeable = $closeable;
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\Contracts\View\View|string
-     */
-    public function render()
+    public function render(): View
     {
         return view('components.alert');
     }
 
-    public function convertType(string $type) {
+    public function convertType(string $type): string
+    {
         return [
-            'error' => 'red',
-            'success' => 'green',
-            'warning' => 'yellow',
-            'info' => 'blue'
-        ][$type] ?? 'gray';
+                'error' => 'red',
+                'success' => 'green',
+                'warning' => 'yellow',
+                'info' => 'blue',
+            ][$type] ?? 'gray';
     }
 }

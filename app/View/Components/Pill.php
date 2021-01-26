@@ -14,20 +14,14 @@ class Pill extends Component
 
     /**
      * Create a new component instance.
-     *
-     * @param string $color
-     * @param string $content
-     * @param bool $dotted
-     * @param bool $disabled
-     * @param string $href
      */
     public function __construct(string $content, string $color = 'gray', bool $dotted = false, bool $disabled = false, string $href = '')
     {
-        $this->content = $content;
-        $this->color = $disabled ? 'gray' : $color;
-        $this->dotted = $dotted;
+        $this->content  = $content;
+        $this->color    = $disabled ? 'gray' : $color;
+        $this->dotted   = $dotted;
         $this->disabled = $disabled;
-        $this->href = $href;
+        $this->href     = $href;
     }
 
     /**

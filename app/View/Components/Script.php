@@ -8,6 +8,7 @@ use Throwable;
 class Script extends Component
 {
     public string $link;
+
     /**
      * Create a new component instance.
      *
@@ -17,8 +18,9 @@ class Script extends Component
     {
         try {
             $link = mix($link);
-        } catch (Throwable $e) {}
-        
+        } catch (Throwable $e) {
+        }
+
         $this->link = $link;
     }
 

@@ -13,15 +13,11 @@ class Paragraph extends Component
 
     /**
      * Create a new component instance.
-     *
-     * @param string|null $content
-     * @param string $color
-     * @param bool $markdown
      */
     public function __construct(string $content = null, string $color = 'gray', bool $markdown = false)
     {
-        $this->content = $content;
-        $this->color = $color;
+        $this->content  = $content;
+        $this->color    = $color;
         $this->markdown = $markdown;
     }
 

@@ -34,11 +34,13 @@ class MakeStorageCommand extends Command
 
         if (!str_contains($disks, '/* @disks */')) {
             $this->error('The configuration must contain the /* @disks */ annotation array in order to make the command make:storage work.');
+
             return;
         }
 
         if (config('filesystems.disks.' . $name) !== null) {
             $this->error("The disk [$name] already exists.");
+
             return;
         }
 
@@ -59,6 +61,7 @@ class MakeStorageCommand extends Command
         }
 
         $disk .= "        ],\n\n        /* @disks */";
+
         return $disk;
     }
 }

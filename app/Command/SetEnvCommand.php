@@ -7,14 +7,14 @@ use Illuminate\Console\Command;
 
 class SetEnvCommand extends Command
 {
-    protected $signature = 'env:set {key} {value}';
+    protected $signature   = 'env:set {key} {value}';
     protected $description = 'Sets a value in the .env';
 
     public function handle(): void
     {
         ['key' => $key, 'value' => $value] = $this->arguments();
 
-        $content = file_get_contents($envFile = App::environmentFilePath());
+        $content                  = file_get_contents($envFile = App::environmentFilePath());
         [$newContents, $isNewKey] = $this->setEnvVariable($content, $key, $value);
 
         if ($isNewKey) {
@@ -41,6 +41,7 @@ class SetEnvCommand extends Command
         // For existed key.
         if ($oldPair !== null) {
             $replaced = preg_replace('/^' . preg_quote($oldPair, '/') . '$/uimU', $newPair, $envFileContent);
+
             return [$replaced, false];
         }
 
@@ -48,15 +49,11 @@ class SetEnvCommand extends Command
         return [$envFileContent . "\n" . $newPair . "\n", true];
     }
 
-
     /**
      * Read the "key=value" string of a given key from an environment file.
      * This function returns original "key=value" string and doesn't modify it.
      *
-     * @param string $envFileContent
-     * @param string $key
-     *
-     * @return string|null Key=value string or null if the key is not exists.
+     * @return string|null key=value string or null if the key is not exists
      */
     public function readKeyValuePair(string $envFileContent, string $key): ?string
     {

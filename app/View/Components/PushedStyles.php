@@ -13,7 +13,6 @@ class PushedStyles extends Component
      */
     public function __construct()
     {
-        //
     }
 
     /**

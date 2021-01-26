@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Support;
-
 
 use Str;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;

@@ -11,6 +11,7 @@ class Link extends Component
     public string $href;
     public string $color;
     public bool $unstyled;
+
     /**
      * Create a new component instance.
      *
@@ -18,9 +19,9 @@ class Link extends Component
      */
     public function __construct(string $content = null, string $href = null, string $color = null, bool $unstyled = false)
     {
-        $this->content = $content;
-        $this->href = Action::guess($href);
-        $this->color = $color ?? settings('color');
+        $this->content   = $content;
+        $this->href      = Action::guess($href);
+        $this->color     = $color ?? settings('color');
         $this->unstyled  = $unstyled;
     }
 

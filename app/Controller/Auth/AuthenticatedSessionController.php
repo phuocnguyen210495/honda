@@ -2,12 +2,11 @@
 
 namespace App\Controller\Auth;
 
-use App\Request\Auth\LoginRequest;
 use App\Provider\RouteServiceProvider;
+use App\Request\Auth\LoginRequest;
+use Auth;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Auth;
-use Illuminate\View\Factory;
 use Illuminate\View\View;
 
 class AuthenticatedSessionController
@@ -25,7 +24,6 @@ class AuthenticatedSessionController
     /**
      * Handle an incoming authentication request.
      *
-     * @param LoginRequest $request
      * @return RedirectResponse
      */
     public function store(LoginRequest $request)
@@ -40,7 +38,6 @@ class AuthenticatedSessionController
     /**
      * Destroy an authenticated session.
      *
-     * @param Request $request
      * @return RedirectResponse
      */
     public function destroy(Request $request)

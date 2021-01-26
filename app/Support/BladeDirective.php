@@ -1,19 +1,18 @@
 <?php
 
-
 namespace App\Support;
 
-
-use Illuminate\Support\Facades\Blade;
+use Blade;
 
 final class BladeDirective
 {
     private string $name;
+    /** @var callable $callable */
     private $callable;
 
     public function __construct(string $name, callable $callable)
     {
-        $this->name = $name;
+        $this->name     = $name;
         $this->callable = $callable;
     }
 

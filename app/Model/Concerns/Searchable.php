@@ -4,11 +4,10 @@ namespace App\Model\Concerns;
 
 use Arr;
 use Illuminate\Database\Eloquent\Builder;
-use function Symfony\Component\String\s;
 
 trait Searchable
 {
-    public static function search(array $attributes, string $term)
+    public static function search(array $attributes, string $term): Builder
     {
         return static::where(function (Builder $query) use ($attributes, $term) {
             foreach (Arr::wrap($attributes) as $attribute) {

@@ -8,41 +8,36 @@ use InvalidArgumentException;
 
 class Social extends Component
 {
-    public static array $allowedTypes = ['facebook', 'instagram', 'twitter', 'linkedin', 'tel', 'mail', 'dev', 'github', 'gitlab', 'discord'];
+    public static array $allowedTypes   = ['facebook', 'instagram', 'twitter', 'linkedin', 'tel', 'mail', 'dev', 'github', 'gitlab', 'discord'];
     public static array $convertedTypes = [
-        'facebook' => 'https://facebook.com/{link}',
+        'facebook'  => 'https://facebook.com/{link}',
         'instagram' => 'https://instagram.com/{link}',
-        'twitter' => 'https://twitter.com/{link}',
-        'linkedin' => 'https://linkedin.com/{link}',
-        'dev' => 'https://dev.to/{link}',
-        'github' => 'https://github.com/{link}',
-        'gitlab' => 'https://gitlab.com/{link}',
-        'discord' => 'https://discord.gg/{link}'
+        'twitter'   => 'https://twitter.com/{link}',
+        'linkedin'  => 'https://linkedin.com/{link}',
+        'dev'       => 'https://dev.to/{link}',
+        'github'    => 'https://github.com/{link}',
+        'gitlab'    => 'https://gitlab.com/{link}',
+        'discord'   => 'https://discord.gg/{link}',
     ];
 
     public string $type;
     public string $style;
     public string $link;
-    public string $size;    
+    public int $size;
 
     /**
      * Create a new component instance.
-     *
-     * @param string $type
-     * @param string $style
-     * @param string $link
      */
-    public function __construct(string $type, string $style = 'icon', string $link, int $size = 8)
+    public function __construct(string $type, string $link, string $style = 'icon', int $size = 8)
     {
-        $this->type = in_array($type, static::$allowedTypes, true) ? $type : $this->badValue('type', static::$allowedTypes);
-        $this->style = in_array($style, ['icon', 'text']) ? $style : 'icon';
-        $this->link = $this->buildLink($link, $type);
-        $this->size = $size;
-    }
+        if (!in_array($type, static::$allowedTypes, true)) {
+            throw new InvalidArgumentException('An unexpected value was given for type allowed: ' . implode(', ', static::$allowedTypes));
+        }
 
-    private function badValue(string $name, array $expected): void
-    {
-        throw new InvalidArgumentException("An unexpected value was given for {$name}, allowed: {$expected}");
+        $this->type  = $type;
+        $this->style = in_array($style, ['icon', 'text']) ? $style : 'icon';
+        $this->link  = $this->buildLink($link, $type);
+        $this->size  = $size;
     }
 
     /**
@@ -55,12 +50,17 @@ class Social extends Component
         return view('components.social');
     }
 
-
-    public function buildLink(string $link, string $type) {
+    /**
+     * @param string $link
+     * @param string $type
+     * @return string
+     */
+    public function buildLink(string $link, string $type): string
+    {
         if (in_array($type, ['tel', 'mail'])) {
             return $link;
         }
 
         return str_replace('{link}', $link, static::$convertedTypes[$type]);
-    } 
+    }
 }

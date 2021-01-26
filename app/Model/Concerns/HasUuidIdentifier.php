@@ -6,21 +6,22 @@ use Str;
 
 trait HasUuidIdentifier
 {
-    protected static function bootHasUuidIdentifier() {
+    protected static function bootHasUuidIdentifier()
+    {
         static::creating(function ($model) {
-          if (! $model->getKey()) {
-            $model->{$model->getKeyName()} = (string) Str::uuid();
-          }
+            if (!$model->getKey()) {
+                $model->{$model->getKeyName()} = (string) Str::uuid();
+            }
         });
-      }
-    
-      public function getIncrementing()
-      {
-          return false;
-      }
-    
-      public function getKeyType()
-      {
-          return 'string';
-      }
+    }
+
+    public function getIncrementing()
+    {
+        return false;
+    }
+
+    public function getKeyType()
+    {
+        return 'string';
+    }
 }

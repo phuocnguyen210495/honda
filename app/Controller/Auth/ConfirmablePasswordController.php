@@ -1,19 +1,19 @@
-<?php
+*<?php
 
 namespace App\Controller\Auth;
 
 use App\Provider\RouteServiceProvider;
+use Auth;
 use Illuminate\Http\Request;
-use
 use Illuminate\Validation\ValidationException;
+use Illuminate\View\View;
 
 class ConfirmablePasswordController
 {
     /**
      * Show the confirm password view.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\View\View
+     * @return View
      */
     public function show(Request $request)
     {
@@ -23,18 +23,15 @@ class ConfirmablePasswordController
     /**
      * Confirm the user's password.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return mixed
      */
     public function store(Request $request)
     {
-        if (! Auth::guard('web')->validate([
+        if (!Auth::guard('web')->validate([
             'email' => $request->user()->email,
             'password' => $request->password,
         ])) {
-            throw ValidationException::withMessages([
-                'password' => __('auth.password'),
-            ]);
+            throw ValidationException::withMessages(['password' => __('auth.password')]);
         }
 
         $request->session()->put('auth.password_confirmed_at', time());

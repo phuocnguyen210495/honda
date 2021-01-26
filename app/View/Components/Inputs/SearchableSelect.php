@@ -7,7 +7,6 @@ use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 use Str;
 
-
 class SearchableSelect extends Component
 {
     public string $name;
@@ -17,6 +16,7 @@ class SearchableSelect extends Component
     public bool $multiple;
     public bool $searchable;
     public bool $first;
+    public string $label;
 
     /**
      * Create a new component instance.
@@ -30,16 +30,16 @@ class SearchableSelect extends Component
      * @param bool $searchable
      * @param bool $first
      */
-    public function __construct(string $name, string $label = null, $values, $selected = null, $keys = null, bool $multiple = false, bool $searchable = false, bool $first = false)
+    public function __construct(string $name, $values, string $label = null, $selected = null, $keys = null, bool $multiple = false, bool $searchable = false, bool $first = false)
     {
-        $this->name = $name;
-        $this->label = $label ?? Str::humanize($name);
-        $this->values = ArrayList::make($values)->toArray();
-        $this->keys = ArrayList::make($keys)->toArray();
-        $this->selected = ArrayList::make($selected)->toArray();
-        $this->multiple = $multiple;
+        $this->name       = $name;
+        $this->label      = $label ?? Str::humanize($name);
+        $this->values     = ArrayList::make($values)->toArray();
+        $this->keys       = ArrayList::make($keys)->toArray();
+        $this->selected   = ArrayList::make($selected)->toArray();
+        $this->multiple   = $multiple;
         $this->searchable = $searchable;
-        $this->first = $first;
+        $this->first      = $first;
     }
 
     /**

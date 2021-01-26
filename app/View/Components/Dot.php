@@ -14,18 +14,13 @@ class Dot extends Component
 
     /**
      * Create a new component instance.
-     *
-     * @param string $color
-     * @param string $size
-     * @param bool $shown
-     * @param bool $outline
      */
     public function __construct(string $color, string $size = '2', bool $shown = true, bool $outline = false)
     {
-        $this->color = $color;
-        $this->shown = $shown;
+        $this->color   = $color;
+        $this->shown   = $shown;
         $this->outline = $outline;
-        $this->size = $size;
+        $this->size    = $size;
     }
 
     /**

@@ -24,14 +24,14 @@ class Button extends Component
             throw new InvalidArgumentException('Button type must be button, submit or reset, [$type] given');
         }
 
-        $this->content = $content;
-        $this->type = $type;
-        $this->icon = $icon;
+        $this->content  = $content;
+        $this->type     = $type;
+        $this->icon     = $icon;
         $this->iconSide = $iconSide;
-        $this->iconSet = $iconSet;
-        $this->color = $color ?? settings('color');
+        $this->iconSet  = $iconSet;
+        $this->color    = $color ?? settings('color');
     }
- 
+
     /**
      * Get the view / contents that represent the component.
      *

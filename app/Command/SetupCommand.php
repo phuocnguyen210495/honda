@@ -40,6 +40,7 @@ class SetupCommand extends Command
         shell_exec('php artisan migrate');
         $this->info('Migrated the database');
         $this->output->success('Successfully set up the project');
+
         return 0;
     }
 }

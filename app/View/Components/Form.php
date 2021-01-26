@@ -3,23 +3,16 @@
 namespace App\View\Components;
 
 use App\Support\Action;
+use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class Form extends Component
 {
-    public $action;
-    /**
-     * @var string
-     */
-    public $method;
-    /**
-     * @var bool
-     */
-    public $hasFiles;
+    public string $action;
+    public string $method;
+    public bool $hasFiles;
 
     /**
-     * Create a new component instance.
-     *
      * @param string $action
      * @param string $method
      * @param bool $hasFiles
@@ -31,12 +24,7 @@ class Form extends Component
         $this->hasFiles = $hasFiles;
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return View|string
-     */
-    public function render()
+    public function render(): View
     {
         return view('components.form');
     }

@@ -12,16 +12,11 @@ class Stars extends Component
 
     /**
      * Create a new component instance.
-     *
-     * @param int $filled
-     * @param int $max
-     * @param string $icon
-     * @param string|null $id
      */
     public function __construct(int $filled = 0, int $max = 5)
     {
         $this->filled = min($filled, $max);
-        $this->max = $max;
+        $this->max    = $max;
     }
 
     /**

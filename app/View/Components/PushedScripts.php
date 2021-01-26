@@ -13,7 +13,6 @@ class PushedScripts extends Component
      */
     public function __construct()
     {
-        //
     }
 
     /**

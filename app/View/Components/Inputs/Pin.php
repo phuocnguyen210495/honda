@@ -15,10 +15,10 @@ class Pin extends Component
 
     public function __construct(string $name, string $label = null, string $color = 'blue', int $length = 4, bool $hiddenLabel = false)
     {
-        $this->name = $name;
-        $this->label = $label ?? Str::humanize($name);
-        $this->color = $color;
-        $this->length = $length;
+        $this->name        = $name;
+        $this->label       = $label ?? Str::humanize($name);
+        $this->color       = $color;
+        $this->length      = $length;
         $this->hiddenLabel = $hiddenLabel;
     }
 

@@ -2,15 +2,15 @@
 
 namespace App;
 
-use App\Command\MakeStorageCommand;
-use App\Command\SetupCommand;
 use App\Command\GetEnvCommand;
 use App\Command\GetSettingCommand;
 use App\Command\ListEnvCommand;
 use App\Command\ListSettingsCommand;
+use App\Command\MakeStorageCommand;
 use App\Command\MakeViewCommand;
 use App\Command\SetEnvCommand;
 use App\Command\SetSettingCommand;
+use App\Command\SetupCommand;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel;
 
@@ -30,13 +30,12 @@ class ConsoleKernel extends Kernel
         GetEnvCommand::class,
         ListEnvCommand::class,
         MakeViewCommand::class,
-        MakeStorageCommand::class
+        MakeStorageCommand::class,
     ];
 
     /**
      * Define the application's command schedule.
      *
-     * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
      * @return void
      */
     protected function schedule(Schedule $schedule)

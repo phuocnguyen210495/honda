@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 use InvalidArgumentException;
 
@@ -12,7 +13,7 @@ class Avatar extends Component
         'online' => 'green',
         'idle' => 'orange',
         'dnd' => 'red',
-        'absent' => 'gray'
+        'absent' => 'gray',
     ];
 
     public string $search;
@@ -29,13 +30,15 @@ class Avatar extends Component
      * @param string $src
      * @param string $provider
      * @param string $fallback
-     * @param string $size
+     * @param int $size
+     * @param string|null $status
      */
-    public function __construct(string $search = null, string $src = null, string $provider = null, string $fallback = null, int $size = 8, string $status =  null)
+    public function __construct(string $search = null, string $src = null, string $provider = null, string $fallback = null, int $size = 8, string $status = null)
     {
         if (!$search && !$src) {
             throw new InvalidArgumentException('Both src and search are empty, unable to find an avatar');
         }
+
         $this->search = $search;
         $this->src = $src;
         $this->provider = $provider;
@@ -45,12 +48,7 @@ class Avatar extends Component
         $this->status = $status !== null ? static::STATUSES_COLOR[$status] : null;
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return View|string
-     */
-    public function render()
+    public function render(): View
     {
         return view('components.avatar');
     }

@@ -9,6 +9,7 @@ class Rating extends Component
     public string $name;
     public int $max;
     public int $size;
+
     /**
      * Create a new component instance.
      *
@@ -17,7 +18,7 @@ class Rating extends Component
     public function __construct(string $name, int $max = 5, int $size = 6)
     {
         $this->name = $name;
-        $this->max = $max;
+        $this->max  = $max;
         $this->size = $size;
     }
 

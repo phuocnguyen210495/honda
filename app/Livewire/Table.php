@@ -2,12 +2,10 @@
 
 namespace App\Livewire;
 
-use App\Model\Visitor;
 use App\Support\ArrayList;
 use Illuminate\Support\Collection;
 use Livewire\Component;
 use Livewire\WithPagination;
-use phpDocumentor\Reflection\DocBlock\Tags\Deprecated;
 
 class Table extends Component
 {
@@ -18,10 +16,10 @@ class Table extends Component
     public string $description;
     public string $translationKey;
     public array $translations;
-    public string $query = '';
-    public int $perPage = 10;
+    public string $query     = '';
+    public int $perPage      = 10;
     public string $sortField = '';
-    public bool $sortAsc = true;
+    public bool $sortAsc     = true;
     public $truncate;
     public $copyable;
     public $searchable;
@@ -31,10 +29,10 @@ class Table extends Component
     public $dateFormat;
 
     protected $queryString = [
-        'query' => ['except' => ''],
+        'query'     => ['except' => ''],
         'sortField' => ['except' => ''],
-        'sortAsc' => ['except' => true],
-        'perPage' => ['except' => 10]
+        'sortAsc'   => ['except' => true],
+        'perPage'   => ['except' => 10],
     ];
 
     public function mount(
@@ -51,21 +49,20 @@ class Table extends Component
         string $exclude = null,
         string $dates = null,
         string $dateFormat = 'LL'
-    ): void
-    {
-        $this->model = $model;
-        $this->perPage = $perPage;
-        $this->title = $title;
-        $this->description = $description;
+    ): void {
+        $this->model          = $model;
+        $this->perPage        = $perPage;
+        $this->title          = $title;
+        $this->description    = $description;
         $this->translationKey = $translationKey;
-        $this->translations = $translations ?? [];
-        $this->truncate = $this->list($truncate);
-        $this->copyable = $this->list($copyable);
-        $this->searchable = $this->list($searchable);
-        $this->included = $this->list($include);
-        $this->excluded = $this->list($exclude);
-        $this->dates = $this->list($dates);
-        $this->dateFormat = $dateFormat;
+        $this->translations   = $translations ?? [];
+        $this->truncate       = $this->list($truncate);
+        $this->copyable       = $this->list($copyable);
+        $this->searchable     = $this->list($searchable);
+        $this->included       = $this->list($include);
+        $this->excluded       = $this->list($exclude);
+        $this->dates          = $this->list($dates);
+        $this->dateFormat     = $dateFormat;
     }
 
     protected function list(string $list = null): array
@@ -96,8 +93,8 @@ class Table extends Component
                 ::search($this->searchable, $this->query)
                 ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
                 ->paginate($this->perPage),
-            'columns' => $columns = $this->getModelColumns()->filter(
-                fn($value) => !empty($this->included) ? in_array($value, $this->included, true) : !in_array($value, $this->excluded, true)
+            'columns'       => $columns = $this->getModelColumns()->filter(
+                fn ($value) => !empty($this->included) ? in_array($value, $this->included, true) : !in_array($value, $this->excluded, true)
             ),
             'translatedColumns' => array_combine(
                 $columns->all(),

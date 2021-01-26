@@ -11,8 +11,6 @@ class Container extends Component
 
     /**
      * Create a new component instance.
-     *
-     * @param string $maxWidth
      */
     public function __construct(string $maxWidth = '7xl')
     {

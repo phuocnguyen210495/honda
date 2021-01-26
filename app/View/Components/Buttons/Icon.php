@@ -14,15 +14,12 @@ class Icon extends Component
 
     /**
      * @param string $color
-     * @param string $icon
-     * @param string $type
-     * @param string $iconSet
      */
     public function __construct(string $icon, string $color = null, string $type = 'submit', string $iconSet = 'heroicon')
     {
-        $this->color = $color ?? settings('color');
-        $this->icon = $icon;
-        $this->type = $type;
+        $this->color   = $color ?? settings('color');
+        $this->icon    = $icon;
+        $this->type    = $type;
         $this->iconSet = $iconSet;
     }
 

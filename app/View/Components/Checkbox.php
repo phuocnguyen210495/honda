@@ -4,7 +4,6 @@ namespace App\View\Components;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
-use SNMP;
 use Str;
 
 class Checkbox extends Component
@@ -16,14 +15,10 @@ class Checkbox extends Component
 
     /**
      * Create a new component instance.
-     *
-     * @param string $name
-     * @param string|null $label
-     * @param bool $first
      */
     public function __construct(string $name, string $color = null, ?string $label = null, bool $first = false)
     {
-        $this->name = $name;
+        $this->name  = $name;
         $this->color = $color ?? settings('color');
         $this->label = $label ?? Str::humanize($name);
         $this->first = $first;
