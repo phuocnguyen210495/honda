@@ -211,8 +211,16 @@
 
     <x-title content="Inputs" level="h2" class="mt-6"/>
 
-    <x-input name="phone" placeholder="0312345678" icon="phone" icon-set="fontawesome" corner-hint="Optional"/>
+    <x-input name="phone" placeholder="0312345678"/>
+    <x-password name="password" placeholder="{!! str_repeat('&bull;', 12) !!}"/>
+    <x-select values="10, 25, 50 ,100" name="Complexity"/>
+    <x-select values="10, 25, 50 ,100" keys="1,2,3,4" multiple name="Complexity"/>
+    <x-select values="10, 25, 50 ,100" keys="1,2,3,4" multiple name="Complexity"/>
 
+    <div class="w-full flex items-center">
+        <x-input name="phone" />
+        <x-select values="10, 25, 50 ,100" keys="1,2,3,4" multiple searchable name="Complexity" class="ml-4"/>
+    </div>
 </x-container>
 
 @livewireScripts
