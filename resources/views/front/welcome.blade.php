@@ -11,7 +11,7 @@
     <x-pushed-styles/>
 </head>
 <body>
-<x-container lg="sm" class="mt-4">
+<x-container lg="sm" class="my-4">
     <x-title content="Content" level="h2"/>
     <x-paragraph
         content="Here is a bit of a paragraph with some words saying some things, i'm sure you get the **point**. And *Ho!*, it also supports **markdown**..."
@@ -208,6 +208,11 @@
         <x-link content="Read more" color="pink"/>
         <x-link content="Read more" icon="arrow-right" icon-side="right"/>
     </div>
+
+    <x-title content="Inputs" level="h2" class="mt-6"/>
+
+    <x-input name="phone" placeholder="0312345678" icon="phone" icon-set="fontawesome" corner-hint="Optional"/>
+
 </x-container>
 
 @livewireScripts

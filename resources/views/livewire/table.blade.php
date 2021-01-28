@@ -5,17 +5,11 @@
     @endif
 
     <div class="sm:flex items-center w-full">
-        <input type="text" wire:model="query"
-               aria-label="{{ __('Search ' . strtolower(class_basename($model)) . '\'s records') }}"
-               placeholder="{{ __('Search ' . strtolower(class_basename($model)) . '\'s records') }}"
-               class="bg-white rounded-lg px-4 border font-display py-2.5 placeholder-gray-500 focus:border-opacity-0 focus:outline-none focus:shadow-outline-{{ settings('color') }} w-full my-4"/>
-        <select :aria-label="__('Results per page')" wire:model="perPage"
-                class="form-select py-2.5 w-full sm:w-auto sm:ml-4 rounded-lg">
-            <option>10</option>
-            <option>15</option>
-            <option>25</option>
-            <option>50</option>
-        </select>
+        <x-input first name="_" wire:model="query"
+                 aria-label="{{ __('Search ' . strtolower(class_basename($model)) . '\'s records') }}"
+                 placeholder="{{ __('Search ' . strtolower(class_basename($model)) . '\'s records') }}"/>
+        <x-inputs.searchable-select first name="_" :aria-label="__('Results per page')" wire:model="perPage"
+                                    values="10,15,25,50"/>
     </div>
 
     @if ($items->isEmpty())
@@ -30,7 +24,7 @@
                                 <thead>
                                 <tr>
                                     @foreach($columns as $key)
-                                        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                        <th class="px-6 py-3 bg-gray-200 text-left text-xs leading-4 font-medium text-gray-700 uppercase tracking-wider">
                                             <a class="flex items-center" href=""
                                                wire:click.prevent="sortBy('{{ $key }}')">
                                                 {{ $translatedColumns[$key] }}
@@ -68,9 +62,12 @@
                                                         <p class="max-w-lg cursor-pointer" @click="open = !open"
                                                            x-text="open || text.length <= 50 ? text : text.substr(0, 50) + '...'"></p>
                                                     @elseif (is_bool($item->{$_}))
-                                                        <input class="form-checkbox" type="checkbox"
-                                                               aria-label="{{ $translatedColumns[$key] }}" disabled
-                                                               @if ($item->{$_}) checked @endif id="">
+                                                        <input
+                                                            type="checkbox" checked
+                                                            disabled
+                                                            class="form-checkbox rounded border-gray-300 text-{{ settings('color') }}-600 shadow-sm focus:border-{{ settings('color') }}-300"
+                                                            aria-label="{{ $translatedColumns[$key] }}"
+                                                            @if ($item->{$_}) checked @endif />
                                                     @elseif(in_array($_, $dates, true))
                                                         {{ $item->{$_}->isoFormat($dateFormat) }}
                                                     @elseif ($item->{$_} instanceof \Illuminate\Support\Carbon)
@@ -80,12 +77,14 @@
                                                     @endif
 
                                                     @if (in_array($_, $copyable, true))
-                                                        <button class="-m-2 ml-2 rounded-lg p-2 hover:bg-gray-100"
-                                                                @click="$clipboard(text)">
+                                                        <button
+                                                            class="-m-2 ml-2 rounded-lg p-2 hover:bg-gray-100"
+                                                            @click="$clipboard(text)">
                                                             <svg class="w-4 h-4 text-gray-500"
                                                                  xmlns="http://www.w3.org/2000/svg" fill="none"
                                                                  viewBox="0 0 24 24" stroke="currentColor">
-                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                <path stroke-linecap="round"
+                                                                      stroke-linejoin="round"
                                                                       stroke-width="2"
                                                                       d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
                                                             </svg>

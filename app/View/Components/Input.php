@@ -2,84 +2,32 @@
 
 namespace App\View\Components;
 
-use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
+use Str;
 
 class Input extends Component
 {
-    public string $name;
-    public string $type;
-    public ?string $color;
-    public string $iconSet;
+    public ?string $name;
     public ?string $label;
     public ?string $icon;
-    public ?string $addonSide;
-    public ?string $cornerHint;
-    public ?string $info;
-    public ?string $addon;
-    public bool $inlineAddon;
+    public bool $hideLabel;
+    public string $iconSet;
     public bool $first;
-    public bool $hiddenLabel;
+    public string $type;
+    public string $color;
 
-    /**
-     * Create a new component instance.
-     *
-     * @param string $type
-     */
-    public function __construct(
-        string $name,
-        string $type = null,
-        string $label = null,
-        string $color = null,
-        string $icon = null,
-        string $addonSide = 'left',
-        string $addon = null,
-        string $info = null,
-        string $cornerHint = null,
-        bool $hiddenLabel = false,
-        bool $inlineAddon = false,
-        bool $first = false
-    ) {
-        $this->name        = $name;
-        $this->type        = $this->resolveType($type, $name);
-        $this->label       = $this->resolveLabel($label, $name);
-        $this->color       = $color ?? settings('color');
-        $this->icon        = $icon;
-        $this->iconSet     = 'heroicon';
-        $this->addonSide   = $addonSide !== 'right' ? 'left' : 'right';
-        $this->addon       = $addon;
-        $this->inlineAddon = $inlineAddon;
-        $this->info        = $info;
-        $this->hiddenLabel = $hiddenLabel;
-        $this->cornerHint  = $cornerHint;
-        $this->first       = $first;
-    }
-
-    private function resolveType(?string $type, string $name): string
+    public function __construct(string $name = null, string $label = null, string $type = 'text', bool $hideLabel = false, string $icon = null, string $iconSet = 'heroicon', bool $first = false, string $color = null)
     {
-        return $type ?? (in_array($name, ['email', 'password', 'search', 'url'], true) ? $name : 'text');
+        $this->name = $name;
+        $this->label = $label ?? ($name === null ? $name : Str::humanize($name));
+        $this->type = $type;
+        $this->hideLabel = $hideLabel;
+        $this->icon = $icon;
+        $this->iconSet = $iconSet;
+        $this->first = $first;
+        $this->color = $color ?? settings('color');
     }
 
-    private function resolveLabel(?string $label, string $name): string
-    {
-        return $label ?? \Str::humanize($name);
-    }
-
-    public function oppositeSide(): string
-    {
-        return ['l' => 'r', 'r' => 'l'][$this->side()];
-    }
-
-    public function side(): string
-    {
-        return $this->addonSide[0];
-    }
-
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return View|string
-     */
     public function render()
     {
         return view('components.input');

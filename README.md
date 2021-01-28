@@ -9,10 +9,9 @@ TODO:
 * [ ] Middleware to set locale based on user's preferences + ?hl={lang}
 * [ ] Empty state component
 * [ ] File input component
-* [ ] Checkbox style
 * [ ] Masonry component
 * [ ] Auth
-* [ ] Use ring instead of shadow-outline everywhere (see buttons for ref)
+* [ ] Make name attribute not required on inputs
 ### Requirements
 
 * PHP7.4

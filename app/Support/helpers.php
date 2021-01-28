@@ -15,3 +15,11 @@ if (!function_exists('settings')) {
         return app('settings');
     }
 }
+
+if (!function_exists('flash')) {
+    function flash(string $message, string $level = 'success')
+    {
+        session()->flash($level, $message);
+    }
+}
+

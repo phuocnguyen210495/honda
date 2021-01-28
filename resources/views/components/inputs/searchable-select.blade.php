@@ -10,7 +10,7 @@
 
     <div class="@if (!$first) mt-4 @endif">
         <button
-            class="bg-white focus:outline-none focus:shadow-outline-{{ settings('color') }} rounded-lg text-gray-700 w-full flex items-center justify-between border"
+            class="bg-white focus:outline-none focus:ring-2 focus:ring-{{ $color }}-500 focus:ring-offset-2 rounded-lg text-gray-700 w-full flex items-center justify-between border"
             @click="open = !open" @focus="focused = true;" @blur="focused = false;">
             <span class="inline-block pl-4" x-show="selected.length === 0">{{ __('Search options') }}</span>
             <span class="inline-block pl-4" x-show="selected.length === 1" x-text="selected"></span>
