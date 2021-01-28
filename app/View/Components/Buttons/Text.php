@@ -13,8 +13,9 @@ class Text extends Component
     public string $iconSide;
     public string $iconSet;
     public string $color;
+    public bool $coloredIcon;
 
-    public function __construct(string $color, string $content = null, string $type = 'submit', string $icon = null, string $iconSide = 'left', string $iconSet = 'heroicon')
+    public function __construct(string $color = null, string $content = null, string $type = 'submit', string $icon = null, string $iconSide = 'left', string $iconSet = 'heroicon', bool $coloredIcon = false)
     {
         if (!in_array($iconSide, ['left', 'right'])) {
             throw new InvalidArgumentException("Icon side must be either right or left, [$iconSide] given");
@@ -29,7 +30,8 @@ class Text extends Component
         $this->icon     = $icon;
         $this->iconSide = $iconSide;
         $this->iconSet  = $iconSet;
-        $this->color    = $color;
+        $this->color    = $color ?? settings('color');
+        $this->coloredIcon = $coloredIcon;
     }
 
     /**

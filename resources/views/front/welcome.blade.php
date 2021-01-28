@@ -179,11 +179,11 @@
     <x-title content="Text" level="h3" class="mt-4"/>
     <div class="flex space-x-4 mt-4">
         <x-buttons.text icon="inbox-in" content="Withdraw" color="gray"/>
-        <x-buttons.text icon="inbox-in" content="Withdraw" color="red"/>
-        <x-buttons.text icon="inbox-in" content="Withdraw" color="yellow"/>
-        <x-buttons.text icon="inbox-in" content="Withdraw" color="green"/>
-        <x-buttons.text icon="inbox-in" content="Withdraw" color="blue"/>
-        <x-buttons.text icon="inbox-in" content="Withdraw" color="pink"/>
+        <x-buttons.text icon="inbox-in" content="Withdraw" color="red" coloredIcon/>
+        <x-buttons.text icon="inbox-in" content="Withdraw" color="yellow" coloredIcon/>
+        <x-buttons.text icon="inbox-in" content="Withdraw" color="green" coloredIcon/>
+        <x-buttons.text icon="inbox-in" content="Withdraw" color="blue" coloredIcon/>
+        <x-buttons.text icon="inbox-in" content="Withdraw" color="pink" coloredIcon/>
     </div>
 
     <x-title content="Avatar" level="h2" class="mt-6"/>
@@ -213,14 +213,25 @@
 
     <x-input name="phone" placeholder="0312345678"/>
     <x-password name="password" placeholder="{!! str_repeat('&bull;', 12) !!}"/>
-    <x-select values="10, 25, 50 ,100" name="Complexity"/>
-    <x-select values="10, 25, 50 ,100" keys="1,2,3,4" multiple name="Complexity"/>
-    <x-select values="10, 25, 50 ,100" keys="1,2,3,4" multiple name="Complexity"/>
 
-    <div class="w-full flex items-center">
-        <x-input name="phone" />
-        <x-select values="10, 25, 50 ,100" keys="1,2,3,4" multiple searchable name="Complexity" class="ml-4"/>
+    <x-title content="Selects" level="h3" class="mt-4"/>
+    <x-select values="10, 25, 50 ,100" name="complexity" label="Simple select"/>
+    <x-select values="10, 25, 50 ,100" keys="1,2,3,4" multiple name="complexity"
+              label="Simple select accepting multiple values"/>
+    <x-select values="10, 25, 50 ,100" keys="1,2,3,4" multiple name="complexity" searchable
+              label="Searchable select accepting multiple values"/>
+
+    <x-title content="Checkboxes" level="h3" class="mt-4"/>
+    <div class="flex space-x-4 mt-2">
+        <x-checkbox name="remember_me" label="Unchecked" first/>
+        <x-checkbox name="remember_me" label="Remember me" color="gray" checked first/>
+        <x-checkbox name="remember_me" label="Remember me" color="red" checked first/>
+        <x-checkbox name="remember_me" label="Remember me" color="yellow" checked first/>
+        <x-checkbox name="remember_me" label="Remember me" color="green" checked first/>
+        <x-checkbox name="remember_me" label="Remember me" color="blue" checked first/>
+        <x-checkbox name="remember_me" label="Remember me" color="pink" checked first/>
     </div>
+
 </x-container>
 
 @livewireScripts

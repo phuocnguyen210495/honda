@@ -15,7 +15,7 @@
         </select>
         <div class="relative">
             <button
-                class="bg-white focus:outline-none rounded-lg text-gray-700 w-full flex items-center justify-between border border-gray-300 shadow-sm"
+                class="bg-white focus:outline-none rounded-lg text-gray-700 w-full flex items-center transiton ease-in-out duration-150 justify-between border border-gray-300 shadow-sm"
                 x-bind:class="{ 'ring ring-{{ $color }}-200': focused }"
                 @click="open = !open" @focus="focused = true;" @blur="focused = false;">
                 <span class="inline-block pl-4" x-show="selected.length === 0">{{ __('Search options') }}</span>

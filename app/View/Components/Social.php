@@ -25,9 +25,6 @@ class Social extends Component
     public string $link;
     public int $size;
 
-    /**
-     * Create a new component instance.
-     */
     public function __construct(string $type, string $link, string $style = 'icon', int $size = 8)
     {
         if (!in_array($type, static::$allowedTypes, true)) {

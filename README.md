@@ -1,17 +1,18 @@
 TODO:
 
-* [ ] Every Inputs/* should extend Input and implement all the options, if it makes sense, otherwise an exception should be thrown.
 * [ ] Year, month, day, birthday input
-* [ ] Clock input, disabled time, enabled time
+* [ ] Time input
 * [ ] Calendar
-* [ ] Image upload field+
-* [ ] Avatar with status (red, green, yellow) -- discord like
+* [ ] Image upload field
 * [ ] Middleware to set locale based on user's preferences + ?hl={lang}
 * [ ] Empty state component
 * [ ] File input component
 * [ ] Masonry component
 * [ ] Auth
 * [ ] Make name attribute not required on inputs
+* [ ] Rename components/buttons to components/button
+* [ ] Make Buttons/Text, secondary extends Button
+* [ ] Social component should allow to use the brand color as the icon color
 ### Requirements
 
 * PHP7.4

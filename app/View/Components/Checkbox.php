@@ -2,33 +2,34 @@
 
 namespace App\View\Components;
 
-use Illuminate\Contracts\View\View;
-use Illuminate\View\Component;
-use Str;
 
-class Checkbox extends Component
+use InvalidArgumentException;
+
+class Checkbox extends Input
 {
-    public string $name;
-    public string $color;
-    public ?string $label;
-    public bool $first;
+    public bool $checked;
 
-    /**
-     * Create a new component instance.
-     */
-    public function __construct(string $name, string $color = null, ?string $label = null, bool $first = false)
+    public function __construct(
+        string $name = null,
+        string $label = null,
+        string $type = 'checkbox',
+        bool $hideLabel = false,
+        string $icon = null,
+        string $iconSet = 'heroicon',
+        bool $first = false,
+        string $color = null,
+        bool $checked = false
+    )
     {
-        $this->name  = $name;
-        $this->color = $color ?? settings('color');
-        $this->label = $label ?? Str::humanize($name);
-        $this->first = $first;
+        if ($icon) {
+            throw new InvalidArgumentException("Attribute [icon] is not allowed.");
+        }
+
+        parent::__construct($name, $label, $type, $hideLabel, $icon, $iconSet, $first, $color);
+
+        $this->checked = $checked;
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return View|string
-     */
     public function render()
     {
         return view('components.checkbox');
