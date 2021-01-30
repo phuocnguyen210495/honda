@@ -12,9 +12,9 @@
     <h4 class="font-bold @if ($color && $color !== 'gray') text-{{ $color }}-500 @else text-gray-800 @endif leading-6 {{ $attributes->get('class') }}" {{ $attributes->except('class') }}>{{ $content ?? $slot }}</h4>
     @break
     @case($level === 'h5')
-    <h5 class="font-medium @if ($color && $color !== 'gray') text-{{ $color }}-500 @else text-gray-800 @endif {{ $attributes->get('class') }}" {{ $attributes->except('class') }}>{{ $content ?? $slot }}</h5>
+    <h5 class="@if ($color && $color !== 'gray') text-{{ $color }}-500 @else text-gray-800 @endif {{ $attributes->get('class') }}" {{ $attributes->except('class') }}>{{ $content ?? $slot }}</h5>
     @break
     @case($level === 'h6')
-    <h6 class="font-medium @if ($color && $color !== 'gray') text-{{ $color }}-500 @else text-gray-800 @endif {{ $attributes->get('class') }}" {{ $attributes->except('class') }}>{{ $content ?? $slot }}</h6>
+    <h6 class="@if ($color && $color !== 'gray') text-{{ $color }}-500 @else text-gray-800 @endif {{ $attributes->get('class') }}" {{ $attributes->except('class') }}>{{ $content ?? $slot }}</h6>
     @break
 @endswitch

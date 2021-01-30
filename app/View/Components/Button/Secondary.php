@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components\Buttons;
+namespace App\View\Components\Button;
 
 use Illuminate\View\Component;
 use InvalidArgumentException;
@@ -39,6 +39,6 @@ class Secondary extends Component
      */
     public function render()
     {
-        return view('components.buttons.secondary');
+        return view('components.button.secondary');
     }
 }

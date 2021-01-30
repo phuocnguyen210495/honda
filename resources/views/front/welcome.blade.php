@@ -1,5 +1,4 @@
 <!doctype html>
-<!--suppress ALL -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,7 +9,7 @@
     <x-style link="css/app.css"/>
     <x-pushed-styles/>
 </head>
-<body>
+<body class="bg-gray-100 font-medium">
 <x-container lg="sm" class="my-4">
     <x-title content="Content" level="h2"/>
     <x-paragraph
@@ -40,6 +39,13 @@
     <div class="mt-4">
         <x-overline content="Constraint-based" class="mt-2" color="blue"/>
         <x-title content="An API for your design system." level="h2" class="mt-2"/>
+    </div>
+
+    <x-title content="Variance" level="h3" class="mt-4"/>
+    <div class="flex mt-2 space-x-4">
+        <x-variance variance="12"/>
+        <x-variance variance="-4"/>
+        <x-variance variance="0"/>
     </div>
 
     <x-title content="Alerts" level="h2" class="mt-6"/>
@@ -158,32 +164,32 @@
 
     <x-title content="Icon only" level="h3" class="mt-4"/>
     <div class="flex space-x-4 mt-4">
-        <x-buttons.icon icon="inbox-in" color="gray"/>
-        <x-buttons.icon icon="inbox-in" color="red"/>
-        <x-buttons.icon icon="inbox-in" color="yellow"/>
-        <x-buttons.icon icon="inbox-in" color="green"/>
-        <x-buttons.icon icon="inbox-in" color="blue"/>
-        <x-buttons.icon icon="inbox-in" color="pink"/>
+        <x-button.icon icon="inbox-in" color="gray"/>
+        <x-button.icon icon="inbox-in" color="red"/>
+        <x-button.icon icon="inbox-in" color="yellow"/>
+        <x-button.icon icon="inbox-in" color="green"/>
+        <x-button.icon icon="inbox-in" color="blue"/>
+        <x-button.icon icon="inbox-in" color="pink"/>
     </div>
 
     <x-title content="Secondary" level="h3" class="mt-4"/>
     <div class="flex space-x-4 mt-4">
-        <x-buttons.secondary icon="inbox-in" content="Withdraw" color="gray"/>
-        <x-buttons.secondary icon="inbox-in" content="Withdraw" color="red"/>
-        <x-buttons.secondary icon="inbox-in" content="Withdraw" color="yellow"/>
-        <x-buttons.secondary icon="inbox-in" content="Withdraw" color="green"/>
-        <x-buttons.secondary icon="inbox-in" content="Withdraw" color="blue"/>
-        <x-buttons.secondary icon="inbox-in" content="Withdraw" color="pink"/>
+        <x-button.secondary icon="inbox-in" content="Withdraw" color="gray"/>
+        <x-button.secondary icon="inbox-in" content="Withdraw" color="red"/>
+        <x-button.secondary icon="inbox-in" content="Withdraw" color="yellow"/>
+        <x-button.secondary icon="inbox-in" content="Withdraw" color="green"/>
+        <x-button.secondary icon="inbox-in" content="Withdraw" color="blue"/>
+        <x-button.secondary icon="inbox-in" content="Withdraw" color="pink"/>
     </div>
 
     <x-title content="Text" level="h3" class="mt-4"/>
     <div class="flex space-x-4 mt-4">
-        <x-buttons.text icon="inbox-in" content="Withdraw" color="gray"/>
-        <x-buttons.text icon="inbox-in" content="Withdraw" color="red" coloredIcon/>
-        <x-buttons.text icon="inbox-in" content="Withdraw" color="yellow" coloredIcon/>
-        <x-buttons.text icon="inbox-in" content="Withdraw" color="green" coloredIcon/>
-        <x-buttons.text icon="inbox-in" content="Withdraw" color="blue" coloredIcon/>
-        <x-buttons.text icon="inbox-in" content="Withdraw" color="pink" coloredIcon/>
+        <x-button.text icon="inbox-in" content="Withdraw" color="gray"/>
+        <x-button.text icon="inbox-in" content="Withdraw" color="red" coloredIcon/>
+        <x-button.text icon="inbox-in" content="Withdraw" color="yellow" coloredIcon/>
+        <x-button.text icon="inbox-in" content="Withdraw" color="green" coloredIcon/>
+        <x-button.text icon="inbox-in" content="Withdraw" color="blue" coloredIcon/>
+        <x-button.text icon="inbox-in" content="Withdraw" color="pink" coloredIcon/>
     </div>
 
     <x-title content="Avatar" level="h2" class="mt-6"/>
@@ -230,6 +236,18 @@
         <x-checkbox name="remember_me" label="Remember me" color="green" checked first/>
         <x-checkbox name="remember_me" label="Remember me" color="blue" checked first/>
         <x-checkbox name="remember_me" label="Remember me" color="pink" checked first/>
+    </div>
+
+
+    <x-title content="Empty states" level="h3" class="mt-4"/>
+
+    <div class="mt-2">
+        <x-empty-state
+            :show="!empty([1,2,3])"
+            title="It's empty in here..."
+            content="Looks like this team has no projects. Creating new projects is as simple as picking a repository, filling out a few details and pressing a button.">
+            <x-button content="Get started..."/>
+        </x-empty-state>
     </div>
 
 </x-container>

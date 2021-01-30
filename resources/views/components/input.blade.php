@@ -1,4 +1,4 @@
-<div class="w-full flex flex-col mt-4 font-medium" x-data="{ showFocusRing: false }">
+<div class="w-full flex flex-col mt-4" x-data="{ showFocusRing: false }">
     @if (!$hideLabel || $name === null)
         <label class="text-gray-700" for="{{ $name }}">{{ $label }}</label>
     @endif

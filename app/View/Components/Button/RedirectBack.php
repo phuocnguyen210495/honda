@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components\Buttons;
+namespace App\View\Components\Button;
 
 use Illuminate\View\Component;
 
@@ -25,6 +25,6 @@ class RedirectBack extends Component
      */
     public function render()
     {
-        return view('components.buttons.redirect-back');
+        return view('components.button.redirect-back');
     }
 }

@@ -1,4 +1,4 @@
-<div class="flex flex-col mt-4 font-medium" x-data="{ showFocusRing: false, revealPassword: false }">
+<div class="flex flex-col mt-4" x-data="{ showFocusRing: false, revealPassword: false }">
     @if (!$hideLabel || $name === null)
         <label class="text-gray-700" for="{{ $name }}">{{ $label }}</label>
     @endif
@@ -21,12 +21,12 @@
             {{ $attributes }}
         />
 
-        <div class="border border-l-0 rounded-l-none rounded-lg p-3 border-gray-300" @click="revealPassword = !revealPassword">
+        <div class="border border-l-0 rounded-l-none rounded-lg p-3 text-gray-400 hover:text-gray-500 focus:text-gray-500 border-gray-300 cursor-pointer" @click="revealPassword = !revealPassword">
             <div x-show="!revealPassword">
-                <x-icon name="eye" set="heroicon" size="6" class="text-gray-400"/>
+                <x-icon name="eye" set="heroicon" size="6"/>
             </div>
             <div x-show="revealPassword">
-                <x-icon name="eye-off" set="heroicon" size="6" class="text-gray-400"/>
+                <x-icon name="eye-off" set="heroicon" size="6"/>
             </div>
         </div>
     </div>

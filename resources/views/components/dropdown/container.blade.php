@@ -1,5 +1,5 @@
 <div x-data="{ open: false }" @keydown.window.escape="open = false" @click.away="open = false"
-     class="relative inline-block font-medium  text-left">
+     class="relative inline-block  text-left">
     <x-dropdown.trigger content="Options" />
 
     <div x-show="open"

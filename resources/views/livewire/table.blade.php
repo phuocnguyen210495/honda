@@ -24,7 +24,7 @@
                                 <thead>
                                 <tr>
                                     @foreach($columns as $key)
-                                        <th class="px-6 py-3 bg-gray-200 text-left text-xs leading-4 font-medium text-gray-700 uppercase tracking-wider">
+                                        <th class="px-6 py-3 bg-gray-200 text-left text-xs leading-4 text-gray-700 uppercase tracking-wider">
                                             <a class="flex items-center" href=""
                                                wire:click.prevent="sortBy('{{ $key }}')">
                                                 {{ $translatedColumns[$key] }}

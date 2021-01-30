@@ -1,4 +1,4 @@
-<div class="bg-{{ $convertType($type) }}-100 font-medium text-{{ $convertType($type) }}-700 p-4 rounded-lg mt-4 {{ $attributes->get('class') }}" {{ $attributes }} x-data="{ closed: false }" x-show="!closed">
+<div class="bg-{{ $convertType($type) }}-100 text-{{ $convertType($type) }}-700 p-4 rounded-lg mt-4 {{ $attributes->get('class') }}" {{ $attributes }} x-data="{ closed: false }" x-show="!closed">
     <div class="flex items-center justify-between">
         <div class="flex items-center">
             <x-icon name="{{ $icon }}" class="text-{{ $convertType($type) }}-500" size="6" solid/>

@@ -31,7 +31,7 @@
                 </div>
             </button>
 
-            <div @click.away="open = false;" class="rounded-lg border bg-white mt-4 shadow-md absolute w-full left-0" x-show="open"
+            <div @click.away="open = false;" class="rounded-lg border bg-white mt-4 shadow-md absolute w-full left-0 z-50" x-show="open"
                  x-transition:enter="ease-out duration-300"
                  x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                  x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"

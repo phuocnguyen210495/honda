@@ -1,4 +1,4 @@
-<div class="flex items-center @if(!$first) mt-4 @endif font-display font-medium text-gray-700">
+<div class="flex items-center @if(!$first) mt-4 @endif font-display text-gray-700">
     <input
         class="rounded border-gray-300 text-{{ $color }}-600 shadow-sm focus:ring-{{ $color }}-500
          focus:border-{{ $color }}-300 {{ $attributes->get('class') }} -mt-0.5"
