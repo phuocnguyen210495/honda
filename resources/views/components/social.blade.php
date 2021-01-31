@@ -13,7 +13,8 @@
     @else
         <a href="{{ $link }}">
             <x-dynamic-component :component="'fab-' . $type"
-                                 class="w-{{ $size }} h-{{ $size }} {{ $attributes->get('class') }}" {{ $attributes->except('class') }} />
+                                 class="w-{{ $size }} h-{{ $size }} {{ $attributes->get('class') }}"
+                                 {{ $attributes->except('class') }} @if ($branded) style="color: {{ \App\View\Components\Social::BRAND_COLORS[$type] }}"/>
         </a>
     @endif
 

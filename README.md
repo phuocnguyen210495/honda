@@ -5,14 +5,10 @@ TODO:
 * [ ] Calendar
 * [ ] Image upload field
 * [ ] Middleware to set locale based on user's preferences + ?hl={lang}
-* [ ] Empty state component
 * [ ] File input component
 * [ ] Masonry component
 * [ ] Auth
 * [ ] Make name attribute not required on inputs
-* [ ] Rename components/buttons to components/button
-* [ ] Social component should allow to use the brand color as the icon color
-* [ ]  Variance indicator (red, green) +1% -12%
 * [ ] Charts
 * [ ] Tab Switch [Tab1|Tab2] [icon1|icon2]
 * [ ] Logout button
