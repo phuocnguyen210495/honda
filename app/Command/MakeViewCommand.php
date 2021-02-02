@@ -25,7 +25,10 @@ class MakeViewCommand extends Command
 
         $directories = explode(DIRECTORY_SEPARATOR, $path);
         array_pop($directories);
-        File::makeDirectory(implode(DIRECTORY_SEPARATOR, $directories), 0755, true);
+
+        if (!file_exists(implode(DIRECTORY_SEPARATOR, $directories))) {
+            File::makeDirectory(implode(DIRECTORY_SEPARATOR, $directories), 0755, true);
+        }
 
         $path .= '.blade.php';
 

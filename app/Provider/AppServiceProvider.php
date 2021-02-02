@@ -3,6 +3,7 @@
 namespace App\Provider;
 
 use App\Support\BladeDirective;
+use App\Support\Navigation;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
 use Spatie\Valuestore\Valuestore;
@@ -21,8 +22,12 @@ class AppServiceProvider extends ServiceProvider
         app()->bind(Valuestore::class, function () {
             return Valuestore::make(storage_path('app/settings.json'));
         });
-
         app()->bind('settings', fn () => app(Valuestore::class));
+        app()->bind('navigation', function () {
+            return new Navigation;
+        });
+
+        app()->bind('settings', fn() => app(Valuestore::class));
     }
 
     /**

@@ -13,8 +13,8 @@ use App\Provider\RouteServiceProvider;
 |
 */
 
-Route::view('/', 'front.welcome');
 Route::view(RouteServiceProvider::HOME, 'home');
-
+Route::view('/', 'front.welcome')->name('welcome');
+Route::view('/playground', 'playground')->name('playground');
 require __DIR__ . '/auth.php';
 require __DIR__ . '/starts.php';
