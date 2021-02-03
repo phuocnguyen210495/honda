@@ -4,15 +4,16 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class Grid extends Component
+class HorizontalScrollContainer extends Component
 {
-    public int $rows;
-    public int $cols;
-    
-    public function __construct(int $rows = 1, int $cols = 1)
+    /**
+     * Create a new component instance.
+     *
+     * @return void
+     */
+    public function __construct()
     {
-        $this->rows =  $rows;
-        $this->cols = $cols;
+        //
     }
 
     /**
@@ -22,6 +23,6 @@ class Grid extends Component
      */
     public function render()
     {
-        return view('components.grid');
+        return view('components.horizontal-scroll-container');
     }
 }

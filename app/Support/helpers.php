@@ -22,3 +22,19 @@ if (!function_exists('flash')) {
         session()->flash($level, $message);
     }
 }
+
+if (!function_exists('classes')) {
+    function classes(array $classList) {
+        $classes = [];
+
+        foreach ($classList as $class => $constraint) {
+            if (is_numeric($class)) {
+                $classes[] = $constraint;
+            } elseif ($constraint) {
+                $classes[] = $class;
+            }
+        }
+
+        return implode(' ', $classes);
+    }
+}

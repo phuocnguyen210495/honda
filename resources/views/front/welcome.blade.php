@@ -10,7 +10,7 @@
     <x-pushed-styles/>
 </head>
 <body class="bg-gray-100 font-medium">
-<x-container lg="sm" class="my-4">
+<x-container lg="sm" class="my-4 mx-4">
     <x-title content="Content" level="h2"/>
     <x-paragraph
         content="Here is a bit of a paragraph with some words saying some things, i'm sure you get the **point**. And *Ho!*, it also supports **markdown**..."
@@ -210,6 +210,13 @@
         <x-avatar search="felixdorn" provider="github" status="absent"/>
     </div>
 
+    <x-title content="Progress" level="h2" class="mt-6"/>
+    <x-progress class="mt-4" />
+    <x-progress filled="80" total="200" class="mt-4" />
+    <x-progress filled="20" total="100" color="green" class="mt-4" />
+    <x-progress filled="80" total="200" class="mt-4" squared />
+    <x-progress filled="80" total="200" class="mt-4" squared height="1" />
+
     <x-title content="Links" level="h2" class="mt-6"/>
 
     <div class="flex space-x-4 mt-4">
@@ -258,9 +265,26 @@
             <x-button content="Get started..."/>
         </x-empty-state>
     </div>
+ 
+    <x-title content="Panels" level="h3" class="mt-4"/>
+    <x-action-panel 
+        title="Delete your account"
+        description="Once you delete your account, you will loose all data associated with it.">
+        <x-button.secondary color="red" content="Delete your account" />
+    </x-action-panel>
 
-    <x-title content="Map" level="h3" class="mt-4"/>
-    <x-map/>
+    <x-action-panel
+        class="mt-4"
+        title="Delete your account"
+        description="Once you delete your account, you will loose all data associated with it.">
+        <x-link content="Read more" icon="arrow-right" icon-side="right"/>
+    </x-action-panel>
+    <x-action-panel
+        class="mt-4"
+        title="Delete your account"
+        description="Once you delete your account, you will loose all data associated with it." well>
+        <x-button.text content="Contact sales" />
+    </x-action-panel>
 
 </x-container>
 

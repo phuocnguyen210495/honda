@@ -6,14 +6,15 @@ use Illuminate\View\Component;
 
 class ActionPanel extends Component
 {
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public string $title;
+    public ?string $description;
+    public bool $well;
+
+    public function __construct(string $title, string $description = null, bool $well = false)
     {
-        //
+        $this->title = $title;
+        $this->description = $description;
+        $this->well = $well;
     }
 
     /**

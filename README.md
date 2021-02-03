@@ -15,7 +15,9 @@ TODO:
 * [ ] Progress bar filled="30" total="400"
 * [ ] Notification badge facebook like
 * [ ] Smart search (all in one)
-* [ ] Avatar groups 
+* [ ] Refactor classes to {{ $attributes->class() }}
+* [ ] Make x-container without any max-width constraint by default
+* [ ] Remove solid attribute on icons or just make it only for heroicons
 ### Requirements
 
 * PHP7.4

@@ -5,7 +5,10 @@ namespace App\Provider;
 use App\Support\BladeDirective;
 use App\Support\Navigation;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\View\ComponentAttributeBag;
 use Spatie\Valuestore\Valuestore;
 use Str;
 use View;
@@ -26,8 +29,6 @@ class AppServiceProvider extends ServiceProvider
         app()->bind('navigation', function () {
             return new Navigation();
         });
-
-        app()->bind('settings', fn () => app(Valuestore::class));
     }
 
     /**
@@ -40,7 +41,11 @@ class AppServiceProvider extends ServiceProvider
         Model::unguard();
 
         Str::macro('humanize', function (string $text) {
-            return ucfirst(trim(preg_replace('/[^\x21-\x7E]/', '', str_replace(['_', '-'], '', $text))));
+            return ucwords(str_replace(
+                '#[space]',
+                 ' ',
+                trim(preg_replace('/[^\x21-\x7E]/', '', str_replace(['_', '-'], '#[space]', $text)))
+            ));
         });
         Str::macro('quote', function (string $str, string $quote = '"') {
             if ($str[0] === $quote && $str[-1] === $quote) {
@@ -54,6 +59,11 @@ class AppServiceProvider extends ServiceProvider
         });
 
         View::share(['settings' => app('settings')]);
+
+        ComponentAttributeBag::macro('class', function ($classList) {
+            return $this->merge(['class' => classes($classList)]);
+        });
+    
         BladeDirective::create('setting', function ($key) {
             $key = Str::unquote($key);
 

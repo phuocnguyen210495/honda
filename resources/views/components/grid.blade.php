@@ -1,3 +1,3 @@
-<div>
-    <!-- Simplicity is an acquired taste. - Katharine Gerould -->
+<div class="grid grid-cols-{{ $cols }} grid-rows-{{ $rows }}">
+    {{ $slot }}
 </div>

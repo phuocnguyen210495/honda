@@ -1,6 +1,7 @@
 <?php
 
 use App\Provider\RouteServiceProvider;
+use BladeUI\Icons\Factory;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,5 +17,8 @@ use App\Provider\RouteServiceProvider;
 Route::view(RouteServiceProvider::HOME, 'home');
 Route::view('/', 'front.welcome')->name('welcome');
 Route::view('/playground', 'playground')->name('playground');
+Route::view('/icons', 'icons', [
+    'sets' => app(Factory::class)->all()
+])->name('icons');
 require __DIR__ . '/auth.php';
 require __DIR__ . '/starts.php';
