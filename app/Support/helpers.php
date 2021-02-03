@@ -22,4 +22,3 @@ if (!function_exists('flash')) {
         session()->flash($level, $message);
     }
 }
-

@@ -41,6 +41,13 @@
         <x-title content="An API for your design system." level="h2" class="mt-2"/>
     </div>
 
+
+    <x-title content="Content Dividers" level="h3" class="mt-4"/>
+    <div class="space-y-8 mt-4">
+        <x-divider/>
+        <x-divider label="Don't have an account?"/>
+    </div>
+
     <x-title content="Variance" level="h3" class="mt-4"/>
     <div class="flex mt-2 space-x-4">
         <x-variance variance="12"/>
@@ -238,6 +245,8 @@
         <x-checkbox name="remember_me" label="Remember me" color="pink" checked first/>
     </div>
 
+    <x-title content="Quantity" level="h3" class="mt-4"/>
+    <x-quantity name="quantity"/>
 
     <x-title content="Empty states" level="h3" class="mt-4"/>
 
@@ -249,6 +258,9 @@
             <x-button content="Get started..."/>
         </x-empty-state>
     </div>
+
+    <x-title content="Map" level="h3" class="mt-4"/>
+    <x-map/>
 
 </x-container>
 

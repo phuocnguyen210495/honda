@@ -13,7 +13,6 @@ class Progress extends Component
      */
     public function __construct()
     {
-        //
     }
 
     /**

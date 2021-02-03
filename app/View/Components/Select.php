@@ -27,23 +27,22 @@ class Select extends Input
         $selected = null,
         bool $multiple = false,
         bool $searchable = false
-    )
-    {
+    ) {
         parent::__construct($name, $label, $type, $hideLabel, $icon, $iconSet, $first, $color);
 
         $values = ArrayList::make($values)->toArray();
-        $keys = ArrayList::make($keys)->toArray();
+        $keys   = ArrayList::make($keys)->toArray();
 
         if (Arr::isAssoc($values)) {
-            $this->keys = array_keys($values);
+            $this->keys   = array_keys($values);
             $this->values = array_values($values);
         } else {
-            $this->keys = array_keys($keys);
+            $this->keys   = array_keys($keys);
             $this->values = $values;
         }
 
-        $this->selected = ArrayList::make($selected)->toArray();
-        $this->multiple = $multiple;
+        $this->selected   = ArrayList::make($selected)->toArray();
+        $this->multiple   = $multiple;
         $this->searchable = $searchable;
     }
 

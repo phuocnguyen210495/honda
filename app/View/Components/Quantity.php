@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components\Inputs;
+namespace App\View\Components;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
@@ -10,6 +10,7 @@ class Quantity extends Component
 {
     public string $name;
     public string $label;
+    public ?string $color;
     public int $max;
     public int $min;
     public int $step;
@@ -19,10 +20,10 @@ class Quantity extends Component
     /**
      * Create a new component instance.
      *
-     * @param string $label
      * @param int    $max   The default max is MySQL's integer max value
+     * @param string $label
      */
-    public function __construct(string $name, int $max = 2147483647, string $label = null, int $min = 0, int $step = 1, int $value = 0, bool $first = false)
+    public function __construct(string $name, int $max = 2147483647, string $label = null, string $color = null, int $min = 0, int $step = 1, int $value = 0, bool $first = false)
     {
         $this->name  = $name;
         $this->label = $label ?? Str::humanize($name);
@@ -31,6 +32,7 @@ class Quantity extends Component
         $this->step  = $step;
         $this->value = $value;
         $this->first = $first;
+        $this->color = $color ?? settings('color');
     }
 
     /**
@@ -40,6 +42,6 @@ class Quantity extends Component
      */
     public function render()
     {
-        return view('components.inputs.quantity');
+        return view('components.quantity');
     }
 }

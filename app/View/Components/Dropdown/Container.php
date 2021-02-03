@@ -13,7 +13,6 @@ class Container extends Component
      */
     public function __construct()
     {
-        //
     }
 
     /**

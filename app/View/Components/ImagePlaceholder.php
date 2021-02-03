@@ -25,15 +25,16 @@ class ImagePlaceholder extends Component
         if ($square) {
             $height  = $width;
         }
-        $this->width = $width;
-        $this->height = $height;
-        $this->format = $format;
+        $this->width      = $width;
+        $this->height     = $height;
+        $this->format     = $format;
         $this->background = $background;
-        $this->color = $color;
-        $this->text  = $text;
+        $this->color      = $color;
+        $this->text       = $text;
     }
 
-    public function url() {
+    public function url()
+    {
         $base = "https://via.placeholder.com/{$this->width}x{$this->height}.{$this->format}/{$this->background}/{$this->color}";
 
         if ($this->text) {
@@ -41,7 +42,7 @@ class ImagePlaceholder extends Component
         }
 
         return $this;
-     }
+    }
 
     public function render()
     {

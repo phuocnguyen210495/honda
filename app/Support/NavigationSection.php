@@ -3,7 +3,6 @@
 namespace App\Support;
 
 use stdClass;
-use Symfony\Component\CssSelector\XPath\Extension\FunctionExtension;
 
 class NavigationSection
 {
@@ -16,7 +15,7 @@ class NavigationSection
         if (!$this->options) {
             return null;
         }
-        
+
         if (!isset($this->options->{$name})) {
             return null;
         }
@@ -24,8 +23,10 @@ class NavigationSection
         return $this->options->{$name};
     }
 
-    public function options(array $options): self {
+    public function options(array $options): self
+    {
         $this->options = (object) $options;
+
         return $this;
     }
 
@@ -34,8 +35,9 @@ class NavigationSection
         if (!$this->options) {
             $this->options = new stdClass();
         }
-        
+
         $this->options->{$name} = $arguments[0];
+
         return $this;
     }
 
@@ -48,6 +50,7 @@ class NavigationSection
         }
 
         $this->tree[] = $item;
+
         return $this;
     }
 

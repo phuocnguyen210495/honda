@@ -13,7 +13,6 @@ class Link extends Component
      */
     public function __construct()
     {
-        //
     }
 
     /**

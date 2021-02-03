@@ -13,7 +13,6 @@ class Captcha extends Component
      */
     public function __construct()
     {
-        //
     }
 
     /**

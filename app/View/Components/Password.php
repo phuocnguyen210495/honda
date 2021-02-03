@@ -13,8 +13,7 @@ class Password extends Input
         string $iconSet = 'heroicon',
         bool $first = false,
         string $color = null
-    )
-    {
+    ) {
         parent::__construct($name, $label, $type, $hideLabel, $icon, $iconSet, $first, $color);
     }
 

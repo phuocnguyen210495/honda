@@ -2,7 +2,6 @@
 
 namespace App\View\Components;
 
-
 use InvalidArgumentException;
 
 class Checkbox extends Input
@@ -19,10 +18,9 @@ class Checkbox extends Input
         bool $first = false,
         string $color = null,
         bool $checked = false
-    )
-    {
+    ) {
         if ($icon) {
-            throw new InvalidArgumentException("Attribute [icon] is not allowed.");
+            throw new InvalidArgumentException('Attribute [icon] is not allowed.');
         }
 
         parent::__construct($name, $label, $type, $hideLabel, $icon, $iconSet, $first, $color);

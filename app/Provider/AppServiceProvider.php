@@ -24,10 +24,10 @@ class AppServiceProvider extends ServiceProvider
         });
         app()->bind('settings', fn () => app(Valuestore::class));
         app()->bind('navigation', function () {
-            return new Navigation;
+            return new Navigation();
         });
 
-        app()->bind('settings', fn() => app(Valuestore::class));
+        app()->bind('settings', fn () => app(Valuestore::class));
     }
 
     /**

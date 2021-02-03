@@ -18,14 +18,14 @@ class Input extends Component
 
     public function __construct(string $name = null, string $label = null, string $type = 'text', bool $hideLabel = false, string $icon = null, string $iconSet = 'heroicon', bool $first = false, string $color = null)
     {
-        $this->name = $name;
-        $this->label = $label ?? ($name === null ? $name : Str::humanize($name));
-        $this->type = $type;
+        $this->name      = $name;
+        $this->label     = $label ?? ($name === null ? $name : Str::humanize($name));
+        $this->type      = $type;
         $this->hideLabel = $hideLabel;
-        $this->icon = $icon;
-        $this->iconSet = $iconSet;
-        $this->first = $first;
-        $this->color = $color ?? settings('color');
+        $this->icon      = $icon;
+        $this->iconSet   = $iconSet;
+        $this->first     = $first;
+        $this->color     = $color ?? settings('color');
     }
 
     public function render()

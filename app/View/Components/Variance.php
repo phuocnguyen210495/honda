@@ -11,7 +11,7 @@ class Variance extends Component
 
     public function __construct(string $variance = '0', bool $uncolored = false)
     {
-        $this->variance = $variance;
+        $this->variance  = $variance;
         $this->uncolored = $uncolored;
     }
 
