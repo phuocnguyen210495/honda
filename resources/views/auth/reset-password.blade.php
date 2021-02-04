@@ -1,48 +1,17 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+<x-layout title="Login">
+    <div class="flex flex-col items-center justify-center mt-6 sm:mt-24">
+        <div class="max-w-lg">
+            <x-title :content="__('auth.reset-password.title')" class="text-center" level="h1"/>
+            <x-paragraph :content="__('auth.reset-password.details')" class="text-center mt-2"/>
+        </div>
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
-        <form method="POST" action="{{ route('password.update') }}">
-            @csrf
-
-            <!-- Password Reset Token -->
-            <input type="hidden" name="token" value="{{ $request->route('token') }}">
-
-            <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email', $request->email)" required autofocus />
-            </div>
-
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required />
-            </div>
-
-            <!-- Confirm Password -->
-            <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
-
-                <x-input id="password_confirmation" class="block mt-1 w-full"
-                                    type="password"
-                                    name="password_confirmation" required />
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <x-button>
-                    {{ __('Reset Password') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+        <x-form action="password.update" class="bg-white sm:shadow-lg sm:max-w-lg w-full rounded-lg p-6 mt-8">
+            <x-value key="token" :value="$request->route('token')"/>
+            <x-input name="email" placeholder="jack.martin@mail.com" :label="__('auth.reset-password.inputs.email')"
+                     :first="session('status') === null" :value="old('email', $request->email)"/>
+            <x-password name="password" :label="__('auth.reset-password.inputs.password')"
+                        placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;"/>
+            <x-button class="w-full mt-6" :content="__('auth.reset-password.button')"/>
+        </x-form>
+    </div>
+</x-layout>

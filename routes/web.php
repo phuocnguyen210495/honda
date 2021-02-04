@@ -14,7 +14,7 @@ use BladeUI\Icons\Factory;
 |
 */
 
-Route::view(RouteServiceProvider::HOME, 'home');
+Route::view(RouteServiceProvider::HOME, 'front.home')->middleware(['auth', 'verified'])->name('home');
 Route::view('/', 'front.welcome')->name('welcome');
 Route::view('/playground', 'playground')->name('playground');
 Route::view('/icons', 'icons', [

@@ -1,4 +1,4 @@
-<div class="w-full flex flex-col mt-4" x-data="{ showFocusRing: false }">
+<div class="w-full flex flex-col @if(!$first) mt-4 @endif" x-data="{ showFocusRing: false }">
     @if (!$hideLabel || $name === null)
         <label class="text-gray-700" for="{{ $name }}">{{ $label }}</label>
     @endif
@@ -17,7 +17,7 @@
             @if ($name) name="{{ $name }}" id="{{ $name }}"
             @input="$dispatch('{{ $name }}-input', { value: $event.target.value })" @endif
             class="py-3 px-5 block w-full rounded-lg border-gray-300 focus:border-gray-300 shadow-sm focus:border-opacity-0 focus:ring-0 @if ($icon) border-l-0 rounded-l-none @endif {{ $attributes->get('class') }}"
-            {{ $attributes }}
+            {{ $attributes->except('class') }}
         />
     </div>
 

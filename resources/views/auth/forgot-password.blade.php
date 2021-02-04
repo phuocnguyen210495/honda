@@ -1,36 +1,20 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
-
-        <div class="mb-4 text-sm text-gray-600">
-            {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+<x-layout title="Login">
+    <div class="flex flex-col items-center justify-center mt-6 sm:mt-24">
+        <div class="max-w-lg">
+            <x-title :content="__('auth.forgot-password.title')" class="text-center" level="h1"/>
+            <x-paragraph :content="__('auth.forgot-password.details')" class="text-center mt-2"/>
         </div>
 
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
-
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
-        <form method="POST" action="{{ route('password.email') }}">
-            @csrf
-
-            <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <x-button>
-                    {{ __('Email Password Reset Link') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+        <x-form action="password.email" class="bg-white sm:shadow-lg sm:max-w-lg w-full rounded-lg p-6 mt-8">
+            @if (session('status'))
+                <x-alert
+                    :content="session('status')"
+                    type="success"
+                    closeable
+                />
+            @endif
+            <x-input name="email" placeholder="jack.martin@mail.com" :label="__('auth.forgot-password.inputs.email')" :first="session('status') === null" />
+            <x-button class="mt-6 w-full" :content="__('auth.forgot-password.button')"/>
+        </x-form>
+    </div>
+</x-layout>

@@ -6,7 +6,7 @@ return [
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
     'login' => [
-        'title' => 'Welcome.',
+        'title' => 'Welcome back.',
         'details' => 'Log in in order to access your account.',
 
         'inputs' => [
@@ -20,5 +20,62 @@ return [
         'button' => 'Log in',
         'register' => "Don't have an account yet ?",
         'register_link' => 'Register'
+    ],
+
+    'register' => [
+        'title' => 'Welcome.',
+        'details' => 'Create an account to start using the product.',
+
+        'inputs' => [
+            'name' => 'Name',
+            'email' => 'E-mail',
+            'password' => 'Password'
+        ],
+
+        'button' => 'Register',
+        'login' => "Already have an account ?",
+        'login_link' => 'Log in'
+    ],
+
+    'logout' => [
+        'title' => 'Log out.',
+        'details' => 'You\'ll need to log in the next time in order to access the site.',
+
+        'button' => 'Log out'
+    ],
+
+    'forgot-password' => [
+        'title' => 'Forgot your password?',
+        'details' => 'We will email you a password reset link that will allow you to choose a new password',
+
+        'inputs' => [
+            'email' => 'E-mail'
+        ],
+
+        'button' => 'Email Password Reset Link'
+    ],
+
+    'reset-password' => [
+        'title' => 'Reset your password',
+        'details' => 'Be careful, resetting a password is definitive and irreversible.',
+
+        'inputs' => [
+            'email' => 'E-mail',
+            'password' => 'Password'
+        ],
+
+        'button' => 'Reset Password'
+    ],
+
+    'verify-email' => [
+        'title' => 'Thanks for signing up!',
+        'details' => 'Could you verify your email address by clicking on the link we just emailed to you?',
+
+        'email-sent' => 'A new verification link has been sent to the email address you provided during registration.',
+
+        'button' => 'Resend Verification Email',
+
+        'resend' => 'Resend',
+        'sent' => 'Sent'
     ]
 ];
