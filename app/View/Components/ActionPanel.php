@@ -12,9 +12,9 @@ class ActionPanel extends Component
 
     public function __construct(string $title, string $description = null, bool $well = false)
     {
-        $this->title = $title;
+        $this->title       = $title;
         $this->description = $description;
-        $this->well = $well;
+        $this->well        = $well;
     }
 
     /**

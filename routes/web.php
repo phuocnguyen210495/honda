@@ -18,7 +18,7 @@ Route::view(RouteServiceProvider::HOME, 'front.home')->middleware(['auth', 'veri
 Route::view('/', 'front.welcome')->name('welcome');
 Route::view('/playground', 'playground')->name('playground');
 Route::view('/icons', 'icons', [
-    'sets' => app(Factory::class)->all()
+    'sets' => app(Factory::class)->all(),
 ])->name('icons');
 require __DIR__ . '/auth.php';
 require __DIR__ . '/starts.php';

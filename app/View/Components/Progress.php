@@ -12,15 +12,15 @@ class Progress extends Component
     public int $filled;
     public int $total;
     public int $height;
-        
+
     public function __construct(int $filled = 0, int $total = 100, int $height = 3, string $color = null, string $background = 'gray', bool $squared = false)
     {
-        $this->color = $color ?? settings('color');
+        $this->color      = $color ?? settings('color');
         $this->background = $background;
-        $this->squared = $squared;
-        $this->filled  = $filled;
-        $this->total = $total;
-        $this->height = $height;
+        $this->squared    = $squared;
+        $this->filled     = $filled;
+        $this->total      = $total;
+        $this->height     = $height;
     }
 
     public function render()
@@ -28,7 +28,7 @@ class Progress extends Component
         return view('components.progress');
     }
 
-    public function completedPercentage() 
+    public function completedPercentage()
     {
         return $this->filled / $this->total * 100;
     }

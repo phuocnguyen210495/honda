@@ -15,7 +15,8 @@ use Illuminate\Notifications\Notifiable;
  * App\Model\User.
  *
  * @property DatabaseNotificationCollection|DatabaseNotification[] $notifications
- * @property int|null $notifications_count
+ * @property int|null                                              $notifications_count
+ *
  * @method static Builder|User newModelQuery()
  * @method static Builder|User newQuery()
  * @method static Builder|User query()

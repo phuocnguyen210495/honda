@@ -2,7 +2,6 @@
 
 use App\Controller\Auth\AuthenticatedSessionController;
 use App\Controller\Auth\ConfirmablePasswordController;
-use App\Controller\Auth\EmailVerificationNotificationController;
 use App\Controller\Auth\EmailVerificationPromptController;
 use App\Controller\Auth\NewPasswordController;
 use App\Controller\Auth\PasswordResetLinkController;

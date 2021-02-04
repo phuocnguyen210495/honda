@@ -8,16 +8,20 @@ use Str;
 
 class ToggleableIcon extends Component
 {
-    public string $name;
+    public ?string $name;
+    public ?string $label;
     public string $filledColor;
     public string $color;
-    public ?string $label;
     public bool $checked;
 
     /**
+     * @param string $name
+     * @param string|null $label
      * @param string $filledColor
+     * @param string $color
+     * @param bool $checked
      */
-    public function __construct(string $name, string $label = null, string $filledColor = null, string $color = 'gray', bool $checked = false)
+    public function __construct(string $name = null, string $label = null, string $filledColor = null, string $color = 'gray', bool $checked = false)
     {
         $this->name        = $name;
         $this->label       = $label ?? Str::humanize($name);
@@ -26,13 +30,8 @@ class ToggleableIcon extends Component
         $this->checked     = $checked;
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return View|string
-     */
     public function render()
     {
-        return view('components.inputs.toggleable-icon');
+        return view('components.toggleable-icon');
     }
 }

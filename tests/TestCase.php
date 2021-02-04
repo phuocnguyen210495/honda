@@ -8,8 +8,8 @@ use Tests\Concerns\InteractsWithViews;
 
 abstract class TestCase extends BaseTestCase
 {
-    use CreatesApplication, InteractsWithViews;
-
+    use CreatesApplication;
+    use InteractsWithViews;
 
     public function assertComponentRenders(string $expected, string $template, array $data = []): void
     {
@@ -17,9 +17,9 @@ abstract class TestCase extends BaseTestCase
         $indenter->setElementType('h1', Indenter::ELEMENT_TYPE_INLINE);
         $indenter->setElementType('del', Indenter::ELEMENT_TYPE_INLINE);
 
-        $blade = (string)$this->blade($template, $data);
+        $blade    = (string) $this->blade($template, $data);
         $indented = $indenter->indent($blade);
-        $cleaned = str_replace(
+        $cleaned  = str_replace(
             [' >', "\n/>", ' </div>', '> ', "\n>"],
             ['>', ' />', "\n</div>", ">\n    ", '>'],
             $indented,

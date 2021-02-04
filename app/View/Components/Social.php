@@ -33,6 +33,7 @@ class Social extends Component
     public string $style;
     public string $link;
     public int $size;
+    public bool $branded;
 
     public function __construct(string $type, string $link, string $style = 'icon', int $size = 8, bool $branded = false)
     {
@@ -44,6 +45,7 @@ class Social extends Component
         $this->style = in_array($style, ['icon', 'text']) ? $style : 'icon';
         $this->link  = $this->buildLink($link, $type);
         $this->size  = $size;
+        $this->branded = $branded;
     }
 
     public function buildLink(string $link, string $type): string

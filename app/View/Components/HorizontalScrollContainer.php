@@ -13,7 +13,6 @@ class HorizontalScrollContainer extends Component
      */
     public function __construct()
     {
-        //
     }
 
     /**

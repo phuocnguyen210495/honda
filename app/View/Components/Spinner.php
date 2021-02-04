@@ -13,16 +13,12 @@ class Spinner extends Component
 
     /**
      * Create a new component instance.
-     *
-     * @param string|null $color
-     * @param bool $hide
-     * @param int $size
      */
     public function __construct(string $color = null, bool $hide = false, int $size = 6)
     {
         $this->color = $color ?? settings('color');
-        $this->hide = $hide;
-        $this->size = $size;
+        $this->hide  = $hide;
+        $this->size  = $size;
     }
 
     /**

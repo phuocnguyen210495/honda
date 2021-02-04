@@ -2,7 +2,6 @@
 
 namespace App;
 
-use Illuminate\Auth\Middleware\EnsureEmailIsVerified;
 use Illuminate\Foundation\Http\Kernel;
 use Spatie\Honeypot\ProtectAgainstSpam;
 

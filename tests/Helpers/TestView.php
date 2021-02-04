@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Tests\Helpers;
 
 use Illuminate\Testing\Assert as PHPUnit;
@@ -13,7 +12,7 @@ class TestView
 
     public function __construct(View $view)
     {
-        $this->view = $view;
+        $this->view     = $view;
         $this->rendered = $view->render();
     }
 
@@ -21,14 +20,15 @@ class TestView
      * Assert that the given string is contained within the view.
      *
      * @param string $value
-     * @param bool $escaped
+     * @param bool   $escaped
+     *
      * @return $this
      */
     public function assertSee($value, $escaped = true): self
     {
         $value = $escaped ? e($value) : $value;
 
-        PHPUnit::assertStringContainsString((string)$value, $this->rendered);
+        PHPUnit::assertStringContainsString((string) $value, $this->rendered);
 
         return $this;
     }
@@ -36,8 +36,8 @@ class TestView
     /**
      * Assert that the given strings are contained in order within the view.
      *
-     * @param array $values
      * @param bool $escape
+     *
      * @return $this
      */
     public function assertSeeInOrder(array $values, $escape = true): self
@@ -53,14 +53,15 @@ class TestView
      * Assert that the given string is contained within the view text.
      *
      * @param string $value
-     * @param bool $escape
+     * @param bool   $escape
+     *
      * @return $this
      */
     public function assertSeeText($value, $escape = true): self
     {
         $value = $escape ? e($value) : $value;
 
-        PHPUnit::assertStringContainsString((string)$value, strip_tags($this->rendered));
+        PHPUnit::assertStringContainsString((string) $value, strip_tags($this->rendered));
 
         return $this;
     }
@@ -68,8 +69,8 @@ class TestView
     /**
      * Assert that the given strings are contained in order within the view text.
      *
-     * @param array $values
      * @param bool $escape
+     *
      * @return $this
      */
     public function assertSeeTextInOrder(array $values, $escape = true): self
@@ -85,14 +86,15 @@ class TestView
      * Assert that the given string is not contained within the view.
      *
      * @param string $value
-     * @param bool $escape
+     * @param bool   $escape
+     *
      * @return $this
      */
     public function assertDontSee($value, $escape = true): self
     {
         $value = $escape ? e($value) : $value;
 
-        PHPUnit::assertStringNotContainsString((string)$value, $this->rendered);
+        PHPUnit::assertStringNotContainsString((string) $value, $this->rendered);
 
         return $this;
     }
@@ -101,22 +103,21 @@ class TestView
      * Assert that the given string is not contained within the view text.
      *
      * @param string $value
-     * @param bool $escape
+     * @param bool   $escape
+     *
      * @return $this
      */
     public function assertDontSeeText($value, $escape = true): self
     {
         $value = $escape ? e($value) : $value;
 
-        PHPUnit::assertStringNotContainsString((string)$value, strip_tags($this->rendered));
+        PHPUnit::assertStringNotContainsString((string) $value, strip_tags($this->rendered));
 
         return $this;
     }
 
     /**
      * Get the string contents of the rendered view.
-     *
-     * @return string
      */
     public function __toString(): string
     {

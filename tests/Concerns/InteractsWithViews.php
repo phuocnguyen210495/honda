@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Tests\Concerns;
 
 use Illuminate\Contracts\Support\Arrayable;
@@ -16,8 +15,8 @@ trait InteractsWithViews
     /**
      * Create a new TestView from the given view.
      *
-     * @param string $view
      * @param Arrayable|array $data
+     *
      * @return TestView
      */
     protected function view(string $view, array $data = [])
@@ -28,8 +27,8 @@ trait InteractsWithViews
     /**
      * Render the contents of the given Blade template string.
      *
-     * @param string $template
      * @param Arrayable|array $data
+     *
      * @return TestView
      */
     protected function blade(string $template, array $data = [])
@@ -50,8 +49,8 @@ trait InteractsWithViews
     /**
      * Render the given view component.
      *
-     * @param string $componentClass
      * @param Arrayable|array $data
+     *
      * @return TestView
      */
     protected function component(string $componentClass, array $data = [])
@@ -68,8 +67,8 @@ trait InteractsWithViews
     /**
      * Populate the shared view error bag with the given errors.
      *
-     * @param array $errors
      * @param string $key
+     *
      * @return void
      */
     protected function withViewErrors(array $errors, $key = 'default')

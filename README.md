@@ -7,7 +7,6 @@ TODO:
 * [ ] Middleware to set locale based on user's preferences + ?hl={lang}
 * [ ] File input component
 * [ ] Masonry component
-* [ ] Auth
 * [ ] Make name attribute not required on inputs
 * [ ] Charts
 * [ ] Tab Switch [Tab1|Tab2] [icon1|icon2]

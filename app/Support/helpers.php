@@ -24,7 +24,8 @@ if (!function_exists('flash')) {
 }
 
 if (!function_exists('classes')) {
-    function classes(array $classList) {
+    function classes(array $classList)
+    {
         $classes = [];
 
         foreach ($classList as $class => $constraint) {

@@ -8,7 +8,7 @@ class Grid extends Component
 {
     public int $rows;
     public int $cols;
-    
+
     public function __construct(int $rows = 1, int $cols = 1)
     {
         $this->rows =  $rows;

@@ -13,7 +13,6 @@ class Stats extends Component
      */
     public function __construct()
     {
-        //
     }
 
     /**

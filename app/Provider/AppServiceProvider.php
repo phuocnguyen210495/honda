@@ -5,8 +5,6 @@ namespace App\Provider;
 use App\Support\BladeDirective;
 use App\Support\Navigation;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\ComponentAttributeBag;
 use Spatie\Valuestore\Valuestore;
@@ -63,7 +61,7 @@ class AppServiceProvider extends ServiceProvider
         ComponentAttributeBag::macro('class', function ($classList) {
             return $this->merge(['class' => classes($classList)]);
         });
-    
+
         BladeDirective::create('setting', function ($key) {
             $key = Str::unquote($key);
 

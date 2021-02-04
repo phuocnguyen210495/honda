@@ -255,6 +255,8 @@
     <x-title content="Quantity" level="h3" class="mt-4"/>
     <x-quantity name="quantity"/>
 
+    <x-title content="Social icons" level="h3" class="mt-4"/>
+    <x-social branded type="instagram" link="felixdorn_" />
     <x-title content="Empty states" level="h3" class="mt-4"/>
 
     <div class="mt-2">
@@ -265,9 +267,9 @@
             <x-button content="Get started..."/>
         </x-empty-state>
     </div>
- 
+
     <x-title content="Panels" level="h3" class="mt-4"/>
-    <x-action-panel 
+    <x-action-panel
         title="Delete your account"
         description="Once you delete your account, you will loose all data associated with it.">
         <x-button.secondary color="red" content="Delete your account" />
