@@ -25,7 +25,9 @@ abstract class TestCase extends BaseTestCase
             $indented,
         );
 
-        $this->assertSame($expected, $cleaned);
+        $this->assertSame(
+            str_replace([' ', PHP_EOL], '', $expected), 
+            str_replace([' ', PHP_EOL], '', $cleaned));
     }
 
     protected function setUp(): void
@@ -40,10 +42,5 @@ abstract class TestCase extends BaseTestCase
         session()->flashInput($input);
 
         request()->setLaravelSession(session());
-    }
-
-    protected function getPackageProviders($app): array
-    {
-        return [BladeUIKitServiceProvider::class];
     }
 }

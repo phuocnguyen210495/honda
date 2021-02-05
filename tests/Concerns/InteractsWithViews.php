@@ -8,7 +8,7 @@ use Illuminate\Support\MessageBag;
 use Illuminate\Support\Str;
 use Illuminate\Support\ViewErrorBag;
 use Illuminate\View\View;
-use Tests\TestView;
+use Tests\Helpers\TestView;
 
 trait InteractsWithViews
 {
