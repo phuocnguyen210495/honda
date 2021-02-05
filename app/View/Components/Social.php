@@ -42,12 +42,12 @@ class Social extends Component
             throw new InvalidArgumentException('An unexpected value was given for type allowed: ' . implode(', ', static::$allowedTypes));
         }
 
-        $this->type  = $type;
-        $this->style = in_array($style, ['icon', 'text']) ? $style : 'icon';
-        $this->link  = $this->buildLink($link, $type);
-        $this->size  = $size;
+        $this->type    = $type;
+        $this->style   = in_array($style, ['icon', 'text']) ? $style : 'icon';
+        $this->link    = $this->buildLink($link, $type);
+        $this->size    = $size;
         $this->branded = $branded;
-        $this->asText = $asText;
+        $this->asText  = $asText;
     }
 
     public function buildLink(string $link, string $type): string

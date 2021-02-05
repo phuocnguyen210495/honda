@@ -13,18 +13,13 @@ class ToggleableIcon extends Component
     public string $filledColor;
     public string $color;
     public bool $checked;
+    public bool $hideLabel;
 
-    /**
-     * @param string $name
-     * @param string|null $label
-     * @param string $filledColor
-     * @param string $color
-     * @param bool $checked
-     */
-    public function __construct(string $name = null, string $label = null, string $filledColor = null, string $color = 'gray', bool $checked = false)
+    public function __construct(string $name = null, string $label = null, bool $hideLabel = false, string $filledColor = null, string $color = 'gray', bool $checked = false)
     {
         $this->name        = $name;
-        $this->label       = $label ?? Str::humanize($name);
+        $this->label       = $label ?? ($name === null ? $name : Str::humanize($name));
+        $this->hideLabel   = $hideLabel;
         $this->filledColor = $filledColor ?? settings('color');
         $this->color       = $color;
         $this->checked     = $checked;

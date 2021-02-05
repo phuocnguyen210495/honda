@@ -23,14 +23,6 @@ class Avatar extends Component
     public ?string $status;
     public int $size;
 
-    /**
-     * Create a new component instance.
-     *
-     * @param string $search
-     * @param string $src
-     * @param string $provider
-     * @param string $fallback
-     */
     public function __construct(string $search = null, string $src = null, string $provider = null, string $fallback = null, int $size = 8, string $status = null)
     {
         if (!$search && !$src) {

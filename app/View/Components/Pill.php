@@ -7,7 +7,7 @@ class Pill extends Badge
     public function render()
     {
         return view('components.badge', [
-            'pill' => true
+            'pill' => true,
         ]);
     }
 }

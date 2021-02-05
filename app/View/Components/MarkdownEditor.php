@@ -6,20 +6,17 @@ use Illuminate\View\Component;
 
 class MarkdownEditor extends Component
 {
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public ?string $name;
+    public ?string $label;
+    public bool $hideLabel;
+
+    public function __construct(string $name = null, string $label = null, bool $hideLabel = false)
     {
+        $this->name      = $name;
+        $this->label     = $label;
+        $this->hideLabel = $hideLabel;
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\Contracts\View\View|string
-     */
     public function render()
     {
         return view('components.markdown-editor');

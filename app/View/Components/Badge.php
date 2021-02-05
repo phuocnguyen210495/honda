@@ -13,13 +13,6 @@ class Badge extends Component
     public bool $dotted;
     public bool $disabled;
 
-    /**
-     * @param string $content
-     * @param string $color
-     * @param bool $dotted
-     * @param bool $disabled
-     * @param string $href
-     */
     public function __construct(string $content, string $color = 'gray', bool $dotted = false, bool $disabled = false, string $href = '')
     {
         $this->content  = $content;

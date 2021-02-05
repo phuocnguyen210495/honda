@@ -12,9 +12,6 @@ class Icon extends Component
     public string $type;
     public string $iconSet;
 
-    /**
-     * @param string $color
-     */
     public function __construct(string $icon, string $color = null, string $type = 'submit', string $iconSet = 'heroicon')
     {
         $this->color   = $color ?? settings('color');
@@ -23,11 +20,6 @@ class Icon extends Component
         $this->iconSet = $iconSet;
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return View|string
-     */
     public function render()
     {
         return view('components.button.icon');

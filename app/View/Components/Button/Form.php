@@ -6,20 +6,17 @@ use Illuminate\View\Component;
 
 class Form extends Component
 {
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public string $action;
+    public string $method;
+    public string $component;
+
+    public function __construct(string $action = '#', string $method = 'POST', string $component = 'button')
     {
+        $this->action    = $action;
+        $this->method    = $method;
+        $this->component = $component;
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\Contracts\View\View|string
-     */
     public function render()
     {
         return view('components.button.form');

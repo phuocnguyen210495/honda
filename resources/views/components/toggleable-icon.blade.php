@@ -4,5 +4,5 @@
             aria-hidden="true"/>
 
     <input type="checkbox" @if ($name) name="{{ $name }}" @endif x-bind:checked="checked" class="hidden"
-           aria-label="{{ $label }}"/>
+           @if (!$hideLabel) aria-label="{{ $label }}" @endif />
 </button>

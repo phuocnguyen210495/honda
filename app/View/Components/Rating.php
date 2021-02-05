@@ -16,11 +16,11 @@ class Rating extends Component
 
     public function __construct(string $name = null, string $label = null, bool $hideLabel = false, int $max = 5, int $size = 6, bool $first = false)
     {
-        $this->name = $name;
+        $this->name      = $name;
         $this->label     = $label ?? ($name === null ? $name : Str::humanize($name));
-        $this->max = $max;
-        $this->size = $size;
-        $this->first = $first;
+        $this->max       = $max;
+        $this->size      = $size;
+        $this->first     = $first;
         $this->hideLabel = $hideLabel;
     }
 

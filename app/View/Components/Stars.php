@@ -19,11 +19,6 @@ class Stars extends Component
         $this->max    = $max;
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\Contracts\View\View|string
-     */
     public function render()
     {
         return view('components.stars');

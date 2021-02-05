@@ -9,9 +9,6 @@ class AvatarsStack extends Component
     public string $sourceFrom;
     public string $searchFrom;
 
-    /**
-     * @var mixed
-     */
     public $models;
     public int $size;
     public string $margin;
@@ -20,11 +17,6 @@ class AvatarsStack extends Component
     public string $provider;
     public string $fallback;
 
-    /**
-     * Create a new component instance.
-     *
-     * @param $models
-     */
     public function __construct($models, string $sourceFrom = 'profile_photo_url', string $searchFrom = 'name', int $size = 10, bool $reverse = false, int $limit = 4, string $provider = '', string $fallback = '')
     {
         // Ensure we work with a Collection
@@ -44,11 +36,6 @@ class AvatarsStack extends Component
         $this->margin    = $marginDirection . ceil($size / 5);
     }
 
-    /**
-     * Try to retrieve a qualified url from the model.
-     *
-     * @param $model
-     */
     public function urlFromSource($model): string
     {
         if (isset($model->{$this->sourceFrom}) && filter_var($model->{$this->sourceFrom}, FILTER_VALIDATE_URL)) {
@@ -58,7 +45,7 @@ class AvatarsStack extends Component
         return '';
     }
 
-    public function render(): \Illuminate\Contracts\View\View
+    public function render()
     {
         return view('components.avatars-stack');
     }

@@ -12,9 +12,6 @@ class Dot extends Component
     public bool $outline;
     public string $size;
 
-    /**
-     * Create a new component instance.
-     */
     public function __construct(string $color, string $size = '2', bool $shown = true, bool $outline = false)
     {
         $this->color   = $color;
@@ -23,11 +20,6 @@ class Dot extends Component
         $this->size    = $size;
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return View|string
-     */
     public function render()
     {
         return view('components.dot');

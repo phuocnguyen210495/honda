@@ -13,9 +13,6 @@ class Alert extends Component
     public string $type;
     public string $description;
 
-    /**
-     * Alert constructor.
-     */
     public function __construct(string $content, string $type, string $description = '', string $icon = 'information-circle', bool $closeable = false)
     {
         $this->content     = $content;

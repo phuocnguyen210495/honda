@@ -2,24 +2,30 @@
 
 namespace App\View\Components;
 
+use App\Support\Scripts;
 use Illuminate\View\Component;
 
 class Captcha extends Component
 {
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public const PROVIDERS = ['recaptcha', 'hcaptcha'];
+
+    public string $provider;
+
+    public function __construct(string $provider = 'recaptcha')
     {
+        $this->provider = $provider;
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\Contracts\View\View|string
-     */
+    public function usingRecaptcha()
+    {
+        Scripts::push('');
+    }
+
+    public function usingHcaptcha()
+    {
+        Scripts::push('');
+    }
+
     public function render()
     {
         return view('components.captcha');
