@@ -10,7 +10,7 @@
     <x-pushed-styles/>
 </head>
 <body class="bg-gray-100 font-medium">
-<x-container lg="sm" class="my-4 mx-4">
+<x-container lg="4xl" class="m-4">
     <x-title content="Content" level="h2"/>
     <x-paragraph
         content="Here is a bit of a paragraph with some words saying some things, i'm sure you get the **point**. And *Ho!*, it also supports **markdown**..."
@@ -56,39 +56,45 @@
     </div>
 
     <x-title content="Alerts" level="h2" class="mt-6"/>
-    <x-alert content="Bip Boop! Seems like you're a robot, get out of here." type="error"/>
-    <x-alert content="Bip Boop! Seems like you're a robot, get out of here." type="warning"/>
-    <x-alert content="Bip Boop! Seems like you're a robot, get out of here." type="success"/>
-    <x-alert content="Bip Boop! Seems like you're a robot, get out of here." type="info"/>
+    <div class="space-y-4">
+        <x-alert content="Bip Boop! Seems like you're a robot, get out of here." type="error"/>
+        <x-alert content="Bip Boop! Seems like you're a robot, get out of here." type="warning"/>
+        <x-alert content="Bip Boop! Seems like you're a robot, get out of here." type="success"/>
+        <x-alert content="Bip Boop! Seems like you're a robot, get out of here." type="info"/>
+    </div>
 
     <x-title content="Closeable" level="h3" class="mt-4"/>
-    <x-alert closeable content="Bip Boop! Seems like you're a robot, get out of here." type="error"/>
-    <x-alert closeable content="Bip Boop! Seems like you're a robot, get out of here." type="warning"/>
-    <x-alert closeable content="Bip Boop! Seems like you're a robot, get out of here." type="success"/>
-    <x-alert closeable content="Bip Boop! Seems like you're a robot, get out of here." type="info"/>
-
+    <div class="space-y-4">
+        <x-alert closeable content="Bip Boop! Seems like you're a robot, get out of here." type="error"/>
+        <x-alert closeable content="Bip Boop! Seems like you're a robot, get out of here." type="warning"/>
+        <x-alert closeable content="Bip Boop! Seems like you're a robot, get out of here." type="success"/>
+        <x-alert closeable content="Bip Boop! Seems like you're a robot, get out of here." type="info"/>
+    </div>
 
     <x-title content="With a description" level="h3" class="mt-4"/>
-    <x-alert closeable content="Bip Boop! Seems like you're a robot, get out of here."
-             description="We detected you are a robot because of the way you click so fast and your overall behavior."
-             type="error"/>
-    <x-alert closeable content="Bip Boop! Seems like you're a robot, get out of here."
-             description="We detected you are a robot because of the way you click so fast and your overall behavior."
-             type="warning"/>
+    <div class="space-y-4">
+        <x-alert closeable content="Bip Boop! Seems like you're a robot, get out of here."
+                 description="We detected you are a robot because of the way you click so fast and your overall behavior."
+                 type="error"/>
+        <x-alert closeable content="Bip Boop! Seems like you're a robot, get out of here."
+                 description="We detected you are a robot because of the way you click so fast and your overall behavior."
+                 type="warning"/>
 
-    <x-alert closeable content="Bip Boop! Seems like you're a robot, get out of here."
-             description="We detected you are a robot because of the way you click so fast and your overall behavior."
-             type="success"/>
+        <x-alert closeable content="Bip Boop! Seems like you're a robot, get out of here."
+                 description="We detected you are a robot because of the way you click so fast and your overall behavior."
+                 type="success"/>
 
-    <x-alert closeable content="Bip Boop! Seems like you're a robot, get out of here."
-             description="We detected you are a robot because of the way you click so fast and your overall behavior."
-             type="info"/>
-
+        <x-alert closeable content="Bip Boop! Seems like you're a robot, get out of here."
+                 description="We detected you are a robot because of the way you click so fast and your overall behavior."
+                 type="info"/>
+    </div>
     <x-title content="Custom icons" level="h3" class="mt-4"/>
-    <x-alert closeable content="Bip Boop! Seems like you're a robot, get out of here."
-             icon="cake"
-             description="We detected you are a robot because of the way you click so fast and your overall behavior."
-             type="success"/>
+    <div class="space-y-4">
+        <x-alert closeable content="Bip Boop! Seems like you're a robot, get out of here."
+                 icon="cake"
+                 description="We detected you are a robot because of the way you click so fast and your overall behavior."
+                 type="success"/>
+    </div>
 
     <x-title content="Badges" level="h2" class="mt-6"/>
     <div class="flex space-x-4 mt-4">
@@ -111,13 +117,43 @@
         <x-badge href="#" dotted content="Sold" color="yellow"/>
         <x-badge href="#" dotted content="Sold" color="blue"/>
     </div>
+
+    <x-title content="Pills" level="h2" class="mt-6"/>
+    <div class="flex space-x-4 mt-4">
+        <x-pill content="Sold" color="green"/>
+        <x-pill content="Sold" color="red"/>
+        <x-pill content="Sold" color="yellow"/>
+        <x-pill content="Sold" color="blue"/>
+    </div>
+    <x-title content="With a dot" level="h3" class="mt-4"/>
+    <div class="flex space-x-4 mt-4">
+        <x-pill dotted content="Sold" color="green"/>
+        <x-pill dotted content="Sold" color="red"/>
+        <x-pill dotted content="Sold" color="yellow"/>
+        <x-pill dotted content="Sold" color="blue"/>
+    </div>
+    <x-title content="As a link" level="h3" class="mt-4"/>
+    <div class="flex space-x-4 mt-4">
+        <x-pill href="#" dotted content="Sold" color="green"/>
+        <x-pill href="#" dotted content="Sold" color="red"/>
+        <x-pill href="#" dotted content="Sold" color="yellow"/>
+        <x-pill href="#" dotted content="Sold" color="blue"/>
+    </div>
     <x-title content="Disabled" level="h3" class="mt-4"/>
 
     <div class="flex space-x-4 mt-4">
-        <x-badge disabled href="#" dotted content="Green" color="green"/>
-        <x-badge disabled href="#" dotted content="Red" color="red"/>
-        <x-badge disabled href="#" dotted content="Yellow" color="yellow"/>
-        <x-badge disabled href="#" dotted content="Blue" color="blue"/>
+        <x-pill disabled href="#" dotted content="Green" color="green"/>
+        <x-pill disabled href="#" dotted content="Red" color="red"/>
+        <x-pill disabled href="#" dotted content="Yellow" color="yellow"/>
+        <x-pill disabled href="#" dotted content="Blue" color="blue"/>
+    </div>
+
+    <x-title content="Counting badge" level="h2" class="mt-6"/>
+    <div class="flex space-x-4 mt-4">
+        <x-counting-badge count="4" color="green"/>
+        <x-counting-badge count="142" color="red"/>
+        <x-counting-badge count="0" always-show color="yellow"/>
+        <x-counting-badge count="3000+" color="blue"/>
     </div>
 
     <x-title content="Buttons" level="h2" class="mt-6"/>
@@ -211,11 +247,11 @@
     </div>
 
     <x-title content="Progress" level="h2" class="mt-6"/>
-    <x-progress class="mt-4" />
-    <x-progress filled="80" total="200" class="mt-4" />
-    <x-progress filled="20" total="100" color="green" class="mt-4" />
-    <x-progress filled="80" total="200" class="mt-4" squared />
-    <x-progress filled="80" total="200" class="mt-4" squared height="1" />
+    <x-progress class="mt-4"/>
+    <x-progress filled="80" total="200" class="mt-4"/>
+    <x-progress filled="20" total="100" color="green" class="mt-4"/>
+    <x-progress filled="80" total="200" class="mt-4" squared/>
+    <x-progress filled="80" total="200" class="mt-4" squared height="1"/>
 
     <x-title content="Links" level="h2" class="mt-6"/>
 
@@ -256,7 +292,53 @@
     <x-quantity name="quantity"/>
 
     <x-title content="Social icons" level="h3" class="mt-4"/>
-    <x-social branded type="instagram" link="felixdorn_" />
+    <div class="flex space-x-4">
+        <x-social type="facebook" link="felixdorn_" as-text class="hover:underline focus:underline focus:outline-none">
+            Facebook
+        </x-social>
+        <x-social type="instagram" link="felixdorn_" as-text class="hover:underline focus:underline focus:outline-none">
+            Instagram
+        </x-social>
+        <x-social type="twitter" link="felixdorn_" as-text class="hover:underline focus:underline focus:outline-none">
+            Twitter
+        </x-social>
+        <x-social type="linkedin" link="felixdorn_" as-text class="hover:underline focus:underline focus:outline-none">
+            Linkedin
+        </x-social>
+        <x-social type="dev" link="felixdorn_" as-text class="hover:underline focus:underline focus:outline-none">
+            dev.to
+        </x-social>
+        <x-social type="github" link="felixdorn_" as-text class="hover:underline focus:underline focus:outline-none">
+            GitHub
+        </x-social>
+        <x-social type="gitlab" link="felixdorn_" as-text class="hover:underline focus:underline focus:outline-none">
+            Gitlab
+        </x-social>
+        <x-social type="discord" link="felixdorn_" as-text class="hover:underline focus:underline focus:outline-none">
+            Discord
+        </x-social>
+    </div>
+    <div class="flex space-x-4 mt-4">
+        <x-social type="facebook" link="felixdorn_"/>
+        <x-social type="instagram" link="felixdorn_"/>
+        <x-social type="twitter" link="felixdorn_"/>
+        <x-social type="linkedin" link="felixdorn_"/>
+        <x-social type="dev" link="felixdorn_"/>
+        <x-social type="github" link="felixdorn_"/>
+        <x-social type="gitlab" link="felixdorn_"/>
+        <x-social type="discord" link="felixdorn_"/>
+    </div>
+    <div class="flex space-x-4 mt-4">
+        <x-social branded type="facebook" link="felixdorn_"/>
+        <x-social branded type="instagram" link="felixdorn_"/>
+        <x-social branded type="twitter" link="felixdorn_"/>
+        <x-social branded type="linkedin" link="felixdorn_"/>
+        <x-social branded type="dev" link="felixdorn_"/>
+        <x-social branded type="github" link="felixdorn_"/>
+        <x-social branded type="gitlab" link="felixdorn_"/>
+        <x-social branded type="discord" link="felixdorn_"/>
+    </div>
+
     <x-title content="Empty states" level="h3" class="mt-4"/>
 
     <div class="mt-2">
@@ -272,7 +354,7 @@
     <x-action-panel
         title="Delete your account"
         description="Once you delete your account, you will loose all data associated with it.">
-        <x-button.secondary color="red" content="Delete your account" />
+        <x-button.secondary color="red" content="Delete your account"/>
     </x-action-panel>
 
     <x-action-panel
@@ -285,7 +367,7 @@
         class="mt-4"
         title="Delete your account"
         description="Once you delete your account, you will loose all data associated with it." well>
-        <x-button.text content="Contact sales" />
+        <x-button.text content="Contact sales"/>
     </x-action-panel>
 
 </x-container>

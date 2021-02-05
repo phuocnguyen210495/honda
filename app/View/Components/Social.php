@@ -34,8 +34,9 @@ class Social extends Component
     public string $link;
     public int $size;
     public bool $branded;
+    public bool $asText;
 
-    public function __construct(string $type, string $link, string $style = 'icon', int $size = 8, bool $branded = false)
+    public function __construct(string $type, string $link, string $style = 'icon', int $size = 8, bool $branded = false, bool $asText = false)
     {
         if (!in_array($type, static::$allowedTypes, true)) {
             throw new InvalidArgumentException('An unexpected value was given for type allowed: ' . implode(', ', static::$allowedTypes));
@@ -46,6 +47,7 @@ class Social extends Component
         $this->link  = $this->buildLink($link, $type);
         $this->size  = $size;
         $this->branded = $branded;
+        $this->asText = $asText;
     }
 
     public function buildLink(string $link, string $type): string

@@ -1,4 +1,4 @@
-@if ($style === 'icon')
+@if (!$asText)
     @if ($type === 'tel')
         <a href="tel:{{ $link }}">
             <x-dynamic-component :component="'heroicon-o-phone'"
@@ -10,11 +10,14 @@
                                  class="w-{{ $size }} h-{{ $size }} {{ $attributes->get('class') }}" {{ $attributes->except('class') }} />
         </a>
     @else
-        <div href="{{ $link }}">
-            <x-dynamic-component :component="'fab-' . $type" @if ($branded) style="color: {{ \App\View\Components\Social::BRAND_COLORS[$type] }}" @endif class="w-{{ $size }} h-{{ $size }} {{ $attributes->get('class') }}" {{ $attributes->except('class') }} />
-        </div>
+        <a href="{{ $link }}">
+            <x-dynamic-component :component="'fab-' . $type" {{ $attributes->merge([
+                'class' => sprintf('w-%s h-%s', $size, $size),
+                'style' => $branded ? sprintf('color: %s', \App\View\Components\Social::BRAND_COLORS[$type]) : ''
+            ]) }} />
+        </a>
     @endif
-@elseif($style === 'text')
+@else
     <a href="{{ $link }}" {{ $attributes }}>
         {{ $slot }}
     </a>

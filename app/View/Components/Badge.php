@@ -14,7 +14,11 @@ class Badge extends Component
     public bool $disabled;
 
     /**
-     * Create a new component instance.
+     * @param string $content
+     * @param string $color
+     * @param bool $dotted
+     * @param bool $disabled
+     * @param string $href
      */
     public function __construct(string $content, string $color = 'gray', bool $dotted = false, bool $disabled = false, string $href = '')
     {
@@ -25,11 +29,6 @@ class Badge extends Component
         $this->href     = $href;
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return View|string
-     */
     public function render()
     {
         return view('components.badge');
