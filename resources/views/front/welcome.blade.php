@@ -278,7 +278,7 @@
               label="Searchable select accepting multiple values"/>
 
     <x-title content="Checkboxes" level="h3" class="mt-4"/>
-    <div class="flex space-x-4 mt-2">
+    <div class="space-y-4 mt-2">
         <x-checkbox name="remember_me" label="Unchecked" first/>
         <x-checkbox name="remember_me" label="Remember me" color="gray" checked first/>
         <x-checkbox name="remember_me" label="Remember me" color="red" checked first/>
@@ -290,6 +290,9 @@
 
     <x-title content="Quantity" level="h3" class="mt-4"/>
     <x-quantity name="quantity"/>
+
+    <x-title content="Rating" level="h3" class="mt-4"/>
+    <x-rating name="rating"/>
 
     <x-title content="Social icons" level="h3" class="mt-4"/>
     <div class="flex space-x-4">

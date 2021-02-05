@@ -15,6 +15,7 @@ TODO:
 * [ ] Refactor classes to {{ $attributes->class() }}
 * [ ] Quantity input focus is messed up
 * [ ] Disabled cursor consistency ("not-allowed" or not pointing)
+* [ ] mt-2 on input only if hideLabel = false 
 ### Requirements
 
 * PHP7.4
