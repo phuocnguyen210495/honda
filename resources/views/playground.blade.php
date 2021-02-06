@@ -1,9 +1,10 @@
-<x-layout title="">
-    <x-sidebar :items="app('navigation')">
-        <x-slot name="header">
-            <a href="#" class="hover:underline text-lg font-bold">
-                Starts
-            </a>
-        </x-slot>
-    </x-sidebar>
+@php
+    $items = app('navigation')
+        ->add('Home', fn (\App\Support\NavigationItem $item) => $item
+            ->icon('home')
+            ->href('playground')
+        )
+@endphp
+<x-layout title="Yes">
+    <x-sidebar :items="$items"></x-sidebar>
 </x-layout>

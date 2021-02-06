@@ -14,6 +14,9 @@ TODO:
 * [ ] mt-2 on input only if hideLabel = false 
 * [ ] Provide french translations 
 * [ ] Use a solid x icon on alerts
+* [ ] Remove the BladeDirective component as it's was meant for something unrealisable.
+* [ ] Bridge with the client using livewire, Console::log() Javascript::execute('something'...
+ * [ ] Algolia search [2.x]
  
 To finish:
 

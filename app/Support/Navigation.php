@@ -10,4 +10,21 @@ class Navigation extends NavigationSection
 
         return $this;
     }
+
+    public function addIf(bool $condition, callable $configure): Navigation
+    {
+        if ($condition) {
+            $configure($this);
+        }
+
+        return $this;
+    }
+    public function addUnless(bool $condition, callable $configure): Navigation
+    {
+        if (!$condition) {
+            $configure($this);
+        }
+
+        return $this;
+    }
 }

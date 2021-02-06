@@ -5,10 +5,12 @@ namespace App\Support;
 class NavigationItem
 {
     public string $name;
-    public ?string $href   = '#';
-    public ?string $icon   = null;
+    public ?string $href = '#';
+    public ?string $icon = null;
     public string $iconSet = 'heroicon';
-    public bool $show      = true;
+    public bool $show = true;
+    public bool $active = false;
+    public ?string $activationPattern;
 
     public function __construct(string $name)
     {
@@ -22,10 +24,34 @@ class NavigationItem
         return $this;
     }
 
+    public function active(bool $condition = true): self
+    {
+        $this->active = $condition;
+        return $this;
+    }
+
     public function showIf(callable $condition): self
     {
         $this->show = $condition();
 
+        return $this;
+    }
+
+    public function isActive(): bool
+    {
+        if ($this->active) {
+            return true;
+        }
+
+        $href = str_replace(['https://', 'http://', request()->getHost()], '', Action::guess($this->href));
+        $href = $href === '' ? '/' : $href;
+        $current = !empty($path = request()->path()) ? $path : '/';
+        return $href === $current || fnmatch($this->activationPattern ?? $href, '/' . $current);
+    }
+
+    public function activeWhenMatch(string $pattern): self
+    {
+        $this->activationPattern = $pattern;
         return $this;
     }
 

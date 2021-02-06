@@ -10,10 +10,10 @@
     <x-style link="css/app.css" />
     <x-pushed-styles />
 </head>
-<body class="bg-gray-100 max-w-7xl m-auto p-8 ">
+<body class="bg-gray-100 min-h-screen">
 {{ $slot }}
 @livewireScripts
 <x-script link="js/app.js" />
-<x-pushed-scripts /> 
+<x-pushed-scripts />
 </body>
 </html>
