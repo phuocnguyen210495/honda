@@ -5,5 +5,5 @@
         <x-icon name="chevron-down" size="4" solid />
     @endif
 
-    <span class="inline-block ml-1 {{ $attributes->get('class') }}" {{ $attributes->except('class  ') }}>{{ $variance }}%</span>
+    <span class="inline-block ml-1 {{ $attributes->get('class') }}" {{ $attributes->except('class') }}>{{ $variance }}%</span>
 </span>

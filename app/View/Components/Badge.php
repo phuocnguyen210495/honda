@@ -2,24 +2,24 @@
 
 namespace App\View\Components;
 
-use Illuminate\Contracts\View\View;
+use App\Support\Action;
 use Illuminate\View\Component;
 
 class Badge extends Component
 {
-    public string $content;
     public string $color;
-    public string $href;
+    public ?string $content;
+    public ?string $href;
     public bool $dotted;
     public bool $disabled;
 
-    public function __construct(string $content, string $color = 'gray', bool $dotted = false, bool $disabled = false, string $href = '')
+    public function __construct(string $content = null, string $color = null, bool $dotted = false, bool $disabled = false, string $href = null)
     {
-        $this->content  = $content;
-        $this->color    = $disabled ? 'gray' : $color;
-        $this->dotted   = $dotted;
+        $this->content = $content;
+        $this->color = $disabled ? 'gray' : ($color ?? settings('color'));
+        $this->dotted = $dotted;
         $this->disabled = $disabled;
-        $this->href     = $href;
+        $this->href = $href !== null ? Action::guess($href) : null;
     }
 
     public function render()
