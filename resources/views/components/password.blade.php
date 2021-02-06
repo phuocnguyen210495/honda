@@ -1,4 +1,4 @@
-<div class="flex flex-col mt-4" x-data="{ showFocusRing: false, revealPassword: false }">
+<div class="flex flex-col @if (!$first) mt-4 @endif" x-data="{ showFocusRing: false, revealPassword: false }">
     @if (!$hideLabel || $name === null)
         <label class="text-gray-700" for="{{ $name }}">{{ $label }}</label>
     @endif

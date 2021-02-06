@@ -19,7 +19,7 @@ class Progress extends Component
         $this->background = $background;
         $this->squared    = $squared;
         $this->filled     = $filled;
-        $this->total      = $total;
+        $this->total      = $total < 1 ? 1 : $total;
         $this->height     = $height;
     }
 
@@ -28,8 +28,8 @@ class Progress extends Component
         return view('components.progress');
     }
 
-    public function completedPercentage()
+    public function completedPercentage(): int
     {
-        return $this->filled / $this->total * 100;
+        return (int) ($this->filled / $this->total * 100);
     }
 }

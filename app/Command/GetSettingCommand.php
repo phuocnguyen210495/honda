@@ -7,26 +7,10 @@ use Spatie\Valuestore\Valuestore;
 
 class GetSettingCommand extends Command
 {
-    /**
-     * The name and signature of the console command.
-     *
-     * @var string
-     */
-    protected $signature = 'settings:get {key}';
-
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
+    protected $signature   = 'settings:get {key}';
     protected $description = 'Gets the value of a global setting';
 
-    /**
-     * Execute the console command.
-     *
-     * @return int
-     */
-    public function handle()
+    public function handle(): void
     {
         $value = app(Valuestore::class)->get(
             $key = $this->argument('key')

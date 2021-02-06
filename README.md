@@ -12,19 +12,21 @@ TODO:
 * [ ] Quantity input focus is messed up
 * [ ] Disabled cursor consistency ("not-allowed" or not pointing)
 * [ ] mt-2 on input only if hideLabel = false 
-
+* [ ] Provide french translations 
+* [ ] Use a solid x icon on alerts
+ 
 To finish:
 
-* <x-captcha>
-* <x-grid>
-* <x-horizontal-scroll-container>
-* <x-breadcrumb>
-* <x-avatars-stack>
-* <x-markdown-editor>
-* <x-sidebar>
-* <x-stats>
-* <x-tabs>
-* <x-video>
+* \<x-captcha>
+* \<x-grid>
+* \<x-horizontal-scroll-container>
+* \<x-breadcrumb>
+* \<x-avatars-stack>
+* \<x-markdown-editor>
+* \<x-sidebar>
+* \<x-stats>
+* \q<x-tabs>
+* \<x-video>
 ### Requirements
 
 * PHP7.4

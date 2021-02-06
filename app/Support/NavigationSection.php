@@ -10,6 +10,11 @@ class NavigationSection
 
     public ?object $options = null;
 
+    /**
+     * @param string $name
+     *
+     * @return mixed|null
+     */
     public function __get($name)
     {
         if (!$this->options) {
@@ -30,7 +35,13 @@ class NavigationSection
         return $this;
     }
 
-    public function __call($name, $arguments)
+    /**
+     * @param string  $name
+     * @param mixed[] $arguments
+     *
+     * @return $this
+     */
+    public function __call($name, $arguments): self
     {
         if (!$this->options) {
             $this->options = new stdClass();

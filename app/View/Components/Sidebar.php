@@ -9,13 +9,9 @@ class Sidebar extends Component
 {
     public array $items;
 
-    public function __construct($items)
+    public function __construct(Navigation $items)
     {
-        if ($items instanceof Navigation) {
-            $items = $items->tree();
-        }
-
-        $this->items = $items;
+        $this->items = $items->tree();
     }
 
     public function render()

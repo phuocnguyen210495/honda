@@ -11,6 +11,22 @@ abstract class TestCase extends BaseTestCase
     use CreatesApplication;
     use InteractsWithViews;
 
+    public bool $debug = false;
+
+    public static function debug(callable $debugging)
+    {
+        test()->debug = true;
+
+        $debugging();
+
+        test()->debug = false;
+    }
+
+    public static function nodebug(callable $pass): void
+    {
+        $pass();
+    }
+
     public function assertComponentRenders(string $expected, string $template, array $data = []): void
     {
         $indenter = new Indenter();
@@ -25,9 +41,13 @@ abstract class TestCase extends BaseTestCase
             $indented,
         );
 
-        $this->assertSame(
-            str_replace([' ', PHP_EOL], '', $expected), 
-            str_replace([' ', PHP_EOL], '', $cleaned));
+        if ($this->debug) {
+            $this->assertSame($expected, $cleaned);
+        } else {
+            $this->assertSame(
+                str_replace([' ', PHP_EOL], '', $expected),
+                str_replace([' ', PHP_EOL], '', $cleaned));
+        }
     }
 
     protected function setUp(): void

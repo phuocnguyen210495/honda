@@ -17,14 +17,14 @@ if (!function_exists('settings')) {
 }
 
 if (!function_exists('flash')) {
-    function flash(string $message, string $level = 'success')
+    function flash(string $message, string $level = 'success'): void
     {
         session()->flash($level, $message);
     }
 }
 
 if (!function_exists('classes')) {
-    function classes(array $classList)
+    function classes(array $classList): string
     {
         $classes = [];
 

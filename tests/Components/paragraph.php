@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\View\ComponentAttributeBag;
-
 it('can render properly', function () {
     $this->assertComponentRenders(
         '<p class="text-blue-700 mt-4">Content</p>',

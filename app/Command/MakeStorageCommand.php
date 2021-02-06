@@ -7,21 +7,10 @@ use Illuminate\Console\Command;
 
 class MakeStorageCommand extends Command
 {
-    /**
-     * The name and signature of the console command.
-     *
-     * @var string
-     */
-    protected $signature = 'make:storage {name} {--driver=local} {--root=} {--private}';
-
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
+    protected $signature   = 'make:storage {name} {--driver=local} {--root=} {--private}';
     protected $description = 'Creates a view programmatically';
 
-    public function handle()
+    public function handle(): void
     {
         $disk = $this->buildDisk(
             $name = $this->argument('name'),

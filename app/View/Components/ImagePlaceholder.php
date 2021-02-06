@@ -23,7 +23,7 @@ class ImagePlaceholder extends Component
         bool $square = false
     ) {
         if ($square) {
-            $height  = $width;
+            $height = $width;
         }
         $this->width      = $width;
         $this->height     = $height;
@@ -33,7 +33,7 @@ class ImagePlaceholder extends Component
         $this->text       = $text;
     }
 
-    public function url()
+    public function url(): string
     {
         $base = "https://via.placeholder.com/{$this->width}x{$this->height}.{$this->format}/{$this->background}/{$this->color}";
 
@@ -41,7 +41,7 @@ class ImagePlaceholder extends Component
             $base .= '?text=' . urlencode($this->text);
         }
 
-        return $this;
+        return $base;
     }
 
     public function render()

@@ -77,5 +77,15 @@ return [
 
         'resend' => 'Resend',
         'sent' => 'Sent'
+    ],
+    'confirm-password' => [
+        'title' => 'Please confirm your password.',
+        'details' => 'This is a secure area of the application. Please confirm your password before continuing.',
+
+        'inputs' => [
+            'password' => 'Password'
+        ],
+
+        'button' => 'Confirm my password'
     ]
 ];

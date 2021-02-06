@@ -4,6 +4,8 @@ namespace App\Provider;
 
 use App\Support\BladeDirective;
 use App\Support\Navigation;
+use App\Support\Styles;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\ComponentAttributeBag;
@@ -41,7 +43,7 @@ class AppServiceProvider extends ServiceProvider
         Str::macro('humanize', function (string $text) {
             return ucwords(str_replace(
                 '#[space]',
-                 ' ',
+                ' ',
                 trim(preg_replace('/[^\x21-\x7E]/', '', str_replace(['_', '-'], '#[space]', $text)))
             ));
         });
@@ -59,6 +61,7 @@ class AppServiceProvider extends ServiceProvider
         View::share(['settings' => app('settings')]);
 
         ComponentAttributeBag::macro('class', function ($classList) {
+            /* @var ComponentAttributeBag $this */
             return $this->merge(['class' => classes($classList)]);
         });
 
@@ -113,5 +116,11 @@ class AppServiceProvider extends ServiceProvider
                 ?>
             html;
         })->register();
+
+        Factory::guessFactoryNamesUsing(function (string $model) {
+            return 'Database\\Factories\\' . class_basename($model) . 'Factory';
+        });
+
+        Styles::pushRaw('[x-cloak] { display: none; }');
     }
 }

@@ -4,6 +4,7 @@ namespace App\View\Components;
 
 use App\Support\ArrayList;
 use Arr;
+use Illuminate\Support\Collection;
 
 class Select extends Input
 {
@@ -13,6 +14,11 @@ class Select extends Input
     public bool $multiple;
     public bool $searchable;
 
+    /**
+     * @param array|string|Collection|null $keys
+     * @param array|string|Collection|null $selected
+     * @param array|string|Collection|null $values
+     */
     public function __construct(
         $values,
         string $name = null,

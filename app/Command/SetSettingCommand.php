@@ -7,23 +7,9 @@ use Spatie\Valuestore\Valuestore;
 
 class SetSettingCommand extends Command
 {
-    /**
-     * The name and signature of the console command.
-     *
-     * @var string
-     */
-    protected $signature = 'settings:set {key} {value}';
-
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
+    protected $signature   = 'settings:set {key} {value}';
     protected $description = 'Sets a global setting.';
 
-    /**
-     * Execute the console command.
-     */
     public function handle(): void
     {
         $store = app(Valuestore::class)->put(

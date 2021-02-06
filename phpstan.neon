@@ -5,8 +5,6 @@ parameters:
     level: 7
     paths:
         - app
-    bootstrapFiles:
-        - _ide_helper_models.php
     excludes_analyse:
         - app/Livewire
     ignoreErrors:

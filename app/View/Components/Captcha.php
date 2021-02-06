@@ -16,12 +16,12 @@ class Captcha extends Component
         $this->provider = $provider;
     }
 
-    public function usingRecaptcha()
+    public function usingRecaptcha(): void
     {
         Scripts::push('');
     }
 
-    public function usingHcaptcha()
+    public function usingHcaptcha(): void
     {
         Scripts::push('');
     }

@@ -2,6 +2,8 @@
 
 namespace App\View\Components;
 
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
 use Illuminate\View\Component;
 
 class AvatarsStack extends Component
@@ -9,7 +11,7 @@ class AvatarsStack extends Component
     public string $sourceFrom;
     public string $searchFrom;
 
-    public $models;
+    public Collection $models;
     public int $size;
     public string $margin;
     public bool $reverse;
@@ -17,7 +19,7 @@ class AvatarsStack extends Component
     public string $provider;
     public string $fallback;
 
-    public function __construct($models, string $sourceFrom = 'profile_photo_url', string $searchFrom = 'name', int $size = 10, bool $reverse = false, int $limit = 4, string $provider = '', string $fallback = '')
+    public function __construct(Collection $models, string $sourceFrom = 'profile_photo_url', string $searchFrom = 'name', int $size = 10, bool $reverse = false, int $limit = 4, string $provider = '', string $fallback = '')
     {
         // Ensure we work with a Collection
         $models = collect($models);
@@ -36,7 +38,7 @@ class AvatarsStack extends Component
         $this->margin    = $marginDirection . ceil($size / 5);
     }
 
-    public function urlFromSource($model): string
+    public function urlFromSource(Model $model): string
     {
         if (isset($model->{$this->sourceFrom}) && filter_var($model->{$this->sourceFrom}, FILTER_VALIDATE_URL)) {
             return $model->{$this->sourceFrom};

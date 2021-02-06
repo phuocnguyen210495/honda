@@ -1,36 +1,14 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
-
-        <div class="mb-4 text-sm text-gray-600">
-            {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
+<x-layout title="Login">
+    <div class="flex flex-col items-center justify-center mt-6 sm:mt-24">
+        <div class="max-w-lg">
+            <x-title :content="__('auth.confirm-password.title')" class="text-center" level="h1"/>
+            <x-paragraph :content="__('auth.confirm-password.details')" class="text-center mt-2"/>
         </div>
-
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
-        <form method="POST" action="{{ route('password.confirm') }}">
-            @csrf
-
-            <!-- Password -->
-            <div>
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="current-password" />
-            </div>
-
-            <div class="flex justify-end mt-4">
-                <x-button>
-                    {{ __('Confirm') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+        <x-form action="login" class="bg-white sm:shadow-lg sm:max-w-lg w-full rounded-lg p-6 mt-8">
+            <x-password name="password" :label="__('auth.confirm-password.inputs.password')"
+                        first
+                        placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;"/>
+            <x-button :content="__('auth.confirm-password.button')" class="w-full justify-center mt-6"/>
+        </x-form>
+    </div>
+</x-layout>
