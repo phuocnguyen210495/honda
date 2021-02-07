@@ -5,11 +5,11 @@ namespace App\Support;
 class NavigationItem
 {
     public string $name;
-    public ?string $href = '#';
-    public ?string $icon = null;
+    public ?string $href   = '#';
+    public ?string $icon   = null;
     public string $iconSet = 'heroicon';
-    public bool $show = true;
-    public bool $active = false;
+    public bool $show      = true;
+    public bool $active    = false;
     public ?string $activationPattern;
 
     public function __construct(string $name)
@@ -27,6 +27,7 @@ class NavigationItem
     public function active(bool $condition = true): self
     {
         $this->active = $condition;
+
         return $this;
     }
 
@@ -43,17 +44,19 @@ class NavigationItem
             return true;
         }
 
-        $href = str_replace(['https://', 'http://', request()->getHost()], '', Action::guess($this->href));
-        $href = $href === '' ? '/' : $href;
-        $current = !empty($path = request()->path()) ? $path : '/';
-        $isActive = $href === $current || fnmatch($this->activationPattern ?? $href, '/' . $current);
+        $href         = str_replace(['https://', 'http://', request()->getHost()], '', Action::guess($this->href));
+        $href         = $href === '' ? '/' : $href;
+        $current      = !empty($path = request()->path()) ? $path : '/';
+        $isActive     = $href === $current || fnmatch($this->activationPattern ?? $href, '/' . $current);
         $this->active = $isActive;
-        return  $isActive;
+
+        return $isActive;
     }
 
     public function activeWhenMatch(string $pattern): self
     {
         $this->activationPattern = $pattern;
+
         return $this;
     }
 

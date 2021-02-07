@@ -67,7 +67,7 @@ it('can be a link', function () {
 it('can be disabled', function () {
     $this->assertComponentRenders(
         '<div>
-            <a class="flex items-center opacity-50 select-none cursor-not-allowed rounded-lg px-3 text-sm py-1.5 bg-gray-200 text-gray-700">
+            <a class="flex items-center opacity-50 select-none cursor-default rounded-lg px-3 text-sm py-1.5 bg-gray-200 text-gray-700">
                 <span class="inline-block w-1 h-1 rounded-full bg-gray-700"></span>
 
                 <span
@@ -81,7 +81,7 @@ it('can be disabled', function () {
 it('can be a pill', function () {
     $this->assertComponentRenders(
         '<div>
-            <a class="flex items-center opacity-50 select-none cursor-not-allowed rounded-full px-3 text-sm py-1.5 bg-gray-200 text-gray-700">
+            <a class="flex items-center opacity-50 select-none cursor-default rounded-full px-3 text-sm py-1.5 bg-gray-200 text-gray-700">
                 <span class="inline-block w-1 h-1 rounded-full bg-gray-700"></span>
 
                 <span

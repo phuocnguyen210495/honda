@@ -9,11 +9,6 @@ class Script extends Component
 {
     public string $link;
 
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
     public function __construct(string $link)
     {
         try {

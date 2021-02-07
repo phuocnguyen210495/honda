@@ -2,7 +2,6 @@
 
 namespace App\Provider;
 
-use App\Rule\Captcha;
 use App\Support\BladeDirective;
 use App\Support\Mixins\CarbonMixin;
 use App\Support\Mixins\CollectionMixin;
@@ -14,9 +13,9 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Str;
 use Illuminate\View\ComponentAttributeBag;
 use Spatie\Valuestore\Valuestore;
-use Illuminate\Support\Str;
 use Symfony\Component\Finder\SplFileInfo;
 use Validator;
 use View;
@@ -33,7 +32,7 @@ class AppServiceProvider extends ServiceProvider
         app()->bind(Valuestore::class, function () {
             return Valuestore::make(storage_path('app/settings.json'));
         });
-        app()->bind('settings', fn() => app(Valuestore::class));
+        app()->bind('settings', fn () => app(Valuestore::class));
         app()->bind('navigation', function () {
             return new Navigation();
         });
@@ -47,9 +46,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Model::unguard();
-        Collection::mixin(new CollectionMixin);
-        Carbon::mixin(new CarbonMixin);
-        Str::mixin(new StrMixin);
+        Collection::mixin(new CollectionMixin());
+        Carbon::mixin(new CarbonMixin());
+        Str::mixin(new StrMixin());
         ComponentAttributeBag::macro('class', function ($classList) {
             /* @var ComponentAttributeBag $this */
             return $this->merge(['class' => classes($classList)]);

@@ -19,6 +19,7 @@ class Navigation extends NavigationSection
 
         return $this;
     }
+
     public function addUnless(bool $condition, callable $configure): Navigation
     {
         if (!$condition) {

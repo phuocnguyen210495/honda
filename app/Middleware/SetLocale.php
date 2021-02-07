@@ -14,11 +14,13 @@ class SetLocale
     {
         if (($lang = $request->get('hl')) && in_array($lang, static::ALLOWED_LANGUAGES)) {
             App::setLocale($lang);
+
             return $next($request);
         }
 
         if (($lang = $this->parseHttpLocale($request)) && in_array($lang, static::ALLOWED_LANGUAGES)) {
             App::setLocale($lang);
+
             return $next($request);
         }
 

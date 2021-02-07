@@ -18,19 +18,19 @@ class Captcha extends Component
 
     public function __construct(string $hl = null, string $theme = 'light', string $size = 'normal', int $tabindex = 0, string $label = null, bool $first = false)
     {
-        $this->hl = $hl ?? App::currentLocale();
-        $this->theme = $theme;
-        $this->size = $size;
+        $this->hl       = $hl ?? App::currentLocale();
+        $this->theme    = $theme;
+        $this->size     = $size;
         $this->tabindex = $tabindex;
-        $this->first = $first;
-        $this->label = $label;
+        $this->first    = $first;
+        $this->label    = $label;
     }
 
     public function render()
     {
         Scripts::push('https://hcaptcha.com/1/api.js&hl=' . $this->hl, new ComponentAttributeBag([
             'async',
-            'defer'
+            'defer',
         ]));
 
         return view('components.captcha');

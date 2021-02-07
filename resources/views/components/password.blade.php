@@ -3,7 +3,8 @@
         <label class="text-gray-700" for="{{ $name }}">{{ $label }}</label>
     @endif
 
-    <div class="mt-2 flex items-center rounded-lg" x-bind:class="{ 'ring ring-{{ $color }}-200': showFocusRing }">
+    <div class="@if (!$hideLabel) mt-2 @endif flex items-center rounded-lg"
+         x-bind:class="{ 'ring ring-{{ $color }}-200': showFocusRing }">
         @if ($icon)
             <div class="border rounded-r-none rounded-lg p-3 border-gray-300">
                 <x-icon :name="$icon" :set="$iconSet" size="6" class="text-gray-400" solid/>
@@ -21,7 +22,9 @@
             {{ $attributes }}
         />
 
-        <div class="border border-l-0 rounded-l-none rounded-lg p-3 text-gray-400 hover:text-gray-500 focus:text-gray-500 border-gray-300 cursor-pointer" @click="revealPassword = !revealPassword">
+        <div
+            class="border border-l-0 rounded-l-none rounded-lg p-3 text-gray-400 hover:text-gray-500 focus:text-gray-500 border-gray-300 cursor-pointer"
+            @click="revealPassword = !revealPassword">
             <div x-show="!revealPassword">
                 <x-icon name="eye" set="heroicon" size="6"/>
             </div>

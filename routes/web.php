@@ -20,10 +20,11 @@ Route::view('/playground', 'playground')->name('playground');
 Route::view('/icons', 'icons', [
     'sets' => app(Factory::class)->all(),
 ])->name('icons');
-Route::post('/playground', function (\Illuminate\Http\Request $request) {
+Route::post('/playground', function (Illuminate\Http\Request $request) {
     $request->validate([
-        'h-captcha-response' => 'captcha'
+        'h-captcha-response' => 'captcha',
     ]);
+
     return back();
 });
 require __DIR__ . '/auth.php';

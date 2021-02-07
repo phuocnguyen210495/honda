@@ -12,8 +12,8 @@ class CountingBadge extends Component
 
     public function __construct(string $count = '0', string $color = 'gray', bool $alwaysShow = false)
     {
-        $this->count = $count;
-        $this->color = $color;
+        $this->count      = $count;
+        $this->color      = $color;
         $this->alwaysShow = $alwaysShow;
     }
 

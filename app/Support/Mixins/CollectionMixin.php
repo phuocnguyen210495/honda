@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Support\Mixins;
-
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\File;

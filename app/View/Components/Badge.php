@@ -15,11 +15,11 @@ class Badge extends Component
 
     public function __construct(string $content = null, string $color = null, bool $dotted = false, bool $disabled = false, string $href = null)
     {
-        $this->content = $content;
-        $this->color = $disabled ? 'gray' : ($color ?? settings('color'));
-        $this->dotted = $dotted;
+        $this->content  = $content;
+        $this->color    = $disabled ? 'gray' : ($color ?? settings('color'));
+        $this->dotted   = $dotted;
         $this->disabled = $disabled;
-        $this->href = $href !== null ? Action::guess($href) : null;
+        $this->href     = $href !== null ? Action::guess($href) : null;
     }
 
     public function render()

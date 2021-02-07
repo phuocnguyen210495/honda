@@ -33,13 +33,13 @@ class NavigationSection
 
     public function options(array $options): self
     {
-        $this->options = (object)$options;
+        $this->options = (object) $options;
 
         return $this;
     }
 
     /**
-     * @param string $name
+     * @param string  $name
      * @param mixed[] $arguments
      *
      * @return $this

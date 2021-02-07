@@ -1,9 +1,9 @@
 <div x-data="{@alpine($min, $max, $step, $value)}"
      class="flex flex-col @if(!$first) mt-4 @endif">
-     @if (!$hideLabel)
+    @if (!$hideLabel)
         <label for="{{ $name }}">{{ $label }}</label>
     @endif
-    <div class="flex mt-2">
+    <div class="flex @if (!$hideLabel) mt-2 @endif">
         <button @click="if (value > min + step) { value -= step }"
                 class="bg-white rounded-lg px-4 placeholder-gray-700 border-gray-300 font-display py-2.5 shadow-sm rounded-r-none z-10 border focus:outline-none focus:ring-2 focus:border-opacity-0 focus:ring-{{ $color }}-300">
             <x-icon name="minus" size="4" class="text-gray-700" solid/>

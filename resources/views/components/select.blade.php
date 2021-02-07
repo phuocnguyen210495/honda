@@ -5,7 +5,7 @@
 
     <div
         x-data="{@alpine($keys, $values, $selected, $multiple, $searchable), open: false, search: '', focused: false }"
-        class="flex w-full flex-col-reverse mt-2" @search-input="search = $event.detail.value"
+        class="flex w-full flex-col-reverse @if (!$hideLabel) mt-2 @endif" @search-input="search = $event.detail.value"
         @keydown="if (open && $event.key === 'Escape') { open = false }">
         <select name="{{ $name }}@if($multiple)[]@endif" id="{{ $name }}" class="hidden" aria-hidden="true"
                 @if($multiple) multiple @endif>

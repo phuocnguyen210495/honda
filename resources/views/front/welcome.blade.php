@@ -25,12 +25,12 @@
     <x-title content="An API for your design system." class="mt-2" level="h6"/>
 
     <x-title content="Colored titles" level="h3" class="mt-4"/>
-    <x-title content="An API for your design system." level="h1" class="mt-2" color="blue"/>
-    <x-title content="An API for your design system." level="h2" class="mt-2" color="blue"/>
-    <x-title content="An API for your design system." level="h3" class="mt-2" color="blue"/>
-    <x-title content="An API for your design system." level="h4" class="mt-2" color="blue"/>
-    <x-title content="An API for your design system." level="h5" class="mt-2" color="blue"/>
-    <x-title content="An API for your design system." level="h6" class="mt-2" color="blue"/>
+    <x-title content="An API for your design system." level="h1" class="mt-2" color="{{ settings('color') }}"/>
+    <x-title content="An API for your design system." level="h2" class="mt-2" color="{{ settings('color') }}"/>
+    <x-title content="An API for your design system." level="h3" class="mt-2" color="{{ settings('color') }}"/>
+    <x-title content="An API for your design system." level="h4" class="mt-2" color="{{ settings('color') }}"/>
+    <x-title content="An API for your design system." level="h5" class="mt-2" color="{{ settings('color') }}"/>
+    <x-title content="An API for your design system." level="h6" class="mt-2" color="{{ settings('color') }}"/>
 
     <x-title content="Overline" level="h3" class="mt-4"/>
     <x-overline content="Constraint-based" class="mt-2"/>
