@@ -46,7 +46,9 @@ class NavigationItem
         $href = str_replace(['https://', 'http://', request()->getHost()], '', Action::guess($this->href));
         $href = $href === '' ? '/' : $href;
         $current = !empty($path = request()->path()) ? $path : '/';
-        return $href === $current || fnmatch($this->activationPattern ?? $href, '/' . $current);
+        $isActive = $href === $current || fnmatch($this->activationPattern ?? $href, '/' . $current);
+        $this->active = $isActive;
+        return  $isActive;
     }
 
     public function activeWhenMatch(string $pattern): self
