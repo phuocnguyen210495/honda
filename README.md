@@ -2,34 +2,24 @@ TODO:
 
 * [ ] Calendar Year, month, day, birthday, time input
 * [ ] Image upload field (see spatie/laravel-medialibrary something)
-* [ ] Middleware to set locale based on user's preferences + ?hl={lang}
 * [ ] File input
-* [ ] Make name attribute not required on inputs
 * [ ] Charts
 * [ ] Tab Switch [Tab1|Tab2] [icon1|icon2]
 * [ ] Smart search (all in one)
-* [ ] Refactor classes to {{ $attributes->class() }}
-* [ ] Quantity input focus is messed up
 * [ ] Disabled cursor consistency ("not-allowed" or not pointing)
 * [ ] mt-2 on input only if hideLabel = false 
 * [ ] Provide french translations 
-* [ ] Use a solid x icon on alerts
-* [ ] Remove the BladeDirective component as it's was meant for something unrealisable.
-* [ ] Bridge with the client using livewire, Console::log() Javascript::execute('something'...
- * [ ] Algolia search [2.x]
+* [ ] Bridge with the client using livewire, Console::log() [2.x]
+ * [ ] Algolia search places [2.x]
  
 To finish:
 
-* \<x-captcha>
-* \<x-grid>
-* \<x-horizontal-scroll-container>
 * \<x-breadcrumb>
 * \<x-avatars-stack>
 * \<x-markdown-editor>
-* \<x-sidebar>
 * \<x-stats>
-* \q<x-tabs>
-* \<x-video>
+* \<x-tabs>
+* \<x-video> (see https://github.com/BenSampo/laravel-embed)
 ### Requirements
 
 * PHP7.4

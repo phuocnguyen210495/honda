@@ -29,8 +29,8 @@ it('can render properly a closeable alert', function () {
                     <p class="ml-4">We got a problem...</p>
                 </div>
             <button @click="closed = true" class="focus:outline-none focus:bg-red-200 hover:bg-red-200 rounded-lg p-2 -m-2">
-                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
                 </svg>
             </button>
             </div>
@@ -40,8 +40,8 @@ it('can render properly a closeable alert', function () {
 });
 
 it('can render properly a closeable alert with a description', function () {
-        $this->assertComponentRenders(
-            '<div class="bg-red-100 text-red-700 p-4 rounded-lg" x-data="{ closed: false }" x-show="!closed">
+    $this->assertComponentRenders(
+        '<div class="bg-red-100 text-red-700 p-4 rounded-lg" x-data="{ closed: false }" x-show="!closed">
             <div class="flex items-center justify-between">
                 <div class="flex items-center">
                     <svg class="w-6 h-6 text-red-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -50,8 +50,8 @@ it('can render properly a closeable alert with a description', function () {
                     <p class="ml-4 font-semibold">We got a problem...</p>
                 </div>
             <button @click="closed = true" class="focus:outline-none focus:bg-red-200 hover:bg-red-200 rounded-lg p-2 -m-2">
-                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+               <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
                 </svg>
             </button>
             </div>
@@ -59,6 +59,6 @@ it('can render properly a closeable alert with a description', function () {
                 Sorry, this is an error.
             </p>
         </div>',
-            '<x-alert type="error" content="We got a problem..." closeable icon="cake" description="Sorry, this is an error." />'
-        );
+        '<x-alert type="error" content="We got a problem..." closeable icon="cake" description="Sorry, this is an error." />'
+    );
 });

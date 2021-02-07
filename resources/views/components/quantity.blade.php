@@ -10,7 +10,7 @@
         </button>
         <input @if ($name) id="{{ $name }}" name="{{ $name }}" @endif x-model="value"
                @input="$nextTick(() => { if (isNaN(value)) { value = value.toString().replace(/[a-zA-Z]/g,'') } if (value > max) { value = max } if (value < min) { value = min } })"
-               class="py-3 px-5 block w-full border-t border-b border-gray-300 focus:border-gray-300 shadow-sm focus:border-opacity-0 focus:ring-1 focus:ring-{{ $color }}-300"
+               class="py-3 px-5 block w-full border-t border-b border-gray-300 focus:border-gray-300 shadow-sm focus:border-opacity-0 focus:outline-none focus:ring-2 focus:ring-{{ $color }}-300"
         />
         <button @click="if (value < max - step) { value = parseInt(value) + step }"
                 class="bg-white rounded-lg px-4 placeholder-gray-700 border-gray-300 font-display py-2.5 shadow-sm rounded-l-none border focus:outline-none focus:ring-2 focus:border-opacity-0 focus:ring-{{ $color }}-300">

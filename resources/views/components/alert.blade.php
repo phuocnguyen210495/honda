@@ -7,7 +7,7 @@
 
         @if ($closeable)
             <button @click="closed = true" class="focus:outline-none focus:bg-{{ $convertType($type) }}-200 hover:bg-{{ $convertType($type) }}-200 rounded-lg p-2 -m-2">
-                <x-icon name="x" size="4"  />
+                <x-icon name="x" size="4" solid />
             </button>
         @endif
     </div>

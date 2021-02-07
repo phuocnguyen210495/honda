@@ -4,16 +4,19 @@ namespace App\Provider;
 
 use App\Rule\Captcha;
 use App\Support\BladeDirective;
+use App\Support\Mixins\CarbonMixin;
+use App\Support\Mixins\CollectionMixin;
+use App\Support\Mixins\StrMixin;
 use App\Support\Navigation;
 use App\Support\Styles;
-use Blade;
-use File;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\ComponentAttributeBag;
 use Spatie\Valuestore\Valuestore;
-use Str;
+use Illuminate\Support\Str;
 use Symfony\Component\Finder\SplFileInfo;
 use Validator;
 use View;
@@ -44,29 +47,15 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Model::unguard();
-        Str::macro('humanize', function (string $text) {
-            return ucwords(str_replace(
-                '#[space]',
-                ' ',
-                trim(preg_replace('/[^\x21-\x7E]/', '', str_replace(['_', '-'], '#[space]', $text)))
-            ));
-        });
-        Str::macro('quote', function (string $str, string $quote = '"') {
-            if ($str[0] === $quote && $str[-1] === $quote) {
-                return $str;
-            }
-
-            return $quote . $str . $quote;
-        });
-        Str::macro('unquote', function (string $str, string $quotes = '\'"') {
-            return str_replace(str_split($quotes), '', $str);
-        });
-        View::share(['settings' => app('settings')]);
+        Collection::mixin(new CollectionMixin);
+        Carbon::mixin(new CarbonMixin);
+        Str::mixin(new StrMixin);
         ComponentAttributeBag::macro('class', function ($classList) {
             /* @var ComponentAttributeBag $this */
             return $this->merge(['class' => classes($classList)]);
         });
-        Blade::directive('setting', function ($key) {
+        View::share(['settings' => app('settings')]);
+        BladeDirective::create('setting', function ($key) {
             $key = Str::unquote($key);
 
             return <<<html
@@ -75,7 +64,7 @@ class AppServiceProvider extends ServiceProvider
                 ?>
             html;
         });
-        Blade::directive('alpine', function (string $variables, string $literalVariables) {
+        BladeDirective::create('alpine', function (string $variables, string $literalVariables) {
             return <<<html
                 <?php
                     \$alpineKeys = App\Support\ArrayList::make($variables)->toCollection()->map(function (\$variable) {
@@ -92,7 +81,7 @@ class AppServiceProvider extends ServiceProvider
                 ?>
             html;
         });
-        Blade::directive('bind', function (string $variables) {
+        BladeDirective::create('bind', function (string $variables) {
             return <<<html
                 <?php
                     [\$attribute, \$binding] = App\Support\ArrayList::make($variables)->toArray();
@@ -105,7 +94,7 @@ class AppServiceProvider extends ServiceProvider
                 ?>
             html;
         });
-        Blade::directive('markdown', function (string $variables) {
+        BladeDirective::create('markdown', function (string $variables) {
             return <<<html
                 <?php
                     [\$rawMarkdown] = App\Support\ArrayList::make($variables)->toArray();
@@ -121,8 +110,7 @@ class AppServiceProvider extends ServiceProvider
             return 'Database\\Factories\\' . class_basename($model) . 'Factory';
         });
         Styles::pushRaw('[x-cloak] { display: none; }');
-
-        collect(File::allFiles(app_path('Rule')))->each(function (SplFileInfo $file) {
+        Collection::fromFiles(app_path('Rule'))->each(function (SplFileInfo $file) {
             [$name] = explode('.', $file->getFilename());
 
             Validator::extend(strtolower($name), "\\App\\Rule\\$name");

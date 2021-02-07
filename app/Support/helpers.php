@@ -1,5 +1,7 @@
 <?php
 
+use App\Model\User;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Spatie\Valuestore\Valuestore;
 
 if (!function_exists('settings')) {
@@ -37,5 +39,12 @@ if (!function_exists('classes')) {
         }
 
         return implode(' ', $classes);
+    }
+}
+
+if (!function_exists('user')) {
+    function user(): ?Authenticatable
+    {
+        return auth()->user();
     }
 }
