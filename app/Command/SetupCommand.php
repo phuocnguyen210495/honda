@@ -7,26 +7,10 @@ use Illuminate\Support\Facades\Artisan;
 
 class SetupCommand extends Command
 {
-    /**
-     * The name and signature of the console command.
-     *
-     * @var string
-     */
     protected $signature = 'setup';
-
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
     protected $description = 'Configure the project after a fresh git clone';
 
-    /**
-     * Execute the console command.
-     *
-     * @return int
-     */
-    public function handle()
+    public function handle(): void
     {
         shell_exec('cp .env.example .env');
         $this->info('Copied .env.example to .env');
@@ -39,8 +23,8 @@ class SetupCommand extends Command
         $this->info('Created a new database');
         shell_exec('php artisan migrate');
         $this->info('Migrated the database');
+        shell_exec('composer helpers');
+        $this->info('Create IDE helpers.');
         $this->output->success('Successfully set up the project');
-
-        return 0;
     }
 }
