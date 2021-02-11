@@ -60,9 +60,6 @@
         "post-create-project-cmd": [
             "echo 'Setup your project with `php artisan setup`"
         ],
-        "post-install-cmd": [
-            "@helpers"
-        ],
         "helpers": [
             "@php artisan ide-helper:generate",
             "@php artisan ide-helper:meta",

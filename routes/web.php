@@ -1,5 +1,6 @@
 <?php
 
+use App\Controller\ShowHomeController;
 use App\Provider\RouteServiceProvider;
 use BladeUI\Icons\Factory;
 
@@ -14,18 +15,6 @@ use BladeUI\Icons\Factory;
 |
 */
 
-Route::view(RouteServiceProvider::HOME, 'front.home')->middleware(['auth', 'verified'])->name('home');
+Route::view(RouteServiceProvider::HOME, ShowHomeController::class)->middleware(['auth', 'verified'])->name('home');
 Route::view('/', 'front.welcome')->name('welcome');
-Route::view('/playground', 'playground')->name('playground');
-Route::view('/icons', 'icons', [
-    'sets' => app(Factory::class)->all(),
-])->name('icons');
-Route::post('/playground', function (Illuminate\Http\Request $request) {
-    $request->validate([
-        'h-captcha-response' => 'captcha',
-    ]);
-
-    return back();
-});
 require __DIR__ . '/auth.php';
-require __DIR__ . '/starts.php';
