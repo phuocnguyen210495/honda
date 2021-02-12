@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\View\Tables;
+namespace App\View\Table;
 
 
 use App\Model\User;

@@ -116,7 +116,7 @@ class AppServiceProvider extends ServiceProvider
             Validator::extend(strtolower($name), "\\App\\Rule\\$name");
         });
 
-        Collection::fromFiles(app_path('View/Tables'))->each(function (SplFileInfo $file) {
+        Collection::fromFiles(app_path('View/Table'))->each(function (SplFileInfo $file) {
             $alias = strtolower(
                 preg_replace(
                     '/[A-Z]/',
@@ -124,7 +124,7 @@ class AppServiceProvider extends ServiceProvider
                     lcfirst($file->getFilenameWithoutExtension())
                 )
             );
-            Livewire::component($alias, 'App\View\Tables\\' . $file->getFilenameWithoutExtension());
+            Livewire::component($alias, 'App\View\Table\\' . $file->getFilenameWithoutExtension());
         });
     }
 }
