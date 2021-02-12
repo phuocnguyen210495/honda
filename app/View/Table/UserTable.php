@@ -5,6 +5,9 @@ namespace App\View\Table;
 
 
 use App\Model\User;
+use Illuminate\Database\Eloquent\Model;
+use Starts\Table\Action;
+use Starts\Table\Actions\Delete;
 use Starts\Table\Column;
 use Starts\Table\Table;
 
@@ -21,4 +24,17 @@ class UserTable extends Table
                 ->searchable()
         ];
     }
+
+    public function actions(): array
+    {
+        return [
+            Action::create()
+                ->icon('trash')
+                ->color('red')
+                ->execute(function (Model $model) {
+                    $model->delete();
+                })
+        ];
+    }
+
 }

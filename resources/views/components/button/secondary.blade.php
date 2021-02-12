@@ -2,5 +2,5 @@
     @if (!empty($icon))
         <x-icon :name="$icon" :size="5" :set="$iconSet" solid x-ref="icon" />
     @endif
-    <span x-ref="content" class="text-md inline-block @if(!empty($icon)) {{ $iconSide === 'right' ? 'mr-3' : 'ml-3'  }} @endif">{{ $content ?? $slot }}</span>
+    <span x-ref="content" class="text-md font-semibold inline-block @if(!empty($icon)) {{ $iconSide === 'right' ? 'mr-3' : 'ml-3'  }} @endif">{{ $content ?? $slot }}</span>
 </button>

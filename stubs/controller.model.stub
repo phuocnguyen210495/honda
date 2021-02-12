@@ -10,7 +10,7 @@ class {{ class }}
 {
     public function index()
     {
-        return view('front.{{ modelVariable }}s.index', [
+        return view('front.{{ modelVariable }}.index', [
             '{{ modelVariable }}' => {{ model }}::all()
         ]);
     }
@@ -26,8 +26,8 @@ class {{ class }}
         ]);
         {{ model }}::create($data);
 
-        return redirect()->route('{{ modelVariable }}s.index')->with([
-            'success' => 'The resource has been updated successfully'
+        return redirect()->route('{{ modelVariable }}.index')->with([
+            'success' => 'The resource has been updated created.'
         ]);
     }
 
@@ -40,7 +40,7 @@ class {{ class }}
 
     public function edit({{ model }} ${{ modelVariable }})
     {
-        return view('front.{{ modelVariable }}s.edit', [
+        return view('front.{{ modelVariable }}.edit', [
             '{{ modelVariable }}' => ${{ modelVariable }}
         ]);
     }
@@ -52,8 +52,8 @@ class {{ class }}
         ]);
         ${{ modelVariable }}->update($data);
 
-        return redirect()->route('{{ modelVariable }}s.index')->with([
-            'success' => 'The resource has been successfully updated'
+        return redirect()->route('{{ modelVariable }}.index')->with([
+            'success' => 'The resource has been successfully updated.'
         ]);
     }
 
@@ -62,7 +62,7 @@ class {{ class }}
         ${{ modelVariable }}->delete();
 
         return redirect()->route('{{ modelVariable }}s.index')->with([
-            'success' => 'The resource has been successfully updated'
+            'success' => 'The resource has been successfully deleted.'
         ]);
     }
 }

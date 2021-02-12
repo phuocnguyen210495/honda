@@ -12,7 +12,10 @@
 
 <body class="bg-gray-100 font-medium">
     <x-container lg="4xl" class="m-4">
-        <livewire:user-table />
+        <x-button content="Hello" />
+        <x-button.secondary content="Hello" />
+        <x-button.text content="Hello" />
+        <x-button.icon icon="plus"  />
     </x-container>
 
     @livewireScripts
