@@ -16,6 +16,9 @@ class UserTable extends Table
     {
         return [
             Column::create('name')
+                ->searchable(),
+            Column::create('email')
+                ->searchable()
         ];
     }
 }

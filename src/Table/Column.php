@@ -2,6 +2,8 @@
 
 namespace Starts\Table;
 
+use Str;
+
 class Column
 {
     public string $label;
@@ -9,10 +11,10 @@ class Column
 
     public bool $show;
 
-    public bool $searchable;
-    public bool $filterable;
-    public bool $copyable;
-    public bool $editable;
+    public bool $searchable = false;
+    public bool $filterable = false;
+    public bool $copyable = false;
+    public bool $editable = false;
     public ?int $truncate = 50;
 
     public string $type = 'default';
@@ -21,6 +23,7 @@ class Column
     public function __construct(string $column)
     {
         $this->modelColumn = $column;
+        $this->label = Str::humanize($column);
     }
 
     public static function create(string $column): Column
@@ -34,7 +37,7 @@ class Column
         return $this;
     }
 
-    public function searchable(bool $searchable = false): self
+    public function searchable(bool $searchable = true): self
     {
         $this->searchable = $searchable;
         return $this;
@@ -104,6 +107,10 @@ class Column
     {
         $this->type = 'date-diff';
         return $this;
+    }
+
+    public function is(string $type): bool {
+        return $this->type === $type;
     }
 
     public function show(bool $show = true): self
