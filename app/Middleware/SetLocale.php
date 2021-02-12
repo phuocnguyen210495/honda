@@ -12,13 +12,13 @@ class SetLocale
 
     public function handle(Request $request, Closure $next)
     {
-        if (($lang = $request->get('hl')) && in_array($lang, static::ALLOWED_LANGUAGES)) {
+        if (($lang = $request->get('hl')) && (in_array($lang, static::ALLOWED_LANGUAGES) || static::ALLOWED_LANGUAGES === ['*'])) {
             App::setLocale($lang);
 
             return $next($request);
         }
 
-        if (($lang = $this->parseHttpLocale($request)) && in_array($lang, static::ALLOWED_LANGUAGES)) {
+        if (($lang = $this->parseHttpLocale($request)) && (in_array($lang, static::ALLOWED_LANGUAGES) || static::ALLOWED_LANGUAGES === ['*'])) {
             App::setLocale($lang);
 
             return $next($request);

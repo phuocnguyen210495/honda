@@ -342,17 +342,6 @@
         <x-social branded type="discord" link="felixdorn_"/>
     </div>
 
-    <x-title content="Empty states" level="h3" class="mt-4"/>
-
-    <div class="mt-2">
-        <x-empty-state
-            :show="!empty([1,2,3])"
-            title="It's empty in here..."
-            content="Looks like this team has no projects. Creating new projects is as simple as picking a repository, filling out a few details and pressing a button.">
-            <x-button content="Get started..."/>
-        </x-empty-state>
-    </div>
-
     <x-title content="Panels" level="h3" class="mt-4"/>
     <x-action-panel
         title="Delete your account"
