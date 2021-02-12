@@ -11,6 +11,7 @@
 </head>
 <body class="bg-gray-100 font-medium">
 <x-container lg="4xl" class="m-4">
+    <livewire:user-table />
     <x-title content="Content" level="h2"/>
     <x-paragraph
         content="Here is a bit of a paragraph with some words saying some things, i'm sure you get the **point**. And *Ho!*, it also supports **markdown**..."

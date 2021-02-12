@@ -1,30 +1,29 @@
-<div>
-    @if ($title && $description)
-        <h2 class="mt-4 text-2xl font-bold">{{ $title }}</h2>
-        <p class="text-gray-700 mt-1">{{ $description }}</p>
-    @endif
-
+<div class="w-full">
     <div class="sm:flex items-center w-full">
-        <x-input first name="_" wire:model="query"
-                 aria-label="{{ __('Search ' . strtolower(class_basename($model)) . '\'s records') }}"
-                 placeholder="{{ __('Search ' . strtolower(class_basename($model)) . '\'s records') }}"/>
-        <x-inputs.searchable-select first name="_" :aria-label="__('Results per page')" wire:model="perPage"
-                                    values="10,15,25,50"/>
+        <div class="sm:w-3/4">
+            <x-input first name="_" wire:model="query"
+                     aria-label="{{ __('Search ' . strtolower(class_basename($model)) . '\'s records') }}"
+                     placeholder="{{ __('Search ' . strtolower(class_basename($model)) . '\'s records') }}"/>
+        </div>
+        <div class="sm:w-1/4 sm:ml-4">
+            <x-select first name="_" :aria-label="__('Results per page')" wire:model="perPage"
+                      values="10,15,25,50"/>
+        </div>
     </div>
 
     @if ($items->isEmpty())
-        No results
+        <div class="bg-white border p-4 text-gray-700 rounded-lg mt-4">No results...</div>
     @else
-        <div class="mt-4">
+        <div class="mt-4 w-full">
             <div class="flex flex-col">
                 <div class="-my-2 no-scrollbar overflow-x-auto">
                     <div class="py-2 align-middle inline-block min-w-full ">
-                        <div class="shadow overflow-hidden border-b border-gray-200 rounded-lg">
-                            <table class="min-w-full divide-y divide-gray-200">
+                        <div class="shadow overflow-hidden border-b border-gray-100 rounded-lg">
+                            <table class="min-w-full divide-y divide-gray-100">
                                 <thead>
                                 <tr>
                                     @foreach($columns as $key)
-                                        <th class="px-6 py-3 bg-gray-200 text-left text-xs leading-4 text-gray-700 uppercase tracking-wider">
+                                        <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 text-gray-400 font-medium uppercase tracking-wider">
                                             <a class="flex items-center" href=""
                                                wire:click.prevent="sortBy('{{ $key }}')">
                                                 {{ $translatedColumns[$key] }}
@@ -106,11 +105,18 @@
                 {{ $items->links('components.pagination') }}
 
                 <div>
-                    {{ __('table.total_results', [
-                        'firstItem' => $items->firstItem(),
-                        'lastItem' => $items->lastItem(),
-                        'total' => $items->total()
-                    ]) }}
+                    @if ($items->total() === 1)
+                        {{ __('table.only_result', [
+                            'firstItem' => $items->firstItem(),
+                            'total' => $items->total()
+                        ]) }}
+                    @else
+                        {{ __('table.total_results', [
+                            'firstItem' => $items->firstItem(),
+                            'lastItem' => $items->lastItem(),
+                            'total' => $items->total()
+                        ]) }}
+                    @endif
                 </div>
             </div>
         </div>

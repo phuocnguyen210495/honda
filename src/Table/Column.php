@@ -1,10 +1,8 @@
 <?php
 
-namespace Starts\Table\Contracts;
+namespace Starts\Table;
 
-use Illuminate\Support\Stringable;
-
-abstract class Column
+class Column
 {
     public string $label;
     public string $modelColumn;
@@ -25,6 +23,11 @@ abstract class Column
         $this->modelColumn = $column;
     }
 
+    public static function create(string $column): Column
+    {
+        return new static($column);
+    }
+
     public function label(string $label): self
     {
         $this->label = $label;
@@ -37,41 +40,43 @@ abstract class Column
         return $this;
     }
 
-    public  function filtrable(bool $filterable = true): self
+    public function filtrable(bool $filterable = true): self
     {
         $this->filterable = $filterable;
         return $this;
     }
 
-    public  function copyable(bool $copyable = true): self
+    public function copyable(bool $copyable = true): self
     {
         $this->copyable = $copyable;
         return $this;
     }
 
-    public  function truncate(int $max = 50): self
+    public function truncate(int $max = 50): self
     {
         $this->truncate = $max;
         return $this;
     }
 
-    public  function editable(bool $editable = true): self
+    public function editable(bool $editable = true): self
     {
         $this->editable = $editable;
         return $this;
     }
 
-    public  function asLink(): self
+    public function asLink(): self
     {
         $this->type = 'link';
         return $this;
     }
+
     public function asTime(): self
     {
         $this->type = 'time';
         return $this;
     }
-    public  function asImage(string $disk): self
+
+    public function asImage(string $disk): self
     {
         $this->type = 'image';
         $this->typeProps = [
@@ -79,12 +84,14 @@ abstract class Column
         ];
         return $this;
     }
-    public  function asBool(): self
+
+    public function asBool(): self
     {
         $this->type = 'bool';
         return $this;
     }
-    public  function asDate(string $format = 'LL'): self
+
+    public function asDate(string $format = 'LL'): self
     {
         $this->type = 'date';
         $this->typeProps = [
@@ -92,7 +99,8 @@ abstract class Column
         ];
         return $this;
     }
-    public  function asDateDiff(): self
+
+    public function asDateDiff(): self
     {
         $this->type = 'date-diff';
         return $this;
@@ -114,7 +122,7 @@ abstract class Column
     }
 
 
-    public  function showUnless(bool $condition): self
+    public function showUnless(bool $condition): self
     {
         if (!$condition) {
             $this->show = $condition;

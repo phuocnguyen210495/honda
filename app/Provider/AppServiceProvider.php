@@ -15,6 +15,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use Illuminate\View\ComponentAttributeBag;
+use Livewire;
 use Spatie\Valuestore\Valuestore;
 use Symfony\Component\Finder\SplFileInfo;
 use Validator;
@@ -32,7 +33,7 @@ class AppServiceProvider extends ServiceProvider
         app()->bind(Valuestore::class, function () {
             return Valuestore::make(storage_path('app/settings.json'));
         });
-        app()->bind('settings', fn () => app(Valuestore::class));
+        app()->bind('settings', fn() => app(Valuestore::class));
         app()->bind('navigation', function () {
             return new Navigation();
         });
@@ -113,6 +114,17 @@ class AppServiceProvider extends ServiceProvider
             [$name] = explode('.', $file->getFilename());
 
             Validator::extend(strtolower($name), "\\App\\Rule\\$name");
+        });
+
+        Collection::fromFiles(app_path('View/Tables'))->each(function (SplFileInfo $file) {
+            $alias = strtolower(
+                preg_replace(
+                    '/[A-Z]/',
+                    '-$0',
+                    lcfirst($file->getFilenameWithoutExtension())
+                )
+            );
+            Livewire::component($alias, 'App\View\Tables\\' . $file->getFilenameWithoutExtension());
         });
     }
 }
