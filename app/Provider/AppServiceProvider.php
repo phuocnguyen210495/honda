@@ -9,6 +9,7 @@ use App\Support\Mixins\StrMixin;
 use App\Support\Navigation;
 use App\Support\Styles;
 use Carbon\Carbon;
+use Illuminate\Console\GeneratorCommand;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;

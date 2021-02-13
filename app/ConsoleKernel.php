@@ -21,17 +21,7 @@ class ConsoleKernel extends Kernel
      *
      * @var array
      */
-    protected $commands = [
-        SetupCommand::class,
-        SetSettingCommand::class,
-        GetSettingCommand::class,
-        ListSettingsCommand::class,
-        SetEnvCommand::class,
-        GetEnvCommand::class,
-        ListEnvCommand::class,
-        MakeViewCommand::class,
-        MakeStorageCommand::class,
-    ];
+    protected $commands = [];
 
     /**
      * Define the application's command schedule.
