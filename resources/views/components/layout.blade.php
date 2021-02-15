@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+          content="width=device-width, user-scalable=yes">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $title }} | {{ env('APP_NAME') }}</title>
+
+    <meta name="og:image" content="{{ $generateImage() }}">
     @livewireStyles
     <x-style link="css/app.css"/>
     <x-pushed-styles/>
 </head>
-<body class="bg-gray-100 min-h-screen">
+<body class="bg-gray-100 font-medium min-h-screen flex items-center justify-center">
+<a class="underline text-blue-500" href="{{ $generateImage() }}">Image</a>
 {{ $slot }}
 @livewireScripts
 <x-script link="js/app.js"/>
