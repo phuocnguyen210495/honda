@@ -8,10 +8,8 @@ TODO:
 * [ ] Smart search (all in one)
 * [ ] Provide french translations 
  * [ ] Algolia search places [2.x]
- * Make it easy to add any command in the setup, overrided them : should go along with the laravel improved commands with directories matching our structure.
- * Default mail .env should be maildev (might also start it automatically?)
+ * Make it easy to add any command in the setup, override them : should go along with the laravel improved commands with directories matching our structure.
  * Email verification when updated (listener)
- * font-semibold on button ffs
  
 To finish:
 
