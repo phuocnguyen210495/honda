@@ -13,7 +13,7 @@
 
             <x-paragraph class="mt-4 text-center">
                 {{ __('auth.register.login')}}
-                <x-link href="register" :content="__('auth.register.login_link')"/>
+                <x-link href="login" :content="__('auth.register.login_link')"/>
             </x-paragraph>
         </x-form>
     </div>

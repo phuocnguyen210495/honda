@@ -13,8 +13,7 @@
         "protonemedia/laravel-verify-new-email": "^1.3",
         "spatie/browsershot": "^3.44",
         "spatie/laravel-honeypot": "^3.0",
-        "spatie/valuestore": "^1.2",
-        "stevebauman/location": "^5.2"
+        "spatie/valuestore": "^1.2"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.5",

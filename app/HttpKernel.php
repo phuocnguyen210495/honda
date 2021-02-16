@@ -6,6 +6,7 @@ use App\Middleware\Authenticate;
 use App\Middleware\EncryptCookies;
 use App\Middleware\PreventRequestsDuringMaintenance;
 use App\Middleware\RedirectIfAuthenticated;
+use App\Middleware\SetLocale;
 use App\Middleware\TrimStrings;
 use App\Middleware\TrustHosts;
 use App\Middleware\TrustProxies;
@@ -62,6 +63,7 @@ class HttpKernel extends Kernel
             ShareErrorsFromSession::class,
             VerifyCsrfToken::class,
             SubstituteBindings::class,
+            SetLocale::class
         ],
 
         'api' => [

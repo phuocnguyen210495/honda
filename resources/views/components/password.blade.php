@@ -22,8 +22,10 @@
             {{ $attributes }}
         />
 
-        <div
-            class="border border-l-0 rounded-l-none rounded-lg p-3 text-gray-400 hover:text-gray-500 focus:text-gray-500 border-gray-300 cursor-pointer"
+        <button
+            type="button"
+            class="border-l-0 rounded-l-none rounded-lg p-3 text-gray-400 hover:text-gray-500 focus:text-gray-500 border-gray-300 cursor-pointer"
+            x-bind:class="{ 'border': !showFocusRing }"
             @click="revealPassword = !revealPassword">
             <div x-show="!revealPassword">
                 <x-icon name="eye" set="heroicon" size="6"/>
@@ -31,7 +33,7 @@
             <div x-show="revealPassword">
                 <x-icon name="eye-off" set="heroicon" size="6"/>
             </div>
-        </div>
+        </button>
     </div>
 
     @if ($name)

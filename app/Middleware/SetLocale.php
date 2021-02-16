@@ -5,13 +5,15 @@ namespace App\Middleware;
 use App;
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 
 class SetLocale
 {
-    public const ALLOWED_LANGUAGES = ['en'];
+    public const ALLOWED_LANGUAGES = ['en', 'fr'];
 
     public function handle(Request $request, Closure $next)
     {
+
         if (($lang = $request->get('hl')) && (in_array($lang, static::ALLOWED_LANGUAGES) || static::ALLOWED_LANGUAGES === ['*'])) {
             App::setLocale($lang);
 
@@ -49,6 +51,6 @@ class SetLocale
             return $locale['factor'];
         });
 
-        return $locales->first()['locale'];
+        return explode('-', $locales->first()['locale'])[0];
     }
 }
