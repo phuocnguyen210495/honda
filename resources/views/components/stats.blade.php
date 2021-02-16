@@ -1,3 +1,9 @@
 <div>
-    <!-- The only way to do great work is to love what you do. - Steve Jobs -->
+    @if ($title)
+    <x-title level="h3" :content="$title" />
+    @endif
+
+    <div class="mt-2 grid grid-cols-{{ $cols }} gap-4">
+        {{ $slot }}
+    </div>
 </div>

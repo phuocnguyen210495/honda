@@ -9,8 +9,16 @@ class CollectionMixin
 {
     public function fromFiles(): callable
     {
-        return function (string $directory, bool $hidden = false): Collection {
-            return Collection::make(File::allFiles($directory, $hidden));
+        return function (...$directories): Collection {
+            $collection = collect();
+
+            foreach ($directories as $directory) {
+                $collection->push(
+                    ...File::allFiles($directory)
+                );
+            }
+
+            return $collection;
         };
     }
 

@@ -1,19 +1,26 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{ App::getLocale() }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=yes">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $title }} | {{ env('APP_NAME') }}</title>
-
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ $title }} | {{ env('APP_NAME') }}" />
+    @if ($description)
+    <meta name="description" content="{{ $description }}">
+    <meta property="og:description" content="{{ $description }}">
+    @endif
     <meta name="og:image" content="{{ $generateImage() }}">
+        <meta property="og:url" content="{{ request()->url() }}" />
+    <meta property="og:locale" content="{{ App::getLocale() }}" />
+
     @livewireStyles
     <x-style link="css/app.css"/>
     <x-pushed-styles/>
 </head>
-<body class="bg-gray-100 font-medium min-h-screen flex items-center justify-center">
-<a class="underline text-blue-500" href="{{ $generateImage() }}">Image</a>
+<body {{ $attributes->merge(['class' => "bg-gray-100 font-medium"])}}>
 {{ $slot }}
 @livewireScripts
 <x-script link="js/app.js"/>
