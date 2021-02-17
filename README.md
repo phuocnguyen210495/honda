@@ -6,12 +6,12 @@ TODO:
 * [ ] Charts
 * [ ] Tab Switch [Tab1|Tab2] [icon1|icon2]
 * [ ] Smart search (all in one)
-* [ ] Provide french translations 
  * [ ] Algolia search places [2.x]
  * Make it easy to add any command in the setup, override them : should go along with the laravel improved commands with directories matching our structure.
  * Email verification when updated (listener)
  * x-context-menu based on x-dropdown
 * x-container ain't smart
+* x-uploaded-file than can render or download a file (behavior configured using an attribute) 
 
 
 To finish:
