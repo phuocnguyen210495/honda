@@ -12,7 +12,8 @@ TODO:
  * x-context-menu based on x-dropdown
 * x-container ain't smart
 * x-uploaded-file than can render or download a file (behavior configured using an attribute) 
-
+* Set default border at gray-300
+* use levenstein distance for searches.
 
 To finish:
 
