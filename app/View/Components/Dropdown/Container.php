@@ -6,13 +6,11 @@ use Illuminate\View\Component;
 
 class Container extends Component
 {
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public string $side;
+
+    public function __construct(string $side = 'left')
     {
+        $this->side = $side;
     }
 
     public function render()
