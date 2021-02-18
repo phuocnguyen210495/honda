@@ -21,7 +21,7 @@
                {{ $attributes->except('class') }} x-model="search"/>
     </div>
     <div
-        class="overflow-auto max-h-64 no-scrollbar rounded-lg border border-gray-300 divide-y bg-white mt-4 shadow w-full z-50"
+        class="focus:outline-none overflow-auto max-h-64 no-scrollbar rounded-lg border border-gray-300 divide-y bg-white mt-4 shadow w-full z-50"
         x-show="open && !searchables.map(_ => _.toString()).includes(search)" x-transition:enter="ease-out duration-300"
         x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
         x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100" x-transition:leave="ease-in duration-200"
