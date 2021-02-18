@@ -1,1 +1,0 @@
-<x-slot name="dataset">{{ json_encode($data) }}</x-slot>
