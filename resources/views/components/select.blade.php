@@ -6,7 +6,7 @@
     <div
         x-data="{@alpine($keys, $values, $selected, $multiple, $searchable), open: false, search: '', focused: false }"
         class="flex w-full flex-col-reverse @if (!$hideLabel) mt-2 @endif" @search-input="search = $event.detail.value"
-        @keydown="if (open && $event.key === 'Escape') { open = false }">
+        @keydown.escape="open = false">
         <select name="{{ $name }}@if($multiple)[]@endif" id="{{ $name }}" class="hidden" aria-hidden="true"
                 @if($multiple) multiple @endif>
             <template x-for="s in selected">
@@ -15,7 +15,7 @@
         </select>
         <div class="relative">
             <button
-                class="bg-white focus:outline-none rounded-lg text-gray-500 w-full flex items-center transiton ease-in-out duration-150 justify-between border border-gray-300 shadow-sm"
+                class="bg-white focus:outline-none rounded-lg text-gray-500 w-full flex items-center transition ease-in-out duration-150 justify-between border border-gray-300 shadow-sm"
                 x-bind:class="{ 'ring ring-{{ $color }}-200': focused }"
                 @click="open = !open" @focus="focused = true;" @blur="focused = false;">
                 <span class="inline-block pl-4" x-show="selected.length === 0">{{ __('Search options') }}</span>

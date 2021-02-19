@@ -11,9 +11,4 @@
     :icon-set="$iconSet"
     :first="$first"
     :color="$color"
-    :searchables="$data"
->
-    @foreach($data as $year)
-        <x-searchable-input-result :name="$year">{{ $year }}</x-searchable-input-result>
-    @endforeach
-</x-searchable-input>
+    :searchables="$data"/>

@@ -1,8 +1,8 @@
 <div class="w-full flex flex-col @if(!$first) mt-4 @endif"
      x-data="{ @alpine($searchables), searchTerm: '{{ $attributes->get('value') }}', open: false, showFocusRing: false, matches: [] }"
-     x-init="
-      $watch('showFocusRing', value => open = value);
-      $watch('searchTerm', value => $dispatch('updated-search-term', { searchTerm: value}));"
+     x-init="$watch('searchTerm', value => $dispatch('updated-search-term', { searchTerm: value}));"
+     @click.away="open = false"
+     @keydown.escape="open = false"
 >
     @if (!$hideLabel || $name === null)
         <label class="text-gray-700" for="{{ $name }}">{{ $label }}</label>
@@ -18,23 +18,33 @@
         @endif
 
         <input type="{{ $type }}"
-               @focus="showFocusRing = true; open = true;"
-               @blur="showFocusRing = false" @if ($name) name="{{ $name }}" id="{{ $name }}" @endif
+               @focus="showFocusRing = true; open = true" @blur="showFocusRing = false" @if ($name) name="{{ $name }}"
+               id="{{ $name }}" @endif
                class="py-3 px-5 block w-full rounded-lg border-gray-300 focus:border-gray-300 shadow-sm focus:border-opacity-0 focus:ring-0 @if ($icon) border-l-0 rounded-l-none @endif {{ $attributes->get('class') }}"
                {{ $attributes->except('class') }} x-model="searchTerm"/>
     </div>
 
-    <div
-        class="focus:outline-none overflow-auto max-h-64 no-scrollbar rounded-lg border border-gray-300 divide-y bg-white mt-4 shadow w-full z-50"
-        x-show="open && matches.length > 0"
-        x-transition:enter="ease-out duration-300"
-        x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-        x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100" x-transition:leave="ease-in duration-200"
-        x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
-        x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
-        {{ $slot }}
+    <div class="relative">
+        <div
+            class="absolute left-0 focus:outline-none overflow-auto max-h-64 no-scrollbar rounded-lg border border-gray-300 divide-y bg-white mt-4 shadow w-full z-50"
+            x-show="open && matches.length > 0"
+            x-transition:enter="ease-out duration-300"
+            x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+            x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100" x-transition:leave="ease-in duration-200"
+            x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+            x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
+            @foreach($searchables as $name)
+                <button {{ $attributes->class([
+                        "flex text-left focus:outline-none w-full p-4 hover:bg-gray-100 focus:bg-gray-100"
+                    ]) }}
+                        @click="searchTerm = '{{ $name }}'; open = false"
+                        x-show="show = searchTerm.length === 0 || ('{{ strtolower($name) }}'.includes(searchTerm.toLowerCase()) && searchTerm !== '{{ $name }}'); if (show && !matches.includes('{{ $name }}')) { matches.push('{{ $name }}') } if (!show && matches.includes('{{ $name }}')) { matches = matches.filter(_ => _ !== '{{ $name }}') }"
+                >
+                    {{ $slot }} {{ $name }} {{ $next ?? '' }}
+                </button>
+            @endforeach
+        </div>
     </div>
-
     @if ($name)
         @error($name)
         <p class="flex items-center text-red-500 mt-2">

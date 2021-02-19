@@ -1,3 +1,19 @@
-<div>
-    <!-- I begin to speak only when I am certain what I will say is not better left unsaid - Cato the Younger -->
-</div>
+@php
+    $data = array_map(
+        fn ($d) => $d->day,
+        now()->startOfMonth()->daysUntil(
+            now()->endOfMonth()
+        )->toArray()
+    )
+@endphp
+
+<x-searchable-input
+    :name="$name"
+    :label="$label"
+    :type="$type"
+    :hideLabel="$hideLabel"
+    :icon="$icon"
+    :icon-set="$iconSet"
+    :first="$first"
+    :color="$color"
+    :searchables="$data"/>
