@@ -3,10 +3,13 @@
         <label class="text-gray-700" for="{{ $name }}">{{ $label }}</label>
     @endif
 
-    <div class="@if (!$hideLabel) mt-2 @endif flex items-center rounded-lg" x-bind:class="{ 'ring ring-{{ $color }}-200': showFocusRing }">
+
+    <div class="@if (!$hideLabel) mt-2 @endif flex items-center rounded-lg"
+         x-bind:class="{ 'ring ring-{{ $color }}-200': showFocusRing }">
         @if ($icon)
-            <div class="border rounded-r-none rounded-lg p-3 border-gray-300">
-                <x-icon :name="$icon" :set="$iconSet" size="6" class="text-gray-400" solid/>
+            <div class="border border-r-0 rounded-r-none rounded-lg p-3 border-gray-300"
+                 x-bind:class="{ 'border-opacity-0': showFocusRing }">
+                <x-icon :name=" $icon" :set="$iconSet" size="6" class="text-gray-400" solid/>
             </div>
         @endif
 

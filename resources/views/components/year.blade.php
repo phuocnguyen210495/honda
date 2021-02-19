@@ -2,8 +2,8 @@
     $data = range(now()->addYears($start)->year, now()->addYears($end)->year)
 @endphp
 
-<x-searchable-input 
-    :name="$name" 
+<x-searchable-input
+    :name="$name"
     :label="$label"
     :type="$type"
     :hideLabel="$hideLabel"
@@ -14,8 +14,6 @@
     :searchables="$data"
 >
     @foreach($data as $year)
-        <x-searchable-input-result :name="$year">
-            {{ $year }}
-        </x-searchable-input-result>
+        <x-searchable-input-result :name="$year">{{ $year }}</x-searchable-input-result>
     @endforeach
 </x-searchable-input>
