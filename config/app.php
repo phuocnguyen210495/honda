@@ -1,5 +1,6 @@
 <?php
 
+use App\Provider\BrootServiceProvider;
 use Starts\Banner\BannerServiceProvider;
 
 return [
@@ -165,16 +166,17 @@ return [
         /*
          * Package Service Providers...
          */
+        BannerServiceProvider::class,
 
         /*
          * Application Service Providers...
          */
+        BrootServiceProvider::class,
         App\Provider\AppServiceProvider::class,
         App\Provider\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Provider\EventServiceProvider::class,
         App\Provider\RouteServiceProvider::class,
-        BannerServiceProvider::class,
     ],
 
     /*

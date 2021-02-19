@@ -1,5 +1,7 @@
 <?php
 
+uses(Tests\TestCase::class);
+
 it('can render properly an h1', function () {
     $this->assertComponentRenders(
         '<h1 class="text-4xl font-extrabold text-gray-800" style="line-height: 1.11111111">Hello folks!</h1>',

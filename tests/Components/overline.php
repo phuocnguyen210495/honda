@@ -1,5 +1,7 @@
 <?php
 
+uses(Tests\TestCase::class);
+
 it('can render properly', function () {
     $this->assertComponentRenders(
         '<h2 class="text-xs font-semibold tracking-wide text-blue-500 uppercase">Content</h2>',

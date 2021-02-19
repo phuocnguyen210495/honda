@@ -27,7 +27,6 @@ use Illuminate\Routing\Middleware\ValidateSignature;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
-use Spatie\Honeypot\ProtectAgainstSpam;
 
 class HttpKernel extends Kernel
 {
@@ -46,7 +45,6 @@ class HttpKernel extends Kernel
         ValidatePostSize::class,
         TrimStrings::class,
         ConvertEmptyStringsToNull::class,
-        ProtectAgainstSpam::class,
     ];
 
     /**

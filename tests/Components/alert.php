@@ -1,5 +1,7 @@
 <?php
 
+uses(Tests\TestCase::class);
+
 it('can render properly', function () {
     $this->assertComponentRenders(
         '<div class="bg-red-100 text-red-700 p-4 rounded-lg" x-data="{ closed: false }" x-show="!closed">

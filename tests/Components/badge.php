@@ -1,5 +1,7 @@
 <?php
 
+uses(Tests\TestCase::class);
+
 it('can render properly', function () {
     $this->assertComponentRenders(
         '<div>

@@ -1,5 +1,7 @@
 <?php
 
+uses(Tests\TestCase::class);
+
 it('can render properly', function () {
     $this->assertComponentRenders(
         '<div class="flex items-center justify-center rounded-full text-sm bg-gray-500 text-white px-3 py-1.5">
