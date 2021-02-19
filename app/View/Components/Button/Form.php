@@ -8,13 +8,13 @@ class Form extends Component
 {
     public string $action;
     public string $method;
-    public string $component;
+    public string $extends;
 
-    public function __construct(string $action = '#', string $method = 'POST', string $component = 'button')
+    public function __construct(string $action = '#', string $method = 'POST', string $extends = 'button')
     {
         $this->action    = $action;
         $this->method    = $method;
-        $this->component = $component;
+        $this->extends = $extends;
     }
 
     public function render()
