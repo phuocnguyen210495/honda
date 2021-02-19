@@ -31,10 +31,9 @@ class DiscoverTailwindClassesCommand extends Command
                 ))];
             })
             ->filter(fn ($class) => !empty($class[1]))
-            ->map(fn ($class) => preg_replace('/<<( |)settings\(color\)( |)>>/', settings('color'), $class));
+            ->map(fn ($class)    => preg_replace('/<<( |)settings\(color\)( |)>>/', settings('color'), $class));
 
         Collection::fromFiles(resource_path('views'))->map(function () {
-
         });
     }
 }

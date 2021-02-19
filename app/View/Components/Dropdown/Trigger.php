@@ -14,10 +14,10 @@ class Trigger extends Component
 
     public function __construct(string $content = null, bool $iconOnly = false, string $icon = null, string $iconSet = 'heroicon', string $iconSide = 'right')
     {
-        $this->content = $content;
+        $this->content  = $content;
         $this->iconOnly = $iconOnly;
-        $this->icon = $icon;
-        $this->iconSet = $iconSet;
+        $this->icon     = $icon;
+        $this->iconSet  = $iconSet;
         $this->iconSide = $iconSide;
     }
 

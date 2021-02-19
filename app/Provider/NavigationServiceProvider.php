@@ -10,6 +10,6 @@ class NavigationServiceProvider extends ServiceProvider
     {
         app()->bind('navigation.dashboard', function () {
             return app('navigation');
-        });      
+        });
     }
 }

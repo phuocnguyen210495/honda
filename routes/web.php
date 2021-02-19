@@ -3,7 +3,6 @@
 use App\Controller\ShowHomeController;
 use App\Provider\RouteServiceProvider;
 
-
 Route::view('/', 'front.welcome')->name('welcome');
 
 Route::middleware(['auth', 'verified'])->prefix(RouteServiceProvider::HOME)->group(function () {

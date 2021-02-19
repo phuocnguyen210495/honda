@@ -13,7 +13,6 @@ class Range extends Component
      */
     public function __construct()
     {
-        //
     }
 
     /**

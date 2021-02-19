@@ -8,6 +8,6 @@ class ExceptionMakeCommand extends GeneratorCommand
 {
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace.'\Exception';
+        return $rootNamespace . '\Exception';
     }
 }

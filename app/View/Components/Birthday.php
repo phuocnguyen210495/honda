@@ -13,7 +13,6 @@ class Birthday extends Component
      */
     public function __construct()
     {
-        //
     }
 
     /**

@@ -8,6 +8,6 @@ class ChannelMakeCommand extends GeneratorCommand
 {
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace.'\Broadcasting';
+        return $rootNamespace . '\Broadcasting';
     }
 }

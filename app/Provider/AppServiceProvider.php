@@ -9,7 +9,6 @@ use App\Support\Mixins\StrMixin;
 use App\Support\Navigation;
 use App\Support\Styles;
 use Carbon\Carbon;
-use Illuminate\Console\GeneratorCommand;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
@@ -34,7 +33,7 @@ class AppServiceProvider extends ServiceProvider
         app()->bind(Valuestore::class, function () {
             return Valuestore::make(storage_path('app/settings.json'));
         });
-        app()->bind('settings', fn() => app(Valuestore::class));
+        app()->bind('settings', fn () => app(Valuestore::class));
         app()->bind('navigation', function () {
             return new Navigation();
         });

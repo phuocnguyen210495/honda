@@ -12,17 +12,17 @@ class Layout extends Component
 
     public function __construct(string $title, string $description = '')
     {
-        $this->title = $title;
+        $this->title       = $title;
         $this->description = $description;
     }
 
     public function generateImage(?int $width = null, ?int $height = null)
     {
         $payload = [
-            'title' => $this->title,
-            'body' => $this->description,
-            'width' => $width ?? config('banners.width'),
-            'height' => $height ?? config('banners.height')
+            'title'  => $this->title,
+            'body'   => $this->description,
+            'width'  => $width ?? config('banners.width'),
+            'height' => $height ?? config('banners.height'),
         ];
 
         $checksum = app(ChecksumManager::class)->generate($payload);

@@ -8,6 +8,6 @@ class NotificationMakeCommand extends GeneratorCommand
 {
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace.'\Notification';
+        return $rootNamespace . '\Notification';
     }
 }

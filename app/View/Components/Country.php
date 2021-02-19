@@ -13,7 +13,6 @@ class Country extends Component
      */
     public function __construct()
     {
-        //
     }
 
     /**

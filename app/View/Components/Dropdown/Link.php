@@ -15,8 +15,8 @@ class Link extends Component
     public function __construct(string $href = null, string $content = null, string $icon = null, string $iconSet = 'heroicon')
     {
         $this->content = $content;
-        $this->href = Action::guess($href);
-        $this->icon = $icon;
+        $this->href    = Action::guess($href);
+        $this->icon    = $icon;
         $this->iconSet = $iconSet;
     }
 

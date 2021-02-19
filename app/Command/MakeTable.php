@@ -2,7 +2,6 @@
 
 namespace App\Command;
 
-use File;
 use Illuminate\Console\Command;
 
 class MakeTable extends Command
@@ -32,6 +31,7 @@ class MakeTable extends Command
     {
         $model = $this->argument('model');
         $class = $model . 'Table';
+
         return <<<EOF
 <?php
 

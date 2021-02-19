@@ -4,8 +4,6 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-use function React\Promise\reduce;
-
 class Stats extends Component
 {
     public ?string $title = null;
@@ -14,9 +12,9 @@ class Stats extends Component
 
     public function __construct(string $title = null, array $items = [], int $cols = 3)
     {
-        $this->title = $title;
+        $this->title  = $title;
         $this->items  = $items;
-        $this->cols = $cols;
+        $this->cols   = $cols;
     }
 
     public function render()

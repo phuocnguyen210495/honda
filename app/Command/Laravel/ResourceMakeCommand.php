@@ -8,6 +8,6 @@ class ResourceMakeCommand extends GeneratorCommand
 {
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace.'\Resource';
+        return $rootNamespace . '\Resource';
     }
 }

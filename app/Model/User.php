@@ -17,16 +17,17 @@ use ProtoneMedia\LaravelVerifyNewEmail\MustVerifyNewEmail;
 /**
  * App\Model\User.
  *
- * @property int $id
- * @property string $name
- * @property string $email
- * @property Carbon|null $email_verified_at
- * @property string $password
- * @property string|null $remember_token
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
- * @property-read DatabaseNotificationCollection|DatabaseNotification[] $notifications
- * @property-read int|null $notifications_count
+ * @property int                                                   $id
+ * @property string                                                $name
+ * @property string                                                $email
+ * @property Carbon|null                                           $email_verified_at
+ * @property string                                                $password
+ * @property string|null                                           $remember_token
+ * @property Carbon|null                                           $created_at
+ * @property Carbon|null                                           $updated_at
+ * @property DatabaseNotificationCollection|DatabaseNotification[] $notifications
+ * @property int|null                                              $notifications_count
+ *
  * @method static Builder|User newModelQuery()
  * @method static Builder|User newQuery()
  * @method static Builder|User query()

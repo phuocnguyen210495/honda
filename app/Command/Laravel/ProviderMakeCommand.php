@@ -8,6 +8,6 @@ class ProviderMakeCommand extends GeneratorCommand
 {
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace.'\Provider';
+        return $rootNamespace . '\Provider';
     }
 }

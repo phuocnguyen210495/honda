@@ -8,6 +8,6 @@ class RuleMakeCommand extends GeneratorCommand
 {
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace.'\Rule';
+        return $rootNamespace . '\Rule';
     }
 }

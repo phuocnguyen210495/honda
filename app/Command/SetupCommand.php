@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Artisan;
 
 class SetupCommand extends Command
 {
-    protected $signature = 'setup';
+    protected $signature   = 'setup';
     protected $description = 'Configure the project after a fresh git clone';
 
     public function handle(): void
@@ -26,7 +26,7 @@ class SetupCommand extends Command
         $this->command('composer helpers');
         $this->info('Create IDE helpers.');
 
-        if (shell_exec("which valet") !== null) {
+        if (shell_exec('which valet') !== null) {
             $siteName = explode('.', basename(base_path()))[0];
 
             $this->command('valet link ' . $siteName);

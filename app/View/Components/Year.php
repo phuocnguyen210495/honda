@@ -11,7 +11,7 @@ class Year extends Input
     {
         parent::__construct($name, $label, $type, $hideLabel, $icon, $iconSet, $first, $color);
         $this->start = $start;
-        $this->end = $end;
+        $this->end   = $end;
     }
 
     public function render()

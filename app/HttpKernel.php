@@ -63,7 +63,7 @@ class HttpKernel extends Kernel
             ShareErrorsFromSession::class,
             VerifyCsrfToken::class,
             SubstituteBindings::class,
-            SetLocale::class
+            SetLocale::class,
         ],
 
         'api' => [

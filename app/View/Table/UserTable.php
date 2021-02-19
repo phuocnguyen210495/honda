@@ -1,13 +1,10 @@
 <?php
 
-
 namespace App\View\Table;
-
 
 use App\Model\User;
 use Illuminate\Database\Eloquent\Model;
 use Starts\Table\Action;
-use Starts\Table\Actions\Delete;
 use Starts\Table\Column;
 use Starts\Table\Table;
 
@@ -21,7 +18,7 @@ class UserTable extends Table
             Column::create('name')
                 ->searchable(),
             Column::create('email')
-                ->searchable()
+                ->searchable(),
         ];
     }
 
@@ -33,8 +30,7 @@ class UserTable extends Table
                 ->color('red')
                 ->execute(function (Model $model) {
                     $model->delete();
-                })
+                }),
         ];
     }
-
 }

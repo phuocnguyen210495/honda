@@ -8,6 +8,6 @@ class RequestMakeCommand extends GeneratorCommand
 {
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace.'\Request';
+        return $rootNamespace . '\Request';
     }
 }

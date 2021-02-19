@@ -19,8 +19,8 @@ class Badge extends Component
     {
         $this->content  = $content;
         $this->color    = $disabled ? 'gray' : ($color ?? settings('color'));
-        $this->icon = $icon;
-        $this->iconSet = $iconSet;
+        $this->icon     = $icon;
+        $this->iconSet  = $iconSet;
         $this->dotted   = $dotted;
         $this->disabled = $disabled;
         $this->href     = $href !== null ? Action::guess($href) : null;

@@ -8,6 +8,6 @@ class ListenerMakeCommand extends GeneratorCommand
 {
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace.'\Listener';
+        return $rootNamespace . '\Listener';
     }
 }

@@ -8,6 +8,6 @@ class JobMakeCommand extends GeneratorCommand
 {
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace.'\Job';
+        return $rootNamespace . '\Job';
     }
 }

@@ -8,6 +8,6 @@ class EventMakeCommand extends GeneratorCommand
 {
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace.'\Event';
+        return $rootNamespace . '\Event';
     }
 }

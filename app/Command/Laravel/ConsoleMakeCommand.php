@@ -8,6 +8,6 @@ class ConsoleMakeCommand extends GeneratorCommand
 {
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace.'\Command';
+        return $rootNamespace . '\Command';
     }
 }

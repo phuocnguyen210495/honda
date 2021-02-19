@@ -8,6 +8,6 @@ class ControllerMakeCommand extends GeneratorCommand
 {
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace.'\Controller';
+        return $rootNamespace . '\Controller';
     }
 }

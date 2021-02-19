@@ -11,7 +11,7 @@ class SectionTitle extends Component
 
     public function __construct(string $title = null, string $description = null)
     {
-        $this->title = $title;
+        $this->title       = $title;
         $this->description = $description;
     }
 
