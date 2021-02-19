@@ -135,5 +135,15 @@
                 </div>
             </div>
         </template>
+
     </div>
+
+    @if ($name)
+        @error($name)
+        <p class="flex items-center text-red-500 mt-2">
+            <x-icon name="exclamation-circle" solid size="5"/>
+            <span class="inline-block ml-2">{{ $message }}</span>
+        </p>
+        @enderror
+    @endif
 </div>
