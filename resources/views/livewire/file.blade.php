@@ -1,3 +1,67 @@
+<x-script link="https://unpkg.com/create-file-list"/>
+<x-script>
+    function dataFileDnD() {
+    return {
+    files: [],
+    fileDragging: null,
+    fileDropping: null,
+    humanFileSize(size) {
+    const i = Math.floor(Math.log(size) / Math.log(1024));
+    return (
+    (size / Math.pow(1024, i)).toFixed(2) * 1 +
+    " " +
+    ["B", "kB", "MB", "GB", "TB"][i]
+    );
+    },
+    remove(index) {
+    let files = [...this.files];
+    files.splice(index, 1);
+
+    this.files = createFileList(files);
+    },
+    drop(e) {
+    let removed, add;
+    let files = [...this.files];
+
+    removed = files.splice(this.fileDragging, 1);
+    files.splice(this.fileDropping, 0, ...removed);
+
+    this.files = createFileList(files);
+
+    this.fileDropping = null;
+    this.fileDragging = null;
+    },
+    dragenter(e) {
+    let targetElem = e.target.closest("[draggable]");
+
+    this.fileDropping = targetElem.getAttribute("data-index");
+    },
+    dragstart(e) {
+    this.fileDragging = e.target
+    .closest("[draggable]")
+    .getAttribute("data-index");
+    e.dataTransfer.effectAllowed = "move";
+    },
+    loadFile(file) {
+    const preview = document.querySelectorAll(".preview");
+    const blobUrl = URL.createObjectURL(file);
+
+    preview.forEach(elem => {
+    elem.onload = () => {
+    URL.revokeObjectURL(elem.src); // free memory
+    };
+    });
+
+    return blobUrl;
+    },
+    addFiles(e) {
+    const files = createFileList([...this.files], [...e.target.files]);
+    this.files = files;
+    this.form.formData.files = [...files];
+    }
+    };
+    }
+</x-script>
 <div class="w-full flex flex-col @if(!$first) mt-4 @endif">
     @if (!$hideLabel || $name === null)
         <label class="text-gray-700" for="{{ $name }}">{{ $label }}</label>
@@ -24,120 +88,51 @@
 
             <template x-if="files.length > 0">
                 <div @drop.prevent="drop($event)"
-                     class="w-full"
+                     class="w-full space-y-4"
                      @dragover.prevent="$event.dataTransfer.dropEffect = 'move'">
-                    <template x-for="(_, index) in Array.from({ length: files.length })">
+                    <template x-for="(_, index) in Array.from({ length: files.length })" hidden>
                         <div
-                            class="text-center bg-gray-100 border rounded cursor-move select-none w-full"
+                            class="flex"
                             @dragstart="dragstart($event)" @dragend="fileDragging = null"
                             :class="{'border-blue-600': fileDragging == index}" draggable="true"
                             :data-index="index">
-                        {{--                            <button class="z-50 p-1 bg-white rounded-bl focus:outline-none"--}}
-                        {{--                                    type="button" @click="remove(index)">--}}
-                        {{--                                Remove--}}
-                        {{--                            </button>--}}
-                        {{--                            <template x-if="files[index].type.includes('audio/')">--}}
-                        {{--                                Audio--}}
-                        {{--                            </template>--}}
-                        {{--                            <template x-if="files[index].type.includes('application/') || files[index].type === ''">--}}
-                        {{--                                Application--}}
-                        {{--                            </template>--}}
-                        {{--                            <template x-if="files[index].type.includes('image/')">--}}
-                        {{--                                Image--}}
-                        {{--                                --}}{{--                                <img--}}
-                        {{--                                --}}{{--                                    class="absolute inset-0 z-0 object-cover w-full h-full border-4 border-white preview"--}}
-                        {{--                                --}}{{--                                    x-bind:src="loadFile(files[index])"/>--}}
-                        {{--                            </template>--}}
-                        {{--                            <template x-if="files[index].type.includes('video/')">--}}
-                        {{--                                Video--}}
-                        {{--                                --}}{{--                                <video--}}
-                        {{--                                --}}{{--                                    class="absolute inset-0 object-cover w-full h-full border-4 border-white pointer-events-none preview">--}}
-                        {{--                                --}}{{--                                    <fileDragging x-bind:src="loadFile(files[index])" type="video/mp4"/>--}}
-                        {{--                                --}}{{--                                </video>--}}
-                        {{--                            </template>--}}
+                            <template x-if="files[index].type.includes('audio/')" hidden>
+                                <div class="w-24 h-full">
 
-                        {{--                            <div--}}
-                        {{--                                class="p-2 text-xs bg-white bg-opacity-50">--}}
-                        {{--                        <span class="w-full font-bold text-gray-900 truncate"--}}
-                        {{--                              x-text="files[index].name">Loading</span>--}}
-                        {{--                                <span class="text-xs text-gray-900"--}}
-                        {{--                                      x-text="humanFileSize(files[index].size)">...</span>--}}
-                        {{--                            </div>--}}
+                                </div>
+                            </template>
+                            {{-- TODO: If no other extension matches, show this --}}
+                            <template x-if="files[index].type.includes('application/') || files[index].type === ''"
+                                      hidden>
+                                <div class="w-24 h-20 border rounded-lg flex items-center justify-center p-4">
+                                    <x-icon name="document-text" size="8" class="text-gray-500"/>
+                                </div>
+                            </template>
+                            <template x-if="files[index].type.includes('video/')" hidden>
+                                <video
+                                    class="w-24 object-cover object-center rounded-lg preview">
+                                    <fileDragging x-bind:src="loadFile(files[index])" type="video/mp4"/>
+                                </video>
+                            </template>
+                            <template x-if="files[index].type.includes('image/')" hidden>
+                                <img
+                                    class="w-24 object-cover object-center rounded-lg preview"
+                                    x-bind:src="loadFile(files[index])"/>
+                            </template>
+                            <div class="flex flex-col ml-4 justify-between text-gray-500">
+                                <x-overline x-text="files[index].name.split('.').slice(-1)[0]" content="..."/>
+                                <span x-text="files[index].name; console.log(files[index])">Loading</span>
+                                <span x-text="humanFileSize(files[index].size)">...</span>
 
-                        {{--                            <div class="z-40 transition-colors duration-300"--}}
-                        {{--                                 @dragenter="dragenter($event)"--}}
-                        {{--                                 @dragleave="fileDropping = null"--}}
-                        {{--                                 :class="{'bg-blue-200 bg-opacity-80': fileDropping == index && fileDragging != index}">--}}
-                        {{--                            </div>--}}
-                                                </div>
+                                <button class="text-sm underline inline-flex justify-start w-auto" type="button"
+                                        @click="remove(index)">
+                                    Remove
+                                </button>
+                            </div>
+                        </div>
                     </template>
                 </div>
             </template>
         </div>
-
     </div>
-    <x-script link="https://unpkg.com/create-file-list"/>
-    <x-script>
-        function dataFileDnD() {
-        return {
-        files: [],
-        fileDragging: null,
-        fileDropping: null,
-        humanFileSize(size) {
-        const i = Math.floor(Math.log(size) / Math.log(1024));
-        return (
-        (size / Math.pow(1024, i)).toFixed(2) * 1 +
-        " " +
-        ["B", "kB", "MB", "GB", "TB"][i]
-        );
-        },
-        remove(index) {
-        let files = [...this.files];
-        files.splice(index, 1);
-
-        this.files = createFileList(files);
-        },
-        drop(e) {
-        let removed, add;
-        let files = [...this.files];
-
-        removed = files.splice(this.fileDragging, 1);
-        files.splice(this.fileDropping, 0, ...removed);
-
-        this.files = createFileList(files);
-
-        this.fileDropping = null;
-        this.fileDragging = null;
-        },
-        dragenter(e) {
-        let targetElem = e.target.closest("[draggable]");
-
-        this.fileDropping = targetElem.getAttribute("data-index");
-        },
-        dragstart(e) {
-        this.fileDragging = e.target
-        .closest("[draggable]")
-        .getAttribute("data-index");
-        e.dataTransfer.effectAllowed = "move";
-        },
-        loadFile(file) {
-        const preview = document.querySelectorAll(".preview");
-        const blobUrl = URL.createObjectURL(file);
-
-        preview.forEach(elem => {
-        elem.onload = () => {
-        URL.revokeObjectURL(elem.src); // free memory
-        };
-        });
-
-        return blobUrl;
-        },
-        addFiles(e) {
-        const files = createFileList([...this.files], [...e.target.files]);
-        this.files = files;
-        this.form.formData.files = [...files];
-        }
-        };
-        }
-    </x-script>
 </div>
