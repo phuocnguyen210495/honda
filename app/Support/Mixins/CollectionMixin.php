@@ -22,6 +22,15 @@ class CollectionMixin
         };
     }
 
+    public function mapWithoutKeys(): callable
+    {
+        return function (callable $callable) {
+            return $this->map(function ($value) use ($callable) {
+                return $callable($value);
+            });
+        };
+    }
+
     public function csv(): callable
     {
         return function () {

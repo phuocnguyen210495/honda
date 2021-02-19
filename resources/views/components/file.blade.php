@@ -55,9 +55,14 @@
     return blobUrl;
     },
     addFiles(e) {
-    const files = createFileList([...this.files], [...e.target.files]);
+    if (!{{ $multiple ? 'true' : 'false' }} && this.files.length > 0) {
+    const files = createFileList(e.target.files[0]);
     this.files = files;
-    this.form.formData.files = [...files];
+    return;
+    }
+
+    const files = [...this.files, ...e.target.files].filter(file => file.size / 1024 <= {{ $max }});
+    this.files = createFileList(files);
     }
     };
     }
@@ -68,25 +73,24 @@
     @endif
 
     <div x-data="dataFileDnD()" class="relative @if (!$hideLabel && $name) mt-2 @endif">
-        <input accept="*" type="file" multiple
-               class="absolute inset-0 z-50 w-full h-full p-0 m-0 outline-none opacity-0 cursor-pointer"
+        <input accept="{{ implode(',', $mimes) }}" type="file" @if ($multiple) multiple @endif
+        class="absolute top-0 w-full h-14 p-0 m-0 outline-none cursor-pointer opacity-0"
                @change="addFiles($event)"
                @dragover="$refs.dnd.classList.add('border-blue-400'); $refs.dnd.classList.add('ring-4'); $refs.dnd.classList.add('ring-inset');"
                @dragleave="$refs.dnd.classList.remove('border-blue-400'); $refs.dnd.classList.remove('ring-4'); $refs.dnd.classList.remove('ring-inset');"
                @drop="$refs.dnd.classList.remove('border-blue-400'); $refs.dnd.classList.remove('ring-4'); $refs.dnd.classList.remove('ring-inset');"
                title=""/>
-
         <div x-ref="dnd" class="flex items-center border rounded-lg bg-white w-full p-4 cursor-pointer">
-            <div x-show="files.length === 0">
-                <div class="inline-flex bg-white border rounded-full p-1">
-                    <x-icon name="plus" size="4" class="text-gray-600"/>
-                </div>
-
-                <span
-                    class="inline-block ml-4 text-gray-700">Select or drag max 1 file | PNG, JPEG, PDF | < 1024KB</span>
+            <div class="inline-flex bg-white border rounded-full p-1">
+                <x-icon name="plus" size="4" class="text-gray-600"/>
             </div>
 
-            <template x-if="files.length > 0">
+            <span
+                class="inline-block ml-4 text-gray-700">Select or drag @if (!$multiple) max 1 file @else files @endif  | {{ collect($extensions)->mapWithoutKeys('strtoupper')->implode(", ") }} | < {{ $max / 1024 }}MO</span>
+        </div>
+
+        <template x-if="files.length > 0">
+            <div class="flex z-50 items-center border rounded-lg bg-white w-full p-4 cursor-pointer mt-2">
                 <div @drop.prevent="drop($event)"
                      class="w-full space-y-4"
                      @dragover.prevent="$event.dataTransfer.dropEffect = 'move'">
@@ -96,14 +100,10 @@
                             @dragstart="dragstart($event)" @dragend="fileDragging = null"
                             :class="{'border-blue-600': fileDragging == index}" draggable="true"
                             :data-index="index">
-                            <template x-if="files[index].type.includes('audio/')" hidden>
-                                <div class="w-24 h-full">
 
-                                </div>
-                            </template>
-                            {{-- TODO: If no other extension matches, show this --}}
-                            <template x-if="files[index].type.includes('application/') || files[index].type === ''"
-                                      hidden>
+                            <template
+                                x-if="!files[index].type.includes('video/') && !files[index].type.includes('image/')"
+                                hidden>
                                 <div class="w-24 h-20 border rounded-lg flex items-center justify-center p-4">
                                     <x-icon name="document-text" size="8" class="text-gray-500"/>
                                 </div>
@@ -121,18 +121,19 @@
                             </template>
                             <div class="flex flex-col ml-4 justify-between text-gray-500">
                                 <x-overline x-text="files[index].name.split('.').slice(-1)[0]" content="..."/>
-                                <span x-text="files[index].name; console.log(files[index])">Loading</span>
+                                <span x-text="files[index].name">Loading</span>
                                 <span x-text="humanFileSize(files[index].size)">...</span>
 
-                                <button class="text-sm underline inline-flex justify-start w-auto" type="button"
-                                        @click="remove(index)">
+                                <button
+                                    class="text-sm underline inline-flex justify-start w-auto focus:outline-none focus:text-gray-600 hover:text-gray-600"
+                                    type="button" @click="remove(index)">
                                     Remove
                                 </button>
                             </div>
                         </div>
                     </template>
                 </div>
-            </template>
-        </div>
+            </div>
+        </template>
     </div>
 </div>
