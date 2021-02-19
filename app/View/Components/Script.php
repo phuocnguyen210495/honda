@@ -7,9 +7,9 @@ use Throwable;
 
 class Script extends Component
 {
-    public string $link;
+    public ?string $link;
 
-    public function __construct(string $link)
+    public function __construct(string $link = null)
     {
         try {
             $link = mix($link);

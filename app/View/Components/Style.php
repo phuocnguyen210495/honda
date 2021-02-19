@@ -7,14 +7,9 @@ use Throwable;
 
 class Style extends Component
 {
-    public string $link;
+    public ?string $link;
 
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
-    public function __construct(string $link)
+    public function __construct(string $link = null)
     {
         try {
             $link = mix($link);

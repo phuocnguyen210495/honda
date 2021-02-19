@@ -17,16 +17,18 @@ class File extends Component
     public ?string $label = null;
     public ?string $default = null;
     public bool $hideLabel;
+    public bool $first;
     public int $max;
     public array $ratio;
 
-    public function mount(string $name = null, string $label = null, string $ratio = '13:18', string $default = null, bool $hideLabel = false, int $max = 2048)
+    public function mount(string $name = null, string $label = null, string $ratio = '13:18', string $default = null, bool $hideLabel = false, bool $first = false, int $max = 2048)
     {
         $this->name = $name;
         $this->label = $label ?? ($name === null ? $name : Str::humanize($name));
         $this->ratio = explode(':', $ratio);
         $this->default = $default;
         $this->hideLabel = $hideLabel;
+        $this->first = $first;
         $this->max = $max;
     }
 
