@@ -9,7 +9,7 @@ use stdClass;
  */
 class NavigationSection
 {
-    public array $tree;
+    public array $tree = [];
 
     public ?object $options = null;
 
