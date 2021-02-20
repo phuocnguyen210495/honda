@@ -13,6 +13,9 @@ class CollectionMixin
             $collection = collect();
 
             foreach ($directories as $directory) {
+                if (!file_exists($directory)) {
+                    continue;
+                }
                 $collection->push(
                     ...File::allFiles($directory)
                 );
