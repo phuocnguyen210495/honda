@@ -1,4 +1,7 @@
 {
+    "name": "starts/starts",
+    "license": "MIT",
+    "type": "project",
     "require": {
         "php": "^7.4",
         "blade-ui-kit/blade-heroicons": "^0.3.1",
@@ -15,6 +18,7 @@
         "spatie/valuestore": "^1.2"
     },
     "require-dev": {
+        "roave/security-advisories": "dev-master",
         "barryvdh/laravel-debugbar": "^3.5",
         "barryvdh/laravel-ide-helper": "^2.9",
         "beyondcode/laravel-query-detector": "^1.4",
