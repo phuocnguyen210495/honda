@@ -73,8 +73,9 @@
     @endif
 
     <div x-data="dataFileDnD()" class="relative @if (!$hideLabel && $name) mt-2 @endif">
-        <input accept="{{ implode(',', $mimes) }}" type="file" @if ($multiple) multiple @endif
-        class="absolute top-0 w-full h-14 p-0 m-0 outline-none cursor-pointer opacity-0"
+        <input @if ($name) id="{{ $name }}" name="{{ $name }}" @endif  accept="{{ implode(',', $mimes) }}" type="file"
+               @if ($multiple) multiple @endif
+               class="absolute top-0 w-full h-14 p-0 m-0 outline-none cursor-pointer opacity-0"
                @change="addFiles($event)"
                @dragover="$refs.dnd.classList.add('border-blue-400'); $refs.dnd.classList.add('ring-4'); $refs.dnd.classList.add('ring-inset');"
                @dragleave="$refs.dnd.classList.remove('border-blue-400'); $refs.dnd.classList.remove('ring-4'); $refs.dnd.classList.remove('ring-inset');"
@@ -116,12 +117,12 @@
                             </template>
                             <template x-if="files[index].type.includes('image/')" hidden>
                                 <img
-                                    class="w-24 object-cover object-center rounded-lg preview"
+                                    class="w-24 max-h-36 object-cover object-center rounded-lg preview"
                                     x-bind:src="loadFile(files[index])"/>
                             </template>
                             <div class="flex flex-col ml-4 justify-between text-gray-500">
                                 <x-overline x-text="files[index].name.split('.').slice(-1)[0]" content="..."/>
-                                <span x-text="files[index].name">Loading</span>
+                                <span x-text="files[index].name" class="truncate">Loading</span>
                                 <span x-text="humanFileSize(files[index].size)">...</span>
 
                                 <button
