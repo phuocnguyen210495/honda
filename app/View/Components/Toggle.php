@@ -13,16 +13,15 @@ class Toggle extends Component
     public string $color;
     public bool $first;
     public bool $checked;
-    public bool $disabled;
 
-    public function __construct(string $name = null, string $label = null, string $color = null, bool $first = false, bool $checked = false, bool $disabled = false)
+    public function __construct(string $name = null, string $label = null, string $color = null, bool $first = false, bool $checked = false
+    )
     {
         $this->name = $name;
         $this->label = $label ?? ($name === null ? $name : Str::humanize($name));
         $this->color = $color ?? settings('color');
         $this->first = $first;
         $this->checked = $checked;
-        $this->disabled = $disabled;
     }
 
     /**

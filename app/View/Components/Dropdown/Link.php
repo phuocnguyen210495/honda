@@ -9,7 +9,7 @@ class Link extends Component
 {
     public string $content;
     public string $href;
-    public string $icon;
+    public ?string $icon;
     public string $iconSet;
 
     public function __construct(string $href = null, string $content = null, string $icon = null, string $iconSet = 'heroicon')

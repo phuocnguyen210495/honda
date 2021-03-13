@@ -61,7 +61,6 @@ class BrootServiceProvider extends ServiceProvider
         Factory::guessFactoryNamesUsing(function (string $model) {
             return 'Database\\Factories\\' . class_basename($model) . 'Factory';
         });
-        Styles::pushRaw('[x-cloak] { display: none; }');
 
         $this->registerMacros();
         $this->registerBladeDirectives();

@@ -4,20 +4,17 @@
     "type": "project",
     "require": {
         "php": "^7.4",
-        "blade-ui-kit/blade-heroicons": "^0.3.1",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
         "livewire/livewire": "^2.3",
-        "owenvoke/blade-fontawesome": "^1.6",
-        "sentry/sentry-laravel": "^2.3",
+        "ryangjchandler/blade-tabler-icons": "^0.5.0",
         "spatie/browsershot": "^3.44",
         "spatie/valuestore": "^1.2"
     },
     "require-dev": {
-        "roave/security-advisories": "dev-master",
         "barryvdh/laravel-debugbar": "^3.5",
         "barryvdh/laravel-ide-helper": "^2.9",
         "beyondcode/laravel-query-detector": "^1.4",

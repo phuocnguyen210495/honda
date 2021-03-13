@@ -37,13 +37,6 @@ return [
         'login_link' => 'Connexion'
     ],
 
-    'logout' => [
-        'title' => 'Se déconnecter.',
-        'details' => 'Vous devrez vous connecter la prochaine fois afin d\'accéder de nouveau au site.',
-
-        'button' => 'Déconnexion'
-    ],
-
     'forgot-password' => [
         'title' => 'Mot de passe oublié?',
         'details' => 'Nous vous enverrons par mail un lien de réinitialisation du mot de passe qui vous permettra de choisir un nouveau mot de passe',

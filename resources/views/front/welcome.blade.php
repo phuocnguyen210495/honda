@@ -25,5 +25,10 @@
         <x-checkbox name="remember_me" label="Remember me"/>
 
         <x-toggle name="activate" class="mt-4"/>
+<div class="flex items-start">
+    <x-button content="Submit" />
+    <x-button.icon icon="cake" />
+    <x-button.text content="Delete" />
+</div>
     </div>
 </x-layout>

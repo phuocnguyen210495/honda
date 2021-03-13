@@ -37,13 +37,6 @@ return [
         'login_link' => 'Log in'
     ],
 
-    'logout' => [
-        'title' => 'Log out.',
-        'details' => 'You\'ll need to log in the next time in order to access the site.',
-
-        'button' => 'Log out'
-    ],
-
     'forgot-password' => [
         'title' => 'Forgot your password?',
         'details' => 'We will email you a password reset link that will allow you to choose a new password',
