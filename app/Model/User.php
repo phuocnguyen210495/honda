@@ -14,7 +14,6 @@ class User extends Authenticatable implements MustVerifyEmail
     use HasFactory;
     use Notifiable;
     use Searchable;
-    use MustVerifyNewEmail;
 
     /**
      * The attributes that should be hidden for arrays.
@@ -31,11 +30,35 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $casts = [
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         'email_verified_at' => 'datetime',
     ];
 
-    public function sendEmailVerificationNotification(): void
-    {
-        $this->newEmail($this->getEmailForVerification());
-    }
 }

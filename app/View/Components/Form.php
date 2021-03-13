@@ -12,7 +12,7 @@ class Form extends Component
     public string $method;
     public bool $hasFiles;
 
-    public function __construct(string $action, string $method = 'POST', bool $hasFiles = false)
+    public function __construct(string $action = '', string $method = 'POST', bool $hasFiles = false)
     {
         $this->action   = Action::guess($action);
         $this->method   = $method;

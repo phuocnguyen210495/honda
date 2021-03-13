@@ -1,27 +1,28 @@
-<div class="w-full flex flex-col @if(!$first) mt-4 @endif" x-data="{ showFocusRing: false }">
-    @if (!$hideLabel || $name === null)
-        <label class="text-gray-700" for="{{ $name }}">{{ $label }}</label>
+<div class="w-full @if (!$first) mt-4 @endif">
+    @if ($name && $label)
+        <label for="{{ $name }}" class="block  font-medium text-gray-700">{{ $label }}</label>
     @endif
-
-
-    <div class="@if (!$hideLabel) mt-2 @endif flex items-center rounded-lg"
-         x-bind:class="{ 'ring ring-{{ $color }}-200': showFocusRing }">
+    <div class="@if ($name && $label) mt-1 @endif relative rounded-lg shadow-sm">
         @if ($icon)
-            <div class="border border-r-0 rounded-r-none rounded-lg p-3 border-gray-300"
-                 x-bind:class="{ 'border-opacity-0': showFocusRing }">
-                <x-icon :name=" $icon" :set="$iconSet" size="6" class="text-gray-400" solid/>
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <span class="text-gray-500">
+                   <x-icon :name="$icon" :set="$iconSet" size="5" class="text-gray-400" solid/>
+              </span>
             </div>
         @endif
+        <input type="{{ $type }}" name="{{ $name }}" id="{{ $name }}"
+            {{$attributes->class([
+                 "focus:ring-$color-500 focus:border-$color-500 block w-full border-gray-300 rounded-lg",
+                 'bg-gray-100' => $attributes->hasAnyOf('disabled', 'readonly'),
+                 'pl-10' => $icon !==null,
+                 'pl-4' => $icon === null,
+            ])}}/>
 
-        <input
-            @focus="showFocusRing = true"
-            @blur="showFocusRing = false"
-            type="{{ $type }}"
-            @if ($name) name="{{ $name }}" id="{{ $name }}"
-            @input="$dispatch('{{ $name }}-input', { value: $event.target.value })" @endif
-            class="py-3 px-5 block w-full rounded-lg border-gray-300 focus:border-gray-300 shadow-sm focus:border-opacity-0 focus:ring-0 @if ($icon) border-l-0 rounded-l-none @endif {{ $attributes->get('class') }}"
-            {{ $attributes->except('class') }}
-        />
+        @if ($slot->isNotEmpty())
+            <div class="absolute inset-y-0 right-0 flex items-center pr-4 text-gray-400">
+                {{ $slot }}
+            </div>
+        @endif
     </div>
 
     @if ($name)

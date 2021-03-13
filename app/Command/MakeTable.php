@@ -38,10 +38,11 @@ class MakeTable extends Command
 namespace App\View\Table;
 
 use Starts\Table\Table;
+use App\Model\\$model;
 
 class {$class} extends Table {
 
-    public string \$model = '\App\Model\\$model';
+    public string \$model = $model::class;
 
     public function columns(): array {
         return [

@@ -1,5 +1,5 @@
 <a href="{{ $href }}"
-   class="hover:text-{{ $color }}-{{ $color === 'gray' ? '800' : '600' }} @if (!$unstyled) text-{{ $color }}-{{ $color === 'gray' ? '700' : '500' }} @endif font-semibold inline-flex items-center @if ($iconSide === 'left') flex-col-reverse @endif {{ $attributes->get('class') }}" {{ $attributes->except('class')}}>
+   class=" @if (!$unstyled) hover:text-{{ $color }}-{{ $color === 'gray' ? '800' : '600' }} text-{{ $color }}-{{ $color === 'gray' ? '700' : '500' }}  font-semibold @endif inline-flex items-center @if ($iconSide === 'left') flex-col-reverse @endif {{ $attributes->get('class') }}" {{ $attributes->except('class')}}>
     {{ $content ?? $slot }}
 
     @if ($icon)

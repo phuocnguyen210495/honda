@@ -4,12 +4,12 @@ namespace App\View\Components;
 
 class SearchableInput extends Input
 {
-    public array $searchables;
+    public array $values;
 
-    public function __construct(string $name = null, string $label = null, string $type = 'text', bool $hideLabel = false, string $icon = null, string $iconSet = 'heroicon', bool $first = false, string $color = null, array $searchables = [])
+    public function __construct(string $name = null, string $label = null, string $type = 'text', string $icon = null, string $iconSet = 'heroicon', bool $first = false, string $color = null, array $values = [])
     {
-        parent::__construct($name, $label, $type, $hideLabel, $icon, $iconSet, $first, $color);
-        $this->searchables = $searchables;
+        parent::__construct($name, $label, $type, $icon, $iconSet, $first, $color);
+        $this->values = $values;
     }
 
     public function render()

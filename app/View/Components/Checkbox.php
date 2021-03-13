@@ -12,7 +12,6 @@ class Checkbox extends Input
         string $name = null,
         string $label = null,
         string $type = 'checkbox',
-        bool $hideLabel = false,
         string $icon = null,
         string $iconSet = 'heroicon',
         bool $first = false,
@@ -23,7 +22,7 @@ class Checkbox extends Input
             throw new InvalidArgumentException('Attribute [icon] is not allowed.');
         }
 
-        parent::__construct($name, $label, $type, $hideLabel, $icon, $iconSet, $first, $color);
+        parent::__construct($name, $label, $type, $icon, $iconSet, $first, $color);
 
         $this->checked = $checked;
     }

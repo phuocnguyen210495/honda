@@ -68,7 +68,7 @@ return [
     ],
 
     'verify-email' => [
-        'title' => 'Merci de vous être inscrits !',
+        'title' => 'Merci de vous être inscrit!',
         'details' => 'Pourriez-vous vérifier votre adresse électronique en cliquant sur le lien que nous venons de vous envoyer par mail ?',
 
         'email-sent' => 'Un nouveau lien de vérification a été envoyé au mail que vous avez fourni lors de votre inscription.',

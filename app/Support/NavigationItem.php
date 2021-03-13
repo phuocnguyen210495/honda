@@ -2,6 +2,8 @@
 
 namespace App\Support;
 
+use App\Provider\RouteServiceProvider;
+
 class NavigationItem
 {
     public string $name;
@@ -63,6 +65,13 @@ class NavigationItem
     public function showUnless(callable $condition): self
     {
         $this->show = !$condition();
+
+        return $this;
+    }
+
+    public function inHome(): NavigationItem
+    {
+        $this->activationPattern = rtrim(RouteServiceProvider::HOME, '/') . '/' . ltrim($this->activationPattern, '/');
 
         return $this;
     }

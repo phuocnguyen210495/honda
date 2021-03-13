@@ -28,7 +28,7 @@ class BrootServiceProvider extends ServiceProvider
         app()->bind(Valuestore::class, function () {
             return Valuestore::make(storage_path('app/settings.json'));
         });
-        app()->bind('settings', fn () => app(Valuestore::class));
+        app()->bind('settings', fn() => app(Valuestore::class));
         app()->bind('navigation', function () {
             return new Navigation();
         });
@@ -39,6 +39,10 @@ class BrootServiceProvider extends ServiceProvider
 
             Validator::extend(strtolower($name), "\\App\\Rule\\$name");
         });
+        ComponentAttributeBag::macro('hasAnyOf', function (...$attributes) {
+            return count($this->filter(fn($_, $attribute) => in_array($attribute, $attributes))->getAttributes()) > 0;
+        });
+
         Collection::fromFiles(app_path('View/Table'))->each(function (SplFileInfo $file) {
             $alias = strtolower(
                 preg_replace(

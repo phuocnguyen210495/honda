@@ -13,27 +13,22 @@ class Alert extends Component
     public string $type;
     public string $description;
 
-    public function __construct(string $content, string $type, string $description = '', string $icon = 'information-circle', bool $closeable = false)
+    public function __construct(string $type, string $content = null, string $description = '', string $icon = 'information-circle', bool $closeable = false, bool $inSession = false)
     {
-        $this->content     = $content;
-        $this->type        = $type;
+        $this->content = $inSession ? session($type) : $content;
+        $this->type = [
+                'error' => 'red',
+                'success' => 'green',
+                'warning' => 'yellow',
+                'info' => 'blue'
+            ][$type] ?? 'gray';
         $this->description = $description;
-        $this->icon        = $icon;
-        $this->closeable   = $closeable;
+        $this->icon = $icon;
+        $this->closeable = $closeable;
     }
 
     public function render(): View
     {
         return view('components.alert');
-    }
-
-    public function convertType(string $type): string
-    {
-        return [
-                'error'   => 'red',
-                'success' => 'green',
-                'warning' => 'yellow',
-                'info'    => 'blue',
-            ][$type] ?? 'gray';
     }
 }

@@ -2,33 +2,20 @@
 
 namespace App\View\Components;
 
-use Illuminate\Contracts\View\View;
-use Illuminate\View\Component;
-use Str;
-
-class Quantity extends Component
+class Quantity extends Input
 {
-    public ?string $name;
-    public ?string $label;
-    public ?string $color;
-    public int $max;
     public int $min;
+    public int $max;
     public int $step;
-    public int $value;
-    public bool $first;
-    public bool $hideLabel;
 
-    public function __construct(string $name = null, bool $hideLabel  =false, int $max = 2147483647, string $label = null, string $color = null, int $min = 0, int $step = 1, int $value = 0, bool $first = false)
+    public function __construct(string $name = null, string $label = null, string $icon = null, string $iconSet = 'heroicon', bool $first = false, string $color = null, int $min = 0, int $step = 1, int $max = 2147483647)
     {
-        $this->name      = $name;
-        $this->hideLabel = $hideLabel;
-        $this->label     = $label ?? ($name === null ? $name : Str::humanize($name));
-        $this->max       = $max;
-        $this->min       = $min;
-        $this->step      = $step;
-        $this->value     = $value;
-        $this->first     = $first;
-        $this->color     = $color ?? settings('color');
+        parent::__construct($name, $label, 'number', $icon, $iconSet, $first, $color);
+
+        $this->step = $step;
+        $this->min = $min;
+        $this->max = $max;
+
     }
 
     public function render()
