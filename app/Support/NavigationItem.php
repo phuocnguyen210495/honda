@@ -9,7 +9,7 @@ class NavigationItem
     public string $name;
     public ?string $href   = '#';
     public ?string $icon   = null;
-    public string $iconSet = 'heroicon';
+    public string $iconSet = 'tabler';
     public bool $show      = true;
     public bool $active    = false;
     public ?string $activationPattern;

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1e77c224e0fa2763b7d825c8b874650d",
+    "content-hash": "3bff18f585369104ac9ef2f14613090e",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3005,6 +3005,48 @@
                 }
             ],
             "time": "2020-11-30T16:21:03+00:00"
+        },
+        {
+            "name": "starts/banners",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../laravel-banners",
+                "reference": "039c202d4d7aad3355ce9cfc3d8ab031ae1f5174"
+            },
+            "require": {
+                "spatie/browsershot": "^3"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.18",
+                "orchestra/testbench": "^6.13",
+                "pestphp/pest": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Starts\\Banner\\BannerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Starts\\Banner\\": "src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Félix Dorn",
+                    "email": "github@felixdorn.fr"
+                }
+            ],
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -10474,7 +10516,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "starts/banners": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

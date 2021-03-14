@@ -12,9 +12,9 @@ return [
 
     'view' => 'banners::render',
 
-    'node' => `which node`,
+    'node' => "/home/me/.nvm/versions/node/v14.16.0/bin/node",
 
-    'npm' => `which npm`,
+    'npm' => "/home/me/.nvm/versions/node/v14.16.0/bin/npm",
 
     'node_modules' => base_path('node_modules')
 ];

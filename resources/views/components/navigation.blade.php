@@ -29,14 +29,14 @@
                         x-bind:aria-expanded="open">
                     <span class="sr-only">Open main menu</span>
                     <svg x-state:on="Menu open" x-state:off="Menu closed" :class="{ 'hidden': open, 'block': !open }"
-                         class="block h-6 w-6" x-description="Heroicon name: outline/menu"
+                         class="block h-6 w-6" x-description="tabler name: outline/menu"
                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                          aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                               d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                     <svg x-state:on="Menu open" x-state:off="Menu closed" :class="{ 'hidden': !open, 'block': open }"
-                         class="hidden h-6 w-6" x-description="Heroicon name: outline/x"
+                         class="hidden h-6 w-6" x-description="tabler name: outline/x"
                          xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                          aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

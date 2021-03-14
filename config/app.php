@@ -167,7 +167,6 @@ return [
         /*
          * Package Service Providers...
          */
-        BannerServiceProvider::class,
 
         /*
          * Application Service Providers...

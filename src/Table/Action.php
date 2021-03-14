@@ -6,7 +6,7 @@ class Action
 {
     public string $component = 'button.icon';
     public string $icon;
-    public string $iconSet = 'heroicon';
+    public string $iconSet = 'tabler';
     public string $color;
     /** @var callable */
     public $executor;

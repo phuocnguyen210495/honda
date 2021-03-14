@@ -14,7 +14,7 @@
             type="button"
 
             class="@if (!$attributes->hasAnyOf('disabled', 'readonly')) hover:text-gray-500 focus:text-gray-500 focus:outline-none @else pointer-events-none ç@endif"
-            @click="if (!{{ $attributes->hasAnyOf('disabled', 'readonly') }} }} { hidePassword = !hidePassword }">
+            @click="if (!{{ $attributes->hasAnyOf('disabled', 'readonly') ? 'true' : 'false' }}) { hidePassword = !hidePassword }">
             <div x-show="hidePassword">
                 <x-icon name="eye" size="5" solid/>
             </div>
