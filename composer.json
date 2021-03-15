@@ -12,7 +12,6 @@
         "livewire/livewire": "^2.3",
         "ryangjchandler/blade-tabler-icons": "^0.5.0",
         "spatie/valuestore": "^1.2",
-        "starts/banners": "dev-master"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.5",
@@ -27,12 +26,6 @@
         "pestphp/pest": "^0.3.14",
         "pestphp/pest-plugin-laravel": "^0.3.0"
     },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "../laravel-banners/"
-        }
-    ],
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
