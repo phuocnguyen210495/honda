@@ -2,7 +2,7 @@
 
 use App\Controller\ShowHomeController;
 use App\Provider\RouteServiceProvider;
-use Spatie\Browsershot\Browsershot;
+use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'front.welcome')->name('welcome');
 

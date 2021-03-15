@@ -12,18 +12,17 @@
         <meta name="description" content="{{ $description }}">
         <meta property="og:description" content="{{ $description }}">
     @endif
-    <meta name="og:image" content="{{ $generateImage() }}">
     <meta property="og:url" content="{{ request()->url() }}"/>
     <meta property="og:locale" content="{{ App::getLocale() }}"/>
     <meta http-equiv="refresh" content="{{ config('session.lifetime') * 60 }}">
     @livewireStyles
-    <x-style link="css/app.css"/>
-    <x-pushed-styles/>
+    <x-assets-style href="css/app.css"/>
+    <x-assets-pushed-styles/>
 </head>
 <body {{ $attributes->merge(['class' => "bg-gray-100 font-medium"])}}>
 {{ $slot }}
 @livewireScripts
-<x-script link="js/app.js"/>
-<x-pushed-scripts/>
+<x-assets-script href="js/app.js"/>
+<x-assets-pushed-scripts/>
 </body>
 </html>
