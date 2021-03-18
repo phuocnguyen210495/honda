@@ -1,6 +1,6 @@
 <?php
 
-use App\Provider\BrootServiceProvider;
+use App\Provider\HondaServiceProvider;
 use App\Provider\NavigationServiceProvider;
 use Starts\Banner\BannerServiceProvider;
 
@@ -171,7 +171,7 @@ return [
         /*
          * Application Service Providers...
          */
-        BrootServiceProvider::class,
+        HondaServiceProvider::class,
         NavigationServiceProvider::class,
         App\Provider\AppServiceProvider::class,
         App\Provider\AuthServiceProvider::class,

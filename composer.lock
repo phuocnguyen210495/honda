@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cf2cdfa3320d392f121f806a1499c02c",
+    "content-hash": "c97771b6fc714eff9f6052c1853f3377",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1023,12 +1023,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel-honda/pushed-resources.git",
-                "reference": "870af9e5bc1bd360befb4d0441bde2b47e306b18"
+                "reference": "a7420409f9967ab10a2807c50079ee2453c97cef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel-honda/pushed-resources/zipball/870af9e5bc1bd360befb4d0441bde2b47e306b18",
-                "reference": "870af9e5bc1bd360befb4d0441bde2b47e306b18",
+                "url": "https://api.github.com/repos/laravel-honda/pushed-resources/zipball/a7420409f9967ab10a2807c50079ee2453c97cef",
+                "reference": "a7420409f9967ab10a2807c50079ee2453c97cef",
                 "shasum": ""
             },
             "require": {
@@ -1075,22 +1075,196 @@
             ],
             "support": {
                 "issues": "https://github.com/laravel-honda/pushed-resources/issues",
-                "source": "https://github.com/laravel-honda/pushed-resources/tree/master"
+                "source": "https://github.com/laravel-honda/pushed-resources/tree/0.1.0"
             },
-            "time": "2021-03-15T21:44:53+00:00"
+            "time": "2021-03-15T21:47:20+00:00"
         },
         {
-            "name": "laravel/framework",
-            "version": "v8.32.1",
+            "name": "honda/ui",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/laravel/framework.git",
-                "reference": "7c37b64f8153c16b6406f5c28cf37828ebbe8846"
+                "url": "https://github.com/laravel-honda/ui.git",
+                "reference": "ae071743330741392e1a070a434246b126f6185b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/7c37b64f8153c16b6406f5c28cf37828ebbe8846",
-                "reference": "7c37b64f8153c16b6406f5c28cf37828ebbe8846",
+                "url": "https://api.github.com/repos/laravel-honda/ui/zipball/ae071743330741392e1a070a434246b126f6185b",
+                "reference": "ae071743330741392e1a070a434246b126f6185b",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.16.4",
+                "gajus/dindent": "^2.0",
+                "orchestra/testbench": "^6.13",
+                "pestphp/pest": "^0.3.8",
+                "phpstan/phpstan": "^0.12.48",
+                "symfony/var-dumper": "^5.2.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Honda\\Ui\\UiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Honda\\Ui\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Félix Dorn",
+                    "email": "contact@felixdorn.fr"
+                }
+            ],
+            "description": "UI components library.",
+            "support": {
+                "issues": "https://github.com/laravel-honda/ui/issues",
+                "source": "https://github.com/laravel-honda/ui/tree/master"
+            },
+            "time": "2021-03-17T06:31:05+00:00"
+        },
+        {
+            "name": "honda/url-pattern-matcher",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-honda/url-pattern-matcher.git",
+                "reference": "2a2e07fb34d18a2c799a77eb6c7bb768cdbeae9f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-honda/url-pattern-matcher/zipball/2a2e07fb34d18a2c799a77eb6c7bb768cdbeae9f",
+                "reference": "2a2e07fb34d18a2c799a77eb6c7bb768cdbeae9f",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Honda\\UrlPatternMatcher\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Félix Dorn",
+                    "email": "github@felixdorn.fr",
+                    "role": "Developer"
+                }
+            ],
+            "description": "url-pattern-matcher",
+            "homepage": "https://github.com/laravel-honda/url-pattern-matcher",
+            "keywords": [
+                "honda",
+                "url-pattern-matcher"
+            ],
+            "support": {
+                "issues": "https://github.com/laravel-honda/url-pattern-matcher/issues",
+                "source": "https://github.com/laravel-honda/url-pattern-matcher/tree/0.1.0"
+            },
+            "time": "2021-03-17T07:00:40+00:00"
+        },
+        {
+            "name": "imliam/laravel-blade-helper",
+            "version": "v1.4.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/imliam/laravel-blade-helper.git",
+                "reference": "38ea95f7db2a99d65fcf3c84b6cbde3f798452df"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/imliam/laravel-blade-helper/zipball/38ea95f7db2a99d65fcf3c84b6cbde3f798452df",
+                "reference": "38ea95f7db2a99d65fcf3c84b6cbde3f798452df",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^7.0|^8.0",
+                "php": "^7.3|^8.0"
+            },
+            "require-dev": {
+                "larapack/dd": "^1.0",
+                "mockery/mockery": "^1.0",
+                "orchestra/testbench": "^5.0|^6.0",
+                "phpunit/phpunit": "^7.0|^8.0|^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "ImLiam\\BladeHelper\\BladeHelperServiceProvider"
+                    ],
+                    "aliases": {
+                        "BladeHelper": "ImLiam\\BladeHelper\\BladeHelperFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ImLiam\\BladeHelper\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Liam Hammett",
+                    "email": "liam@liamhammett.com",
+                    "homepage": "https://liamhammett.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "An easier way to define custom Blade directives.",
+            "homepage": "https://github.com/imliam/laravel-blade-helper",
+            "keywords": [
+                "blade",
+                "imliam",
+                "laravel",
+                "laravel-blade-helper"
+            ],
+            "support": {
+                "issues": "https://github.com/imliam/laravel-blade-helper/issues",
+                "source": "https://github.com/imliam/laravel-blade-helper/tree/v1.4.2"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/imliam",
+                    "type": "github"
+                }
+            ],
+            "time": "2021-03-02T17:42:40+00:00"
+        },
+        {
+            "name": "laravel/framework",
+            "version": "v8.33.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/framework.git",
+                "reference": "354c57b8cb457549114074c500944455a288d6cc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/354c57b8cb457549114074c500944455a288d6cc",
+                "reference": "354c57b8cb457549114074c500944455a288d6cc",
                 "shasum": ""
             },
             "require": {
@@ -1245,7 +1419,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-03-09T15:37:45+00:00"
+            "time": "2021-03-16T19:42:32+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -2747,16 +2921,16 @@
         },
         {
             "name": "spatie/laravel-package-tools",
-            "version": "1.6.0",
+            "version": "1.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-package-tools.git",
-                "reference": "c190a294db3a10a14e27db67cd286c3ce10c8277"
+                "reference": "a846cc8503ea3a1972650baf25686e6ec43d509f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-package-tools/zipball/c190a294db3a10a14e27db67cd286c3ce10c8277",
-                "reference": "c190a294db3a10a14e27db67cd286c3ce10c8277",
+                "url": "https://api.github.com/repos/spatie/laravel-package-tools/zipball/a846cc8503ea3a1972650baf25686e6ec43d509f",
+                "reference": "a846cc8503ea3a1972650baf25686e6ec43d509f",
                 "shasum": ""
             },
             "require": {
@@ -2795,7 +2969,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-package-tools/issues",
-                "source": "https://github.com/spatie/laravel-package-tools/tree/1.6.0"
+                "source": "https://github.com/spatie/laravel-package-tools/tree/1.6.1"
             },
             "funding": [
                 {
@@ -2803,7 +2977,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-03-12T12:08:43+00:00"
+            "time": "2021-03-16T19:49:42+00:00"
         },
         {
             "name": "spatie/valuestore",
@@ -6831,16 +7005,16 @@
         },
         {
             "name": "filp/whoops",
-            "version": "2.9.2",
+            "version": "2.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filp/whoops.git",
-                "reference": "df7933820090489623ce0be5e85c7e693638e536"
+                "reference": "6ecda5217bf048088b891f7403b262906be5a957"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filp/whoops/zipball/df7933820090489623ce0be5e85c7e693638e536",
-                "reference": "df7933820090489623ce0be5e85c7e693638e536",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/6ecda5217bf048088b891f7403b262906be5a957",
+                "reference": "6ecda5217bf048088b891f7403b262906be5a957",
                 "shasum": ""
             },
             "require": {
@@ -6890,7 +7064,7 @@
             ],
             "support": {
                 "issues": "https://github.com/filp/whoops/issues",
-                "source": "https://github.com/filp/whoops/tree/2.9.2"
+                "source": "https://github.com/filp/whoops/tree/2.10.0"
             },
             "funding": [
                 {
@@ -6898,7 +7072,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-01-24T12:00:00+00:00"
+            "time": "2021-03-16T12:00:00+00:00"
         },
         {
             "name": "friendsofphp/php-cs-fixer",
@@ -8167,16 +8341,16 @@
         },
         {
             "name": "phpspec/prophecy",
-            "version": "1.12.2",
+            "version": "1.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "245710e971a030f42e08f4912863805570f23d39"
+                "reference": "be1996ed8adc35c3fd795488a653f4b518be70ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/245710e971a030f42e08f4912863805570f23d39",
-                "reference": "245710e971a030f42e08f4912863805570f23d39",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/be1996ed8adc35c3fd795488a653f4b518be70ea",
+                "reference": "be1996ed8adc35c3fd795488a653f4b518be70ea",
                 "shasum": ""
             },
             "require": {
@@ -8228,9 +8402,9 @@
             ],
             "support": {
                 "issues": "https://github.com/phpspec/prophecy/issues",
-                "source": "https://github.com/phpspec/prophecy/tree/1.12.2"
+                "source": "https://github.com/phpspec/prophecy/tree/1.13.0"
             },
-            "time": "2020-12-19T10:15:11+00:00"
+            "time": "2021-03-17T13:42:18+00:00"
         },
         {
             "name": "phpstan/phpstan",
@@ -10222,7 +10396,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "honda/pushed-resources": 20
+        "honda/pushed-resources": 20,
+        "honda/ui": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

@@ -2,7 +2,6 @@
 
 namespace App\Command;
 
-use App\Support\ArrayList;
 use Illuminate\Console\Command;
 
 class GetEnvCommand extends Command
@@ -28,10 +27,8 @@ class GetEnvCommand extends Command
      */
     public function handle()
     {
-        ArrayList::make($this->argument('key'))->toCollection()->each(function ($key) use (&$rows) {
-            $rows[] = [$key, env($key) ?? 'null'];
-        });
+        $key = $this->argument('key');
 
-        $this->table(['Key', 'Value'], $rows);
+        $this->table(['Key', 'Value'], [$key, env($key) ?? 'null']);
     }
 }
