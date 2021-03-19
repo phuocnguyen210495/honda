@@ -5,7 +5,7 @@ namespace App\Command;
 use File;
 use Illuminate\Console\Command;
 
-class MakeViewCommand extends Command
+class ViewMakeCommand extends Command
 {
     /** @var string */
     protected $signature = 'make:view {name}';

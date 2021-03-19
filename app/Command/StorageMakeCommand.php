@@ -5,7 +5,7 @@ namespace App\Command;
 use File;
 use Illuminate\Console\Command;
 
-class MakeStorageCommand extends Command
+class StorageMakeCommand extends Command
 {
     protected $signature   = 'make:storage {name} {--driver=local} {--root=} {--private}';
     protected $description = 'Creates a view programmatically';
