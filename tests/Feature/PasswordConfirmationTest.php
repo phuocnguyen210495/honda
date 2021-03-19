@@ -2,7 +2,7 @@
 
 namespace Tests\Feature;
 
-use App\Model\User;
+use App\Models\User;
 
 test('it can render confirm password screen', function () {
     $user = User::factory()->create();

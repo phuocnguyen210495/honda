@@ -1,7 +1,7 @@
 <?php
 
-use App\Controller\ShowHomeController;
-use App\Provider\RouteServiceProvider;
+use App\Http\Controllers\ShowHomeController;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'front.welcome')->name('welcome');

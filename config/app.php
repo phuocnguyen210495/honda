@@ -1,6 +1,6 @@
 <?php
 
-use App\Provider\HondaServiceProvider;
+use App\Providers\HondaServiceProvider;
 
 return [
     /*
@@ -170,11 +170,11 @@ return [
          * Application Service Providers...
          */
         HondaServiceProvider::class,
-        App\Provider\AppServiceProvider::class,
-        App\Provider\AuthServiceProvider::class,
+        App\Providers\AppServiceProvider::class,
+        App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
-        App\Provider\EventServiceProvider::class,
-        App\Provider\RouteServiceProvider::class,
+        App\Providers\EventServiceProvider::class,
+        App\Providers\RouteServiceProvider::class,
     ],
 
     /*

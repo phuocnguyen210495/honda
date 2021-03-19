@@ -2,8 +2,8 @@
 
 namespace Tests\Feature;
 
-use App\Model\User;
-use App\Provider\RouteServiceProvider;
+use App\Models\User;
+use App\Providers\RouteServiceProvider;
 
 it('can render login screen', function () {
     $response = $this->get('/login');

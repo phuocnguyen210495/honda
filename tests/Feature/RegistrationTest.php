@@ -2,7 +2,7 @@
 
 namespace Tests\Feature;
 
-use App\Provider\RouteServiceProvider;
+use App\Providers\RouteServiceProvider;
 
 it('can render register screen', function () {
     $response = $this->get('/register');

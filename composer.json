@@ -51,12 +51,6 @@
             "Tests\\": "tests/"
         }
     },
-    "repositories": [
-	    {
-		"type": "path",
-		"url": "../tailwind-config"
-	    }
-    ],
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
