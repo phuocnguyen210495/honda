@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\View\Components;
-
 
 use Illuminate\View\Component;
 
@@ -13,7 +11,7 @@ class Layout extends Component
 
     public function __construct(string $title, string $description = '')
     {
-        $this->title = $title;
+        $this->title       = $title;
         $this->description = $description;
     }
 

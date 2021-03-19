@@ -5,6 +5,9 @@ namespace App\Support\Mixins;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\File;
 
+/**
+ * @mixin Collection
+ */
 class CollectionMixin
 {
     public function fromFiles(): callable
@@ -37,7 +40,7 @@ class CollectionMixin
     public function csv(): callable
     {
         return function () {
-            $buffer = fopen('php://temp/maxmemory:' . (5 * 1024 * 1024), 'r+');
+            $buffer = fopen('php://temp/maxmemory:' . (5 * 1024 * 1024), 'rb+');
 
             $this->each(function ($line) use ($buffer) {
                 fputcsv($buffer, $line);

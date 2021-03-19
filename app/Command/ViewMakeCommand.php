@@ -51,10 +51,10 @@ class ViewMakeCommand extends Command
     {
         return <<<EOF
         <x-layout title="">
-            <x-container>
+            <x-ui-container>
 
-            </x-container>
-        </x-layout>
+            </x-ui-container>
+        </x-ui-layout>
         EOF;
     }
 }

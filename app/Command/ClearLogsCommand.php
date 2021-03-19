@@ -18,7 +18,7 @@ class ClearLogsCommand extends Command
             return $this->error('The clear:logs command only works with the [stack] log driver');
         }
 
-        $file = storage_path("logs/" . $this->argument('file'));
+        $file = storage_path('logs/' . $this->argument('file'));
 
         if (!file_exists($file)) {
             return $this->error('The given file does not exist.');

@@ -25,23 +25,6 @@ if (!function_exists('flash')) {
     }
 }
 
-if (!function_exists('classes')) {
-    function classes(array $classList): string
-    {
-        $classes = [];
-
-        foreach ($classList as $class => $constraint) {
-            if (is_numeric($class)) {
-                $classes[] = $constraint;
-            } elseif ($constraint) {
-                $classes[] = $class;
-            }
-        }
-
-        return implode(' ', $classes);
-    }
-}
-
 if (!function_exists('user')) {
     function user(): ?Authenticatable
     {

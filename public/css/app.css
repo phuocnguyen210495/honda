@@ -65,8 +65,6 @@
 
   font-weight: 900;
 }
-/*! tailwindcss v2.0.4 | MIT License | https://tailwindcss.com */
-
 /*! modern-normalize v1.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
 
 /*
@@ -509,18 +507,15 @@ textarea {
 }
 
 input::-moz-placeholder, textarea::-moz-placeholder {
-  opacity: 1;
   color: #9ca3af;
 }
 
 input:-ms-input-placeholder, textarea:-ms-input-placeholder {
-  opacity: 1;
   color: #9ca3af;
 }
 
 input::placeholder,
 textarea::placeholder {
-  opacity: 1;
   color: #9ca3af;
 }
 
@@ -12955,10 +12950,6 @@ select{
 
 .cursor-move{
   cursor: move;
-}
-
-.cursor-help{
-  cursor: help;
 }
 
 .cursor-not-allowed{
@@ -45537,10 +45528,6 @@ select{
     cursor: move;
   }
 
-  .sm\:cursor-help{
-    cursor: help;
-  }
-
   .sm\:cursor-not-allowed{
     cursor: not-allowed;
   }
@@ -78033,10 +78020,6 @@ select{
 
   .md\:cursor-move{
     cursor: move;
-  }
-
-  .md\:cursor-help{
-    cursor: help;
   }
 
   .md\:cursor-not-allowed{
@@ -110533,10 +110516,6 @@ select{
     cursor: move;
   }
 
-  .lg\:cursor-help{
-    cursor: help;
-  }
-
   .lg\:cursor-not-allowed{
     cursor: not-allowed;
   }
@@ -143031,10 +143010,6 @@ select{
     cursor: move;
   }
 
-  .xl\:cursor-help{
-    cursor: help;
-  }
-
   .xl\:cursor-not-allowed{
     cursor: not-allowed;
   }
@@ -175527,10 +175502,6 @@ select{
 
   .\32xl\:cursor-move{
     cursor: move;
-  }
-
-  .\32xl\:cursor-help{
-    cursor: help;
   }
 
   .\32xl\:cursor-not-allowed{

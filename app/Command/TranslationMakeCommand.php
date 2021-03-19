@@ -3,7 +3,6 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\File;
 
 class TranslationMakeCommand extends Command
@@ -20,9 +19,8 @@ class TranslationMakeCommand extends Command
             return $this->createTranslation($this->argument('name'), $this->option('lang'));
         }
 
-    
         collect(File::directories(resource_path('lang')))->each(function (string $directory) {
-           $this->createTranslation($this->argument('name'), str_replace(
+            $this->createTranslation($this->argument('name'), str_replace(
                resource_path('lang'),
                '',
                $directory
@@ -30,7 +28,7 @@ class TranslationMakeCommand extends Command
         });
     }
 
-    public function createTranslation(string $path, string $lang) 
+    public function createTranslation(string $path, string $lang)
     {
         $name = str_replace(
             '.php',
@@ -39,14 +37,13 @@ class TranslationMakeCommand extends Command
         );
 
         $path = resource_path("lang$lang/");
-       
+
         if (str_contains($name, '.') || str_contains($name, '/')) {
             $name = str_replace('.', '/', $name);
 
             $parts = explode('/', $name);
-            $name = array_pop($parts);
+            $name  = array_pop($parts);
             $path .= implode('/', $parts) . '/';
-
         }
 
         $directories = explode(DIRECTORY_SEPARATOR, $path);
@@ -55,7 +52,7 @@ class TranslationMakeCommand extends Command
             File::makeDirectory(implode(DIRECTORY_SEPARATOR, $directories), 0755, true);
         }
 
-        $path .=  str_replace('.', '/', $name) . '.php';
+        $path .= str_replace('.', '/', $name) . '.php';
         $strippedPath = str_replace(resource_path('lang'), '', $path);
         if (file_exists($path)) {
             $this->warn("$strippedPath already exists.");
@@ -71,7 +68,6 @@ class TranslationMakeCommand extends Command
             $this->info("Created $strippedPath.");
         }
     }
-
 
     public function getTranslationContents(): string
     {

@@ -14,7 +14,7 @@ class ConsoleKernel extends Kernel
      * @var array
      */
     protected $commands = [
-        TranslationMakeCommand::class
+        TranslationMakeCommand::class,
     ];
 
     /**
