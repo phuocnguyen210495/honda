@@ -15,7 +15,7 @@ class SetupCommand extends Command
         return [
             'Copied .env.example to .env'  => 'cp .env.example .env',
             'Generated a fresh secret key' => 'php artisan key:generate',
-            'Created a new database'       => fn ()       => file_put_contents(
+            'Created a new database'       => fn () => file_put_contents(
                 database_path('database.sqlite'),
                 ''
             ),
