@@ -8,6 +8,6 @@ class ShowHomeController
 {
     public function __invoke(Request $request)
     {
-        return view('front.home');
+        return view('admin.home');
     }
 }

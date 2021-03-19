@@ -2,39 +2,57 @@
 
 namespace App\Command;
 
+use Closure;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Artisan;
 
 class SetupCommand extends Command
 {
     protected $signature   = 'setup';
-    protected $description = 'Configure the project after a fresh git clone';
+    protected $description = 'Configure the project after a fresh install';
+
+    public function commands()
+    {
+        return [
+            'Copied .env.example to .env' => 'cp .env.example .env',
+            'Generated a fresh secret key' => 'php artisan key:generate',
+            'Created a new database' => fn () => file_put_contents(
+                database_path('database.sqlite'),
+                ''
+            ),
+            'Migrated the database' => 'php artisan migrate',
+            'Generated IDE helpers' => 'composer helpers -q -n', 
+            function () {
+                if (shell_exec('which valet') !== null) {
+                    $siteName = explode('.', basename(base_path()))[0];
+
+                    $this->command('valet link ' . $siteName);
+                    $this->info("Linked your project to valet on [http://$siteName.test]");
+                }
+            }
+        ];
+    }
 
     public function handle(): void
     {
-        $this->command('cp .env.example .env');
-        $this->info('Copied .env.example to .env');
-        Artisan::call('key:generate');
-        $this->info('Generated a fresh secret key');
-        file_put_contents(
-            database_path('database.sqlite'),
-            ''
-        );
-        $this->info('Created a new database');
-        $this->command('php artisan migrate');
-        $this->info('Migrated the database');
-        $this->command('composer helpers');
-        $this->info('Create IDE helpers.');
+        foreach ($this->commands() as $message => $command) {
+            if (is_string($command)) {
+                $this->command($command);
+            }
 
-        if (shell_exec('which valet') !== null) {
-            $siteName = explode('.', basename(base_path()))[0];
+            if ($command instanceof Closure) {
+                $command->bindTo($this)();
+            }
 
-            $this->command('valet link ' . $siteName);
-            $this->info("Linked your project to valet on [http://$siteName.test]");
+            if (is_string($message)) {
+                $this->info(
+                    $message . (!str_ends_with($message, '.') ? '.' : '')
+                );
+            }
+        
         }
-
-        $this->output->success('Successfully set up the project');
+        $this->output->success('Project set up successfully.');
     }
+
 
     public function command(string $command)
     {

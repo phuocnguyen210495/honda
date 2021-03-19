@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Console\Commands\TranslationMakeCommand;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel;
 
@@ -12,7 +13,9 @@ class ConsoleKernel extends Kernel
      *
      * @var array
      */
-    protected $commands = [];
+    protected $commands = [
+        TranslationMakeCommand::class
+    ];
 
     /**
      * Define the application's command schedule.
