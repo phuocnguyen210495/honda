@@ -20,7 +20,6 @@ class SetupCommand extends Command
                 ''
             ),
             'Migrated the database' => 'php artisan migrate',
-            'Generated IDE helpers' => 'composer helpers -q -n',
             function () {
                 if (shell_exec('which valet') !== null) {
                     $siteName = explode('.', basename(base_path()))[0];
