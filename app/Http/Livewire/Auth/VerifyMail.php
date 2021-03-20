@@ -3,7 +3,9 @@
 namespace App\Http\Livewire\Auth;
 
 use App\Providers\RouteServiceProvider;
+use Illuminate\Auth\Events\Verified;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 use Livewire\Component;
 
 class VerifyMail extends Component
@@ -13,13 +15,21 @@ class VerifyMail extends Component
         return view('livewire.auth.verify-mail');
     }
 
-    public function checkForVerification(): void
+    public function checkForVerification(array $formData)
     {
-        if (request()->user()->hasVerifiedEmail()) {
-            $this->redirect(
-                route('home')
-            );
+        $user = \request()->user();
+        $verificationCode = $formData['verification_code'];
+        $valid = $user->checkEmailVerificationCode($verificationCode);
+
+        if ($valid) {
+            $user->markEmailAsVerified();
+            event(new Verified($user));
+            return redirect()->intended(RouteServiceProvider::HOME . '?verified=1');
         }
+
+        throw ValidationException::withMessages([
+            'verification_code' => 'Invalid code'
+        ]);
     }
 
     public function sendVerificationMail(Request $request)
@@ -30,6 +40,6 @@ class VerifyMail extends Component
 
         $request->user()->sendEmailVerificationNotification();
 
-        return back()->with('status', 'verification-link-sent');
+        return back();
     }
 }

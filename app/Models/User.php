@@ -3,41 +3,12 @@
 namespace App\Models;
 
 use App\Models\Concerns\Searchable;
+use App\Notifications\VerifyMail;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-/**
- * App\Model\User.
- *
- * @property int                                                                                                       $id
- * @property string                                                                                                    $name
- * @property string                                                                                                    $email
- * @property string|null                                                                                               $profile_photo_url
- * @property \Illuminate\Support\Carbon|null                                                                           $email_verified_at
- * @property string                                                                                                    $password
- * @property string|null                                                                                               $remember_token
- * @property \Illuminate\Support\Carbon|null                                                                           $created_at
- * @property \Illuminate\Support\Carbon|null                                                                           $updated_at
- * @property \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
- * @property int|null                                                                                                  $notifications_count
- *
- * @method static \Database\Factories\UserFactory factory(...$parameters)
- * @method static \Illuminate\Database\Eloquent\Builder|User newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|User newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|User query()
- * @method static \Illuminate\Database\Eloquent\Builder|User whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereEmail($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereEmailVerifiedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User wherePassword($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereProfilePhotoUrl($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereRememberToken($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
- * @mixin \Eloquent
- */
 class User extends Authenticatable implements MustVerifyEmail
 {
     use HasFactory;
@@ -60,5 +31,35 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'email_verification_code' => 'integer'
     ];
+
+    public function sendEmailVerificationNotification()
+    {
+        $code = $this->email_verification_code;
+
+        if ($code === null) {
+            $this->update([
+                'email_verification_code' => $code = $this->generateSecretCode(6)
+            ]);
+        }
+
+        $this->notify(new VerifyMail($code));
+    }
+
+    private function generateSecretCode(int $length): int
+    {
+        $code = '';
+
+        for (; $length > 0; $length--) {
+            $code .= random_int(0, 9);
+        }
+
+        return (int)$code;
+    }
+
+    public function checkEmailVerificationCode(int $code): bool
+    {
+        return $this->email_verification_code === $code;
+    }
 }

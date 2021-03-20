@@ -17,7 +17,7 @@ class CreateOnlineVersion
     public function handle(MessageSending $event)
     {
         $onlineVersion = OnlineMailable::create([
-            'content' => $event->message->getBody(),
+            'content'    => $event->message->getBody(),
             'expires_at' => now()->addDays(30),
         ]);
 

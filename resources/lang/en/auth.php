@@ -62,11 +62,9 @@ return [
 
     'verify-email' => [
         'title' => 'Thanks for signing up!',
-        'details' => 'Could you verify your email address by clicking on the link we just emailed to you?',
+        'details' => 'Could you enter the code we just emailed you?',
 
-        'email-sent' => 'A new verification link has been sent to the email address you provided during registration.',
-
-        'button' => 'Resend Verification Email',
+        'button' => 'Resend Verification Code',
 
         'resend' => 'Resend',
         'sent' => 'Sent'
