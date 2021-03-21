@@ -20,6 +20,7 @@
     <x-assets-pushed-styles/>
 </head>
 <body {{ $attributes->merge(['class' => "bg-gray-100 font-medium"])}}>
+
 {{ $slot }}
 @livewireScripts
 <x-assets-script href="js/app.js"/>

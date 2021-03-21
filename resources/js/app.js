@@ -1,2 +1,2 @@
-require('@ryangjchandler/alpine-clipboard/dist/alpine-clipboard.umd')
+window.Noty = require('noty');
 require('alpinejs')

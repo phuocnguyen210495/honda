@@ -1216,12 +1216,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel-honda/ui.git",
-                "reference": "d4663c4b44a1398bd6d27c4b878002314d89f55b"
+                "reference": "8c92dacafd30ed8edf3cb705a506fad8a02dcbff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel-honda/ui/zipball/d4663c4b44a1398bd6d27c4b878002314d89f55b",
-                "reference": "d4663c4b44a1398bd6d27c4b878002314d89f55b",
+                "url": "https://api.github.com/repos/laravel-honda/ui/zipball/8c92dacafd30ed8edf3cb705a506fad8a02dcbff",
+                "reference": "8c92dacafd30ed8edf3cb705a506fad8a02dcbff",
                 "shasum": ""
             },
             "require": {
@@ -1264,7 +1264,7 @@
                 "issues": "https://github.com/laravel-honda/ui/issues",
                 "source": "https://github.com/laravel-honda/ui/tree/master"
             },
-            "time": "2021-03-19T06:37:16+00:00"
+            "time": "2021-03-21T08:38:41+00:00"
         },
         {
             "name": "honda/url-pattern-matcher",
@@ -6687,16 +6687,16 @@
         },
         {
             "name": "friendsofphp/php-cs-fixer",
-            "version": "v2.18.3",
+            "version": "v2.18.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer.git",
-                "reference": "ab99202fccff2a9f97592fbe1b5c76dd06df3513"
+                "reference": "06f764e3cb6d60822d8f5135205f9d32b5508a31"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/ab99202fccff2a9f97592fbe1b5c76dd06df3513",
-                "reference": "ab99202fccff2a9f97592fbe1b5c76dd06df3513",
+                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/06f764e3cb6d60822d8f5135205f9d32b5508a31",
+                "reference": "06f764e3cb6d60822d8f5135205f9d32b5508a31",
                 "shasum": ""
             },
             "require": {
@@ -6779,7 +6779,7 @@
             "description": "A tool to automatically fix PHP code style",
             "support": {
                 "issues": "https://github.com/FriendsOfPHP/PHP-CS-Fixer/issues",
-                "source": "https://github.com/FriendsOfPHP/PHP-CS-Fixer/tree/v2.18.3"
+                "source": "https://github.com/FriendsOfPHP/PHP-CS-Fixer/tree/v2.18.4"
             },
             "funding": [
                 {
@@ -6787,7 +6787,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-03-10T19:39:05+00:00"
+            "time": "2021-03-20T14:52:33+00:00"
         },
         {
             "name": "justinrainbow/json-schema",

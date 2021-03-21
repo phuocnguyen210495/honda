@@ -9,6 +9,6 @@ mix
         require('tailwindcss')
     ])
     .exportTailwindConfig(
-        'tailwind.config.json',
+        'tailwind.config.js',
         'storage/app/tailwind.config.json'
     )

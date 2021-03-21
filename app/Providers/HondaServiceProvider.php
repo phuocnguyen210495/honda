@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Support\Alert;
 use App\Support\Mixins\CollectionMixin;
 use App\Support\Mixins\StrMixin;
 use Blade;
@@ -20,14 +21,15 @@ class HondaServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
-        $this->app->bind(Valuestore::class, fn () => Valuestore::make(storage_path('app/settings.json')));
-        $this->app->bind('settings', fn () => app(Valuestore::class));
+        $this->app->bind(Valuestore::class, fn() => Valuestore::make(storage_path('app/settings.json')));
+        $this->app->bind('settings', fn() => app(Valuestore::class));
+        $this->app->singleton(Alert::class, fn() => new Alert);
 
         View::share(['settings' => app('settings')]);
 
         ComponentAttributeBag::macro('hasAnyOf', function (...$attributes) {
             return count(
-                    $this->filter(fn ($_, $attribute) => in_array($attribute, $attributes))->getAttributes()
+                    $this->filter(fn($_, $attribute) => in_array($attribute, $attributes))->getAttributes()
                 ) > 0;
         });
     }
@@ -35,7 +37,7 @@ class HondaServiceProvider extends ServiceProvider
     public function register(): void
     {
         Model::unguard();
-        Factory::guessFactoryNamesUsing(fn (string $model) => 'Database\\Factories\\' . class_basename($model) . 'Factory');
+        Factory::guessFactoryNamesUsing(fn(string $model) => 'Database\\Factories\\' . class_basename($model) . 'Factory');
 
         $this->registerMacros();
         $this->registerBladeDirectives();
@@ -49,8 +51,8 @@ class HondaServiceProvider extends ServiceProvider
 
     public function registerBladeDirectives(): void
     {
-        BladeHelper::directive('setting', fn ($key) => app('settings')->get($key));
-        BladeHelper::directive('markdown', fn ($markdown) => Markdown::parse($markdown));
+        BladeHelper::directive('setting', fn($key) => app('settings')->get($key));
+        BladeHelper::directive('markdown', fn($markdown) => Markdown::parse($markdown));
         Blade::directive('alpine', function (string $variables) {
             return <<<PHP
                 <?php

@@ -19,7 +19,7 @@ class VerifyMail extends Component
     {
         $user = \request()->user();
         $verificationCode = $formData['verification_code'];
-        $valid = $user->checkEmailVerificationCode($verificationCode);
+        $valid = $user->checkEmailVerificationCode((int) $verificationCode);
 
         if ($valid) {
             $user->markEmailAsVerified();

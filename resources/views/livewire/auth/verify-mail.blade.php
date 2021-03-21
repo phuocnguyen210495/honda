@@ -1,5 +1,4 @@
-<div x-data="{}" class="flex flex-col items-center justify-center mt-6 sm:mt-24"
-     wire:poll.keep-alive>
+<div x-data="{}" class="flex flex-col items-center justify-center mt-6 sm:mt-24">
     <div class="max-w-lg">
         <x-ui-title :content="__('auth.verify-email.title')" class="text-center" level="h1"/>
         <x-ui-paragraph :content="__('auth.verify-email.details')" class="text-center mt-2"/>
@@ -7,7 +6,7 @@
 
     <form wire:submit.prevent="checkForVerification(Object.fromEntries(new FormData($event.target)))"
           class="flex flex-col items-center my-4">
-        <x-ui-pin wire:ignore name="verification_code" hiddenLabel length="6"/>
+        <x-ui-pin wire:ignore name="verification_code" hideLabel length="6"/>
         @error('verification_code')
             <p class="flex items-center text-red-500 mt-2">
                 <x-ui-icon name="alert-circle" solid size="5"/>
