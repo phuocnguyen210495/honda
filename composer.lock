@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "09317d949ca68e6e20df47ad14f640cd",
+    "content-hash": "ddb8083b6d9b72e14128a98b3208dc4b",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1150,6 +1150,61 @@
             "time": "2021-03-19T05:16:35+00:00"
         },
         {
+            "name": "honda/navigation",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../navigation",
+                "reference": "8826b29eef078de2f35ac8cbb0e031e3dbaac2ee"
+            },
+            "require": {
+                "honda/url-resolver": "dev-master",
+                "illuminate/contracts": "^8.0",
+                "php": "^7.4"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.13",
+                "phpunit/phpunit": "^9.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Honda\\Navigation\\NavigationServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Honda\\Navigation\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Honda\\Navigation\\Tests\\": "tests"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Félix Dorn",
+                    "email": "github@felixdorn.fr",
+                    "role": "Developer"
+                }
+            ],
+            "description": "navigation",
+            "homepage": "https://github.com/honda/navigation",
+            "keywords": [
+                "honda",
+                "navigation"
+            ],
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
             "name": "honda/pushed-resources",
             "version": "0.1.0",
             "source": {
@@ -1216,12 +1271,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel-honda/ui.git",
-                "reference": "8c92dacafd30ed8edf3cb705a506fad8a02dcbff"
+                "reference": "1dbe305a44f9e705d44e127d6da6944ad503ac33"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel-honda/ui/zipball/8c92dacafd30ed8edf3cb705a506fad8a02dcbff",
-                "reference": "8c92dacafd30ed8edf3cb705a506fad8a02dcbff",
+                "url": "https://api.github.com/repos/laravel-honda/ui/zipball/1dbe305a44f9e705d44e127d6da6944ad503ac33",
+                "reference": "1dbe305a44f9e705d44e127d6da6944ad503ac33",
                 "shasum": ""
             },
             "require": {
@@ -1264,7 +1319,7 @@
                 "issues": "https://github.com/laravel-honda/ui/issues",
                 "source": "https://github.com/laravel-honda/ui/tree/master"
             },
-            "time": "2021-03-21T08:38:41+00:00"
+            "time": "2021-03-21T09:54:49+00:00"
         },
         {
             "name": "honda/url-pattern-matcher",
@@ -1311,6 +1366,55 @@
                 "source": "https://github.com/laravel-honda/url-pattern-matcher/tree/0.1.0"
             },
             "time": "2021-03-17T07:00:40+00:00"
+        },
+        {
+            "name": "honda/url-resolver",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-honda/url-resolver.git",
+                "reference": "01ce4c68dc28ff29bc45560b6cda9043e9445de5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-honda/url-resolver/zipball/01ce4c68dc28ff29bc45560b6cda9043e9445de5",
+                "reference": "01ce4c68dc28ff29bc45560b6cda9043e9445de5",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^8",
+                "php": "^7.4"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.16.4",
+                "orchestra/testbench": "^6.13",
+                "pestphp/pest": "^0.3.8",
+                "phpstan/phpstan": "^0.12.48",
+                "symfony/var-dumper": "^5.2.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Honda\\UrlResolver\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Félix Dorn",
+                    "email": "contact@felixdorn.fr"
+                }
+            ],
+            "description": "url-resolver",
+            "support": {
+                "issues": "https://github.com/laravel-honda/url-resolver/issues",
+                "source": "https://github.com/laravel-honda/url-resolver/tree/master"
+            },
+            "time": "2021-03-21T10:00:27+00:00"
         },
         {
             "name": "imliam/laravel-blade-helper",
@@ -10007,6 +10111,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "honda/navigation": 20,
         "honda/ui": 20
     },
     "prefer-stable": true,

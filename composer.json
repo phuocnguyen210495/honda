@@ -8,6 +8,7 @@
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "honda/laravel-datatables": "0.1.0",
+        "honda/navigation": "dev-master",
         "honda/pushed-resources": "0.1.0",
         "honda/ui": "dev-master",
         "honda/url-pattern-matcher": "^0.1.0",
@@ -50,6 +51,12 @@
             "Tests\\": "tests/"
         }
     },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../navigation"
+        }
+    ],
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {

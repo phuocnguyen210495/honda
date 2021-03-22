@@ -13,10 +13,10 @@
             </div>
             <x-ui-button :content="__('auth.login.button')" class="w-full justify-center mt-6" />
 
-            <x-ui-paragraph class="mt-4 text-center">
-                {{ __('auth.login.register')}}
-                <x-ui-link href="register" :content="__('auth.login.register_link')" />
-            </x-ui-paragraph>
+            <x-ui-link href="{{ route('register') }}">
+                {{ __('auth.login.register') }}
+                {{ __('auth.login.register_link') }}
+            </x-ui-link>
         </x-ui-form>
     </div>
 </x-layout>
